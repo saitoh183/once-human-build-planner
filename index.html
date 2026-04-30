@@ -105,6 +105,9 @@
     }
     .icon-picker.empty { color: var(--muted); }
     .icon-picker-stack { display: grid; grid-template-columns: 50px; gap: 8px; justify-content: center; align-content: center; }
+    .calibration-stack { grid-template-columns: 72px; gap: 10px; }
+    .calibration-stack .icon-picker { width: 72px; height: 62px; font-weight: 700; font-size: 15px; }
+    .calibration-stack .icon-picker img { width: 54px; height: 54px; }
     .stack > .icon-picker { justify-self: center; }
     .food-stack { display: grid; gap: 7px; }
     .row-actions { display: grid; gap: 7px; }
@@ -351,7 +354,7 @@
             ${renderPicker('Primary Mod', 'weaponMods', build.weaponMods.primary, 'weaponMods.primary')}
             ${renderPicker('Secondary Mod', 'weaponMods', build.weaponMods.secondary, 'weaponMods.secondary')}
           </div></td>
-          <td class="col-calibration"><div class="icon-picker-stack">
+          <td class="col-calibration"><div class="icon-picker-stack calibration-stack">
             ${renderIconPicker('Primary Calibration', 'calibrations', build.calibrations?.primary, 'calibrations.primary')}
             ${renderIconPicker('Secondary Calibration', 'calibrations', build.calibrations?.secondary, 'calibrations.secondary')}
           </div></td>
