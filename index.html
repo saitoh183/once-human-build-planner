@@ -65,7 +65,7 @@
     td { padding: 10px; min-width: 145px; background: color-mix(in srgb, var(--panel) 72%, transparent); }
     tr:nth-child(even) td { background: color-mix(in srgb, var(--panel-2) 66%, transparent); }
     .col-gun { width: 220px; }
-    .col-build { width: 120px; min-width: 120px; text-align: center; vertical-align: middle; }
+    .col-build { width: 150px; min-width: 150px; text-align: center; vertical-align: middle; }
     .col-weapon { width: 220px; }
     .col-armor { width: 170px; }
     .col-deviation { width: 170px; }
@@ -82,6 +82,9 @@
     .picker-text { min-width: 0; flex: 1; }
     .picker-name { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px; font-weight: 600; }
     .picker-meta { display: block; color: var(--muted); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .build-name-input { width: 100%; min-height: 36px; background: var(--control); border: 1px solid var(--line); border-radius: 10px; padding: 8px; text-align: center; font-weight: 700; }
+    .build-name-input::placeholder { color: color-mix(in srgb, var(--muted) 75%, transparent); font-weight: 500; }
+    .build-name-input:focus { outline: 2px solid color-mix(in srgb, var(--accent) 45%, transparent); border-color: var(--accent); }
     .build-select { width: 100%; min-height: 42px; background: var(--control); border: 1px solid var(--line); border-radius: 10px; padding: 8px; text-align: center; text-align-last: center; }
     .cradle-grid { display: grid; grid-template-columns: repeat(3, 50px); gap: 8px; justify-content: center; }
     .cradle-slot { width: 50px; height: 46px; display: grid; place-items: center; border: 1px dashed var(--line); border-radius: 10px; background: var(--control); }
@@ -220,6 +223,7 @@
     function defaultBuild() {
       return {
         id: uuid(),
+        name: '',
         buildType: 'High HP',
         guns: { primary: '', secondary: '' },
         weaponMods: { primary: '', secondary: '' },
@@ -252,8 +256,13 @@
       return Object.fromEntries(entries);
     }
 
+    function normalizeBuild(build) {
+      if (!build || typeof build !== 'object') return defaultBuild();
+      return { ...defaultBuild(), ...build, name: String(build.name || '') };
+    }
+
     function loadBuilds() {
-      try { state.builds = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+      try { state.builds = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]').map(normalizeBuild); }
       catch { state.builds = []; }
     }
 
@@ -296,10 +305,13 @@
             ${renderPicker('Secondary', 'weapons', build.guns.secondary, 'guns.secondary')}
           </div></td>
           <td class="col-build">
-            <select class="build-select" data-path="buildType">
-              <option ${build.buildType === 'High HP' ? 'selected' : ''}>High HP</option>
-              <option ${build.buildType === 'Low HP' ? 'selected' : ''}>Low HP</option>
-            </select>
+            <div class="stack">
+              <input class="build-name-input" data-path="name" type="text" maxlength="32" placeholder="Build name" value="${escapeHtml(build.name || '')}" aria-label="Build name">
+              <select class="build-select" data-path="buildType">
+                <option ${build.buildType === 'High HP' ? 'selected' : ''}>High HP</option>
+                <option ${build.buildType === 'Low HP' ? 'selected' : ''}>Low HP</option>
+              </select>
+            </div>
           </td>
           <td class="col-weapon"><div class="stack">
             ${renderPicker('Primary Mod', 'weaponMods', build.weaponMods.primary, 'weaponMods.primary')}
@@ -448,6 +460,13 @@
     function bindRowEvents() {
       $$('#buildRows tr').forEach(row => {
         const build = state.builds.find(item => item.id === row.dataset.buildId);
+        row.addEventListener('input', event => {
+          const target = event.target;
+          if (target.matches('[data-path="name"]')) {
+            build.name = target.value;
+            saveBuilds();
+          }
+        });
         row.addEventListener('change', event => {
           const target = event.target;
           if (target.matches('[data-path="buildType"]')) {
@@ -631,10 +650,15 @@
       const file = event.target.files[0];
       if (!file) return;
       const parsed = JSON.parse(await file.text());
-      state.builds = Array.isArray(parsed) ? parsed : parsed.builds || [];
+      state.builds = (Array.isArray(parsed) ? parsed : parsed.builds || []).map(normalizeBuild);
       render();
       event.target.value = '';
     });
+
+    function buildExportTitle(build, index = 0) {
+      const name = String(build.name || '').trim();
+      return name || `Build ${index + 1}: ${build.buildType || 'Build'}`;
+    }
 
     function itemForExport(label, collection, id) {
       const item = findOption(collection, id);
@@ -676,7 +700,7 @@
           itemForExport('Chef 2', 'food', build.food.chef2)
         ]}
       ];
-      return { title: `Build ${index + 1} — ${build.buildType || 'Build'}`, sections };
+      return { title: buildExportTitle(build, index), sections };
     }
 
     function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight, maxLines = 2) {
@@ -842,14 +866,14 @@
       if (!build) return;
       const canvas = await renderBuildPngCanvas(build, index);
       const primary = findOption('weapons', build.guns.primary);
-      downloadCanvas(canvas, `once-human-${index + 1}-${safeFilePart(primary?.name || build.buildType)}.png`);
+      downloadCanvas(canvas, `once-human-${index + 1}-${safeFilePart(build.name || primary?.name || build.buildType)}.png`);
     }
 
     async function exportAllPng() {
       for (let index = 0; index < state.builds.length; index++) {
         const canvas = await renderBuildPngCanvas(state.builds[index], index);
         const primary = findOption('weapons', state.builds[index].guns.primary);
-        downloadCanvas(canvas, `once-human-${index + 1}-${safeFilePart(primary?.name || state.builds[index].buildType)}.png`);
+        downloadCanvas(canvas, `once-human-${index + 1}-${safeFilePart(state.builds[index].name || primary?.name || state.builds[index].buildType)}.png`);
         await new Promise(resolve => setTimeout(resolve, 150));
       }
     }
@@ -874,7 +898,7 @@
       }).join('');
       const cradleLines = build.cradle.map((id, i) => line(`Cradle ${i + 1}`, 'cradle', id)).join('<br>');
       const html = `<section class="print-build">
-        <h2>Build ${index + 1}: ${escapeHtml(build.buildType)}</h2>
+        <h2>${escapeHtml(buildExportTitle(build, index))}</h2>
         <div class="print-grid">
           <div class="print-section"><h3>Gun</h3>${line('Primary Gun', 'weapons', build.guns.primary)}<br>${line('Secondary Gun', 'weapons', build.guns.secondary)}</div>
           <div class="print-section"><h3>Weapon Mods</h3>${line('Primary Weapon Mod', 'weaponMods', build.weaponMods.primary)}<br>${line('Secondary Weapon Mod', 'weaponMods', build.weaponMods.secondary)}</div>

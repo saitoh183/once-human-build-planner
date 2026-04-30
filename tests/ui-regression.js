@@ -77,6 +77,8 @@ assert(!app.metaFor(app.state.data.mods[1], 'weaponMods').includes('Weapon Mod')
 assert(!app.metaFor(app.state.data.mods[1], 'weaponMods').includes('Weapon'));
 
 const build = app.defaultBuild();
+assert.strictEqual(build.name, '', 'new builds have an editable empty build name');
+build.name = 'Burn Tank';
 build.guns.primary = 'gun-a';
 build.weaponMods.primary = 'blaze-blessing-general';
 build.armorSlots.shoes.mod = 'covered-advance-general';
@@ -113,14 +115,19 @@ assert(rowHtml.indexOf('Main 2') < rowHtml.indexOf('<td class="col-chef"'), 'mai
 assert(rowHtml.indexOf('Chef 1') > rowHtml.indexOf('<td class="col-chef"'), 'chef 1 moved to chef column');
 assert(rowHtml.indexOf('Chef 2') > rowHtml.indexOf('<td class="col-chef"'), 'chef 2 moved to chef column');
 
+assert(rowHtml.includes('data-path="name"'), 'row has an inline build name field');
+assert(rowHtml.includes('Burn Tank'), 'row shows the build name');
+assert(rowHtml.indexOf('data-path="name"') < rowHtml.indexOf('data-path="buildType"'), 'build name sits above build type in the build column');
+
 const printHtml = app.renderPrintBuild(build, 0);
+assert(printHtml.includes('<h2>Burn Tank</h2>'), 'print export uses build name instead of Build 1');
 assert(printHtml.includes('<h3>Food</h3>'), 'print output keeps food section');
 assert(printHtml.includes('<h3>Chef</h3>'), 'print output has separate chef section');
 assert(printHtml.indexOf('Main 1') < printHtml.indexOf('<h3>Chef</h3>'), 'print food section only contains main food before chef section');
 assert(printHtml.indexOf('Chef 1') > printHtml.indexOf('<h3>Chef</h3>'), 'print chef section contains chef items');
 
 const pngModel = app.getPngExportModel(build, 0);
-assert.strictEqual(pngModel.title, 'Build 1 — High HP');
+assert.strictEqual(pngModel.title, 'Burn Tank');
 assert(pngModel.sections.some(section => section.title === 'Gun'), 'PNG model includes gun section');
 assert(pngModel.sections.some(section => section.title === 'Build Type'), 'PNG model includes centered build type section');
 assert(pngModel.sections.some(section => section.title === 'Chef'), 'PNG model includes chef section');
