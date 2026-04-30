@@ -1,0 +1,372 @@
+[
+  {
+    "id": "calibration-blueprint-12-gauge",
+    "slug": "calibration-blueprint-12-gauge",
+    "name": "Calibration Blueprint - 12-Gauge",
+    "shortName": "12-Gauge",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30392003.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-12-gauge"
+  },
+  {
+    "id": "calibration-blueprint-16-gauge",
+    "slug": "calibration-blueprint-16-gauge",
+    "name": "Calibration Blueprint - 16-Gauge",
+    "shortName": "16-Gauge",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30392002.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-16-gauge"
+  },
+  {
+    "id": "calibration-blueprint-20-gauge",
+    "slug": "calibration-blueprint-20-gauge",
+    "name": "Calibration Blueprint - 20-Gauge",
+    "shortName": "20-Gauge",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30392001.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-20-gauge"
+  },
+  {
+    "id": "calibration-blueprint-assault-machine-gun",
+    "slug": "calibration-blueprint-assault-machine-gun",
+    "name": "Calibration Blueprint - Assault Machine Gun",
+    "shortName": "Assault Machine Gun",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30396003.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-assault-machine-gun"
+  },
+  {
+    "id": "calibration-blueprint-assault-smg",
+    "slug": "calibration-blueprint-assault-smg",
+    "name": "Calibration Blueprint - Assault SMG",
+    "shortName": "Assault SMG",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30393001.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-assault-smg"
+  },
+  {
+    "id": "calibration-blueprint-boost-pistol",
+    "slug": "calibration-blueprint-boost-pistol",
+    "name": "Calibration Blueprint - Boost Pistol",
+    "shortName": "Boost Pistol",
+    "category": "Calibration Blueprints",
+    "rarity": "epic",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30391112.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-boost-pistol"
+  },
+  {
+    "id": "calibration-blueprint-boost-shotgun",
+    "slug": "calibration-blueprint-boost-shotgun",
+    "name": "Calibration Blueprint - Boost Shotgun",
+    "shortName": "Boost Shotgun",
+    "category": "Calibration Blueprints",
+    "rarity": "epic",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30392111.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-boost-shotgun"
+  },
+  {
+    "id": "calibration-blueprint-capacity-expander",
+    "slug": "calibration-blueprint-capacity-expander",
+    "name": "Calibration Blueprint - Capacity Expander",
+    "shortName": "Capacity Expander",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30398001.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-capacity-expander"
+  },
+  {
+    "id": "calibration-blueprint-energy-rifle",
+    "slug": "calibration-blueprint-energy-rifle",
+    "name": "Calibration Blueprint - Energy Rifle",
+    "shortName": "Energy Rifle",
+    "category": "Calibration Blueprints",
+    "rarity": "epic",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30394112.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-energy-rifle"
+  },
+  {
+    "id": "calibration-blueprint-energy-smg",
+    "slug": "calibration-blueprint-energy-smg",
+    "name": "Calibration Blueprint - Energy SMG",
+    "shortName": "Energy SMG",
+    "category": "Calibration Blueprints",
+    "rarity": "epic",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30393112.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-energy-smg"
+  },
+  {
+    "id": "calibration-blueprint-frugal-pistol",
+    "slug": "calibration-blueprint-frugal-pistol",
+    "name": "Calibration Blueprint - Frugal Pistol",
+    "shortName": "Frugal Pistol",
+    "category": "Calibration Blueprints",
+    "rarity": "epic",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30391111.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-frugal-pistol"
+  },
+  {
+    "id": "calibration-blueprint-frugal-sniper-rifle",
+    "slug": "calibration-blueprint-frugal-sniper-rifle",
+    "name": "Calibration Blueprint - Frugal Sniper Rifle",
+    "shortName": "Frugal Sniper Rifle",
+    "category": "Calibration Blueprints",
+    "rarity": "epic",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30395111.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-frugal-sniper-rifle"
+  },
+  {
+    "id": "calibration-blueprint-handy-pistol",
+    "slug": "calibration-blueprint-handy-pistol",
+    "name": "Calibration Blueprint - Handy Pistol",
+    "shortName": "Handy Pistol",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30391003.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-handy-pistol"
+  },
+  {
+    "id": "calibration-blueprint-handy-sniper",
+    "slug": "calibration-blueprint-handy-sniper",
+    "name": "Calibration Blueprint - Handy Sniper",
+    "shortName": "Handy Sniper",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30395002.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-handy-sniper"
+  },
+  {
+    "id": "calibration-blueprint-heavy-assault-rifle",
+    "slug": "calibration-blueprint-heavy-assault-rifle",
+    "name": "Calibration Blueprint - Heavy Assault Rifle",
+    "shortName": "Heavy Assault Rifle",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30394002.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-heavy-assault-rifle"
+  },
+  {
+    "id": "calibration-blueprint-heavy-melee",
+    "slug": "calibration-blueprint-heavy-melee",
+    "name": "Calibration Blueprint - Heavy Melee",
+    "shortName": "Heavy Melee",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30399001.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-heavy-melee"
+  },
+  {
+    "id": "calibration-blueprint-heavy-smg",
+    "slug": "calibration-blueprint-heavy-smg",
+    "name": "Calibration Blueprint - Heavy SMG",
+    "shortName": "Heavy SMG",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30393002.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-heavy-smg"
+  },
+  {
+    "id": "calibration-blueprint-light-smg",
+    "slug": "calibration-blueprint-light-smg",
+    "name": "Calibration Blueprint - Light SMG",
+    "shortName": "Light SMG",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30393003.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-light-smg"
+  },
+  {
+    "id": "calibration-blueprint-overflow-machine-gun",
+    "slug": "calibration-blueprint-overflow-machine-gun",
+    "name": "Calibration Blueprint - Overflow Machine Gun",
+    "shortName": "Overflow Machine Gun",
+    "category": "Calibration Blueprints",
+    "rarity": "epic",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30396111.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-overflow-machine-gun"
+  },
+  {
+    "id": "calibration-blueprint-overflow-pistol",
+    "slug": "calibration-blueprint-overflow-pistol",
+    "name": "Calibration Blueprint - Overflow Pistol",
+    "shortName": "Overflow Pistol",
+    "category": "Calibration Blueprints",
+    "rarity": "epic",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30391113.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-overflow-pistol"
+  },
+  {
+    "id": "calibration-blueprint-p22",
+    "slug": "calibration-blueprint-p22",
+    "name": "Calibration Blueprint - P22",
+    "shortName": "P22",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30391002.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-p22"
+  },
+  {
+    "id": "calibration-blueprint-portable-crossbow",
+    "slug": "calibration-blueprint-portable-crossbow",
+    "name": "Calibration Blueprint - Portable Crossbow",
+    "shortName": "Portable Crossbow",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30397002.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-portable-crossbow"
+  },
+  {
+    "id": "calibration-blueprint-portable-pistol",
+    "slug": "calibration-blueprint-portable-pistol",
+    "name": "Calibration Blueprint - Portable Pistol",
+    "shortName": "Portable Pistol",
+    "category": "Calibration Blueprints",
+    "rarity": "epic",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30391013.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-portable-pistol"
+  },
+  {
+    "id": "calibration-blueprint-portable-sniper",
+    "slug": "calibration-blueprint-portable-sniper",
+    "name": "Calibration Blueprint - Portable Sniper",
+    "shortName": "Portable Sniper",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30399155.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-portable-sniper"
+  },
+  {
+    "id": "calibration-blueprint-precision-assault-rifle",
+    "slug": "calibration-blueprint-precision-assault-rifle",
+    "name": "Calibration Blueprint - Precision Assault Rifle",
+    "shortName": "Precision Assault Rifle",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30394003.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-precision-assault-rifle"
+  },
+  {
+    "id": "calibration-blueprint-precision-crossbow",
+    "slug": "calibration-blueprint-precision-crossbow",
+    "name": "Calibration Blueprint - Precision Crossbow",
+    "shortName": "Precision Crossbow",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30397001.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-precision-crossbow"
+  },
+  {
+    "id": "calibration-blueprint-precision-pistol",
+    "slug": "calibration-blueprint-precision-pistol",
+    "name": "Calibration Blueprint - Precision Pistol",
+    "shortName": "Precision Pistol",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30391001.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-precision-pistol"
+  },
+  {
+    "id": "calibration-blueprint-rapid-assault-rifle",
+    "slug": "calibration-blueprint-rapid-assault-rifle",
+    "name": "Calibration Blueprint - Rapid Assault Rifle",
+    "shortName": "Rapid Assault Rifle",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30394001.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-rapid-assault-rifle"
+  },
+  {
+    "id": "calibration-blueprint-rapid-machine-gun",
+    "slug": "calibration-blueprint-rapid-machine-gun",
+    "name": "Calibration Blueprint - Rapid Machine Gun",
+    "shortName": "Rapid Machine Gun",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30396002.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-rapid-machine-gun"
+  },
+  {
+    "id": "calibration-blueprint-rapid-sniper",
+    "slug": "calibration-blueprint-rapid-sniper",
+    "name": "Calibration Blueprint - Rapid Sniper",
+    "shortName": "Rapid Sniper",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30395001.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-rapid-sniper"
+  },
+  {
+    "id": "calibration-blueprint-speed-melee",
+    "slug": "calibration-blueprint-speed-melee",
+    "name": "Calibration Blueprint - Speed Melee",
+    "shortName": "Speed Melee",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30399002.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-speed-melee"
+  },
+  {
+    "id": "calibration-blueprint-steady-machine-gun",
+    "slug": "calibration-blueprint-steady-machine-gun",
+    "name": "Calibration Blueprint - Steady Machine Gun",
+    "shortName": "Steady Machine Gun",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30396001.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-steady-machine-gun"
+  },
+  {
+    "id": "calibration-blueprint-steady-sniper",
+    "slug": "calibration-blueprint-steady-sniper",
+    "name": "Calibration Blueprint - Steady Sniper",
+    "shortName": "Steady Sniper",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30395003.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-steady-sniper"
+  },
+  {
+    "id": "calibration-blueprint-structural-destruction",
+    "slug": "calibration-blueprint-structural-destruction",
+    "name": "Calibration Blueprint - Structural Destruction",
+    "shortName": "Structural Destruction",
+    "category": "Calibration Blueprints",
+    "rarity": "rare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30398002.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-structural-destruction"
+  },
+  {
+    "id": "calibration-blueprint-vanguard-machine-gun",
+    "slug": "calibration-blueprint-vanguard-machine-gun",
+    "name": "Calibration Blueprint - Vanguard Machine Gun",
+    "shortName": "Vanguard Machine Gun",
+    "category": "Calibration Blueprints",
+    "rarity": "epic",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30396112.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-vanguard-machine-gun"
+  },
+  {
+    "id": "calibration-blueprint-vanguard-rifle",
+    "slug": "calibration-blueprint-vanguard-rifle",
+    "name": "Calibration Blueprint - Vanguard Rifle",
+    "shortName": "Vanguard Rifle",
+    "category": "Calibration Blueprints",
+    "rarity": "epic",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30394111.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-vanguard-rifle"
+  },
+  {
+    "id": "calibration-blueprint-vanguard-smg",
+    "slug": "calibration-blueprint-vanguard-smg",
+    "name": "Calibration Blueprint - Vanguard SMG",
+    "shortName": "Vanguard SMG",
+    "category": "Calibration Blueprints",
+    "rarity": "epic",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30393111.png",
+    "url": "https://www.oncehumandb.com/items/calibration-blueprint-vanguard-smg"
+  }
+]

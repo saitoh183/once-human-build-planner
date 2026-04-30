@@ -34,6 +34,55 @@ LIST_PAGES = {
 
 FOOD_CATEGORIES = {"Food", "Creative Cuisine", "Creative Beverages"}
 FOOD_RARITIES = {"epic", "legendary"}
+ANIMAL_SKIN_NAMES = {
+    "Beach Crocodile Skin": "Hydration DMG Reduction",
+    "Bear Skin": "Fullness DMG Reduction",
+    "Cave Bear Skin": "DMG Recovery",
+    "Coastal Bay Crocodile Skin": "Invisibility DMG Reduction",
+    "Cowhide": "Crit DMG Reduction",
+    "Crocodile Hide": "Hydration DMG Reduction",
+    "Deer Hide": "Sprint DMG Reduction",
+    "Desert Fox Skin": "Non-Combat DMG Reduction",
+    "Dreamfused Cowhide": "Crit DMG Reduction",
+    "Dreamfused Deer Hide": "Sprint DMG Reduction",
+    "Dreamfused Rabbit Fur": "Mid-Air DMG Reduction",
+    "Dreamfused Wolf Skin": "Weakspot Reduction",
+    "Dreamfused Wool": "Danger DMG Reduction",
+    "Dreamy Rabbit Fur": "Vaulting DMG Reduction",
+    "Floating Ice Bear Skin": "Fullness DMG Reduction",
+    "Forest Deer Hide": "Scope DMG Reduction",
+    "Fox Skin": "Non-Combat DMG Reduction",
+    "Golden Wool": "Random DMG Reduction",
+    "Grassland Wolf Skin": "Team-Up DMG Reduction",
+    "Hide": "Max HP",
+    "Highland Deer Hide": "Sprint DMG Reduction",
+    "Jungle Wolf Skin": "Weakspot Reduction",
+    "Lucky Rabbit Fur": "Roll DMG Reduction",
+    "Lunar Deer Hide": "Sprint DMG Reduction",
+    "Lunar Rabbit Fur": "Mid-Air DMG Reduction",
+    "Lunar Wolf Skin": "Weakspot Reduction",
+    "Lunar Wool": "Danger DMG Reduction",
+    "Mountain Cowhide": "Crit DMG Reduction",
+    "Mountain Wool": "Non-Weakspot DMG Reduction",
+    "Polar Fox Skin": "Non-Combat DMG Reduction",
+    "Rabbit Fur": "Mid-Air DMG Reduction",
+    "Rawhide": "",
+    "Reindeer Hide": "Load DMG Reduction",
+    "Rock Wall Wool": "Non-Weakspot DMG Reduction",
+    "Sealskin": "Swimming DMG Reduction",
+    "Snowfield Bear Skin": "Fullness Survivability",
+    "Starfall Cowhide": "Crit DMG Reduction",
+    "Starfall Crocodile Skin": "Hydration DMG Reduction",
+    "Starfall Down": "Pollution Resist",
+    "Starfall Fox Skin": "Non-Combat DMG Reduction",
+    "Tundra Deer Hide": "Moving DMG Reduction",
+    "Valley Cowhide": "Crit Recovery",
+    "Velvet": "Pollution Resist",
+    "Wasteland Wolf Skin": "Weakspot Reduction",
+    "Wolf Skin": "Weakspot Reduction",
+    "Wool": "Non-Weakspot DMG Reduction",
+}
+EXTRA_ANIMAL_SKIN_NAMES = {"Mutant Skin", "Shark Skin", "Squid Skin", "Starfall Fur", "Thick Skin"}
 
 
 def fetch_text(url: str, retries: int = 2) -> str:
@@ -251,6 +300,44 @@ def normalize_food(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return normalized
 
 
+def normalize_calibrations(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    normalized = []
+    for row in rows:
+        name = row["name"]
+        normalized.append(
+            {
+                "id": row["slug"],
+                "slug": row["slug"],
+                "name": name,
+                "shortName": name.removeprefix("Calibration Blueprint - "),
+                "category": row.get("category") or "",
+                "rarity": row.get("rarity") or "",
+                "imageUrl": row.get("imageUrl") or "",
+                "url": row["url"],
+            }
+        )
+    return normalized
+
+
+def normalize_animal_skins(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    normalized = []
+    for row in rows:
+        name = row["name"]
+        normalized.append(
+            {
+                "id": row["slug"],
+                "slug": row["slug"],
+                "name": name,
+                "category": row.get("category") or "",
+                "rarity": row.get("rarity") or "",
+                "effect": ANIMAL_SKIN_NAMES.get(name, ""),
+                "imageUrl": row.get("imageUrl") or "",
+                "url": row["url"],
+            }
+        )
+    return normalized
+
+
 def write_json(name: str, rows: list[dict[str, Any]]) -> None:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     target = DATA_DIR / f"{name}.json"
@@ -273,6 +360,24 @@ def main() -> int:
         for row in raw["items"]
         if row.get("category") in FOOD_CATEGORIES and row.get("rarity") in FOOD_RARITIES
     ]
+    animal_skin_rows = sorted(
+        [
+            row
+            for row in raw["items"]
+            if row.get("category") == "Materials"
+            and (row.get("name") in ANIMAL_SKIN_NAMES or row.get("name") in EXTRA_ANIMAL_SKIN_NAMES)
+        ],
+        key=lambda item: item.get("name", ""),
+    )
+    calibration_rows = sorted(
+        [
+            row
+            for row in raw["items"]
+            if row.get("category") == "Calibration Blueprints"
+            and row.get("name", "").startswith("Calibration Blueprint - ")
+        ],
+        key=lambda item: item.get("name", ""),
+    )
 
     # Keep refresh practical: weapons and armor list payloads already include the
     # build-planner fields we need. Detail pages are fetched only where tooltip
@@ -284,6 +389,8 @@ def main() -> int:
     write_json("weapons", normalize_weapons(raw["weapons"]))
     write_json("armor", normalize_armor(raw["armor"]))
     write_json("mods", normalize_mods(raw["mods"]))
+    write_json("animal-skins", normalize_animal_skins(animal_skin_rows))
+    write_json("calibrations", normalize_calibrations(calibration_rows))
     write_json("deviations", normalize_deviations(detailed_deviations))
     write_json("cradle", normalize_cradle(detailed_cradle))
     write_json("food", normalize_food(detailed_food))

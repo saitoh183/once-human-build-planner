@@ -67,7 +67,8 @@
     .col-gun { width: 220px; }
     .col-build { width: 150px; min-width: 150px; text-align: center; vertical-align: middle; }
     .col-weapon { width: 220px; }
-    .col-armor { width: 170px; }
+    .col-calibration { width: 118px; min-width: 118px; }
+    .col-armor { width: 150px; }
     .col-deviation { width: 170px; }
     .col-cradle { width: 170px; }
     .col-food { width: 170px; }
@@ -76,6 +77,9 @@
     .stack { display: grid; gap: 7px; }
     .slot-label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
     .picker { display: flex; align-items: center; gap: 9px; width: 100%; min-height: 42px; padding: 7px 9px; border-radius: 10px; border: 1px solid var(--line); background: var(--control); text-align: left; }
+    .picker.compact { min-height: 36px; padding: 5px 7px; gap: 7px; }
+    .picker.compact img, .picker.compact .icon { width: 28px; height: 28px; border-radius: 7px; }
+    .picker.compact .picker-name { font-size: 12px; }
     .picker:hover { border-color: var(--accent); background: var(--control-hover); }
     .picker.empty { color: var(--muted); border-style: dashed; }
     .picker img, .icon { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; flex: 0 0 auto; background: var(--bg); border: 1px solid var(--line); }
@@ -87,9 +91,11 @@
     .build-name-input:focus { outline: 2px solid color-mix(in srgb, var(--accent) 45%, transparent); border-color: var(--accent); }
     .build-select { width: 100%; min-height: 42px; background: var(--control); border: 1px solid var(--line); border-radius: 10px; padding: 8px; text-align: center; text-align-last: center; }
     .cradle-grid { display: grid; grid-template-columns: repeat(3, 50px); gap: 8px; justify-content: center; }
-    .cradle-slot { width: 50px; height: 46px; display: grid; place-items: center; border: 1px dashed var(--line); border-radius: 10px; background: var(--control); }
-    .cradle-slot:hover { border-color: var(--accent); }
-    .cradle-slot img { width: 36px; height: 36px; border-radius: 8px; object-fit: cover; }
+    .cradle-slot, .icon-picker { width: 50px; height: 46px; display: grid; place-items: center; border: 1px dashed var(--line); border-radius: 10px; background: var(--control); }
+    .cradle-slot:hover, .icon-picker:hover { border-color: var(--accent); }
+    .cradle-slot img, .icon-picker img { width: 36px; height: 36px; border-radius: 8px; object-fit: cover; }
+    .icon-picker.empty { color: var(--muted); }
+    .icon-picker-stack { display: grid; grid-template-columns: repeat(2, 50px); gap: 8px; justify-content: center; }
     .food-stack { display: grid; gap: 7px; }
     .row-actions { display: grid; gap: 7px; }
     .tiny { padding: 6px 8px; font-size: 12px; }
@@ -160,6 +166,7 @@
             <th class="col-gun">Gun</th>
             <th class="col-build">Build type</th>
             <th class="col-weapon">Weapon</th>
+            <th class="col-calibration">Calibration</th>
             <th class="col-armor">Mask</th>
             <th class="col-armor">Head</th>
             <th class="col-armor">Legs</th>
@@ -202,6 +209,8 @@
       weapons: 'data/weapons.json',
       armor: 'data/armor.json',
       mods: 'data/mods.json',
+      animalSkins: 'data/animal-skins.json',
+      calibrations: 'data/calibrations.json',
       deviations: 'data/deviations.json',
       cradle: 'data/cradle.json',
       food: 'data/food.json'
@@ -226,8 +235,9 @@
         name: '',
         buildType: 'High HP',
         guns: { primary: '', secondary: '' },
+        calibrations: { primary: '', secondary: '' },
         weaponMods: { primary: '', secondary: '' },
-        armorSlots: Object.fromEntries(ARMOR_SLOTS.map(slot => [slot.key, { armor: '', mod: '' }])),
+        armorSlots: Object.fromEntries(ARMOR_SLOTS.map(slot => [slot.key, { armor: '', animalSkin: '', mod: '' }])),
         deviation: '',
         cradle: Array(8).fill(''),
         food: { main1: '', main2: '', chef1: '', chef2: '' }
@@ -257,8 +267,22 @@
     }
 
     function normalizeBuild(build) {
-      if (!build || typeof build !== 'object') return defaultBuild();
-      return { ...defaultBuild(), ...build, name: String(build.name || '') };
+      const normalized = defaultBuild();
+      if (!build || typeof build !== 'object') return normalized;
+      normalized.name = String(build.name || '');
+      normalized.buildType = build.buildType || normalized.buildType;
+      normalized.guns = { ...normalized.guns, ...(build.guns || {}) };
+      normalized.calibrations = { ...normalized.calibrations, ...(build.calibrations || {}) };
+      normalized.weaponMods = { ...normalized.weaponMods, ...(build.weaponMods || {}) };
+      normalized.armorSlots = Object.fromEntries(ARMOR_SLOTS.map(slot => [
+        slot.key,
+        { ...normalized.armorSlots[slot.key], ...(build.armorSlots?.[slot.key] || {}) }
+      ]));
+      normalized.deviation = build.deviation || '';
+      normalized.cradle = Array.from({ length: 8 }, (_, index) => build.cradle?.[index] || '');
+      normalized.food = { ...normalized.food, ...(build.food || {}) };
+      normalized.id = build.id || normalized.id;
+      return normalized;
     }
 
     function loadBuilds() {
@@ -292,7 +316,7 @@
       const rows = visibleBuilds();
       $('#buildRows').innerHTML = rows.length
         ? rows.map(build => renderBuildRow(build)).join('')
-        : `<tr><td colspan="13" class="empty-row">No builds match that gun search.</td></tr>`;
+        : `<tr><td colspan="14" class="empty-row">No builds match that gun search.</td></tr>`;
       bindRowEvents();
       saveBuilds();
     }
@@ -316,6 +340,10 @@
           <td class="col-weapon"><div class="stack">
             ${renderPicker('Primary Mod', 'weaponMods', build.weaponMods.primary, 'weaponMods.primary')}
             ${renderPicker('Secondary Mod', 'weaponMods', build.weaponMods.secondary, 'weaponMods.secondary')}
+          </div></td>
+          <td class="col-calibration"><div class="icon-picker-stack">
+            ${renderIconPicker('Primary Calibration', 'calibrations', build.calibrations?.primary, 'calibrations.primary')}
+            ${renderIconPicker('Secondary Calibration', 'calibrations', build.calibrations?.secondary, 'calibrations.secondary')}
           </div></td>
           ${ARMOR_SLOTS.map(slot => renderArmorCell(build, slot)).join('')}
           <td class="col-deviation">${renderPicker('Attack Deviation', 'combatDeviations', build.deviation, 'deviation')}</td>
@@ -342,17 +370,18 @@
     function renderArmorCell(build, slot) {
       const value = build.armorSlots?.[slot.key] || { armor: '', mod: '' };
       return `<td class="col-armor"><div class="stack">
-        ${renderPicker(`${slot.label} Armor`, `armor:${slot.armorType}`, value.armor, `armorSlots.${slot.key}.armor`)}
+        ${renderPicker(`${slot.label} Armor`, `armor:${slot.armorType}`, value.armor, `armorSlots.${slot.key}.armor`, 'compact')}
+        ${renderIconPicker(`${slot.label} Animal Skin`, 'animalSkins', value.animalSkin, `armorSlots.${slot.key}.animalSkin`)}
         ${renderPicker(`${slot.label} Mod`, `armorMods:${slot.modType}`, value.mod, `armorSlots.${slot.key}.mod`)}
       </div></td>`;
     }
 
-    function renderPicker(label, collection, selectedId, path) {
+    function renderPicker(label, collection, selectedId, path, extraClass = '') {
       const item = findOption(collection, selectedId);
-      const cls = item ? 'picker' : 'picker empty';
+      const cls = [item ? 'picker' : 'picker empty', extraClass].filter(Boolean).join(' ');
       return `<div>
         <div class="slot-label">${escapeHtml(label)}</div>
-        <button class="${cls}" data-picker="${escapeHtml(collection)}" data-path="${escapeHtml(path)}" ${tooltipAttrs(item)}>
+        <button class="${cls}" data-picker="${escapeHtml(collection)}" data-path="${escapeHtml(path)}" ${tooltipAttrs(item, collection)}>
           ${item?.imageUrl ? `<img src="${escapeHtml(item.imageUrl)}" alt="">` : '<span class="icon"></span>'}
           <span class="picker-text">
             <span class="picker-name">${escapeHtml(item ? displayNameFor(item, collection) : 'Select')}</span>
@@ -362,16 +391,25 @@
       </div>`;
     }
 
+    function renderIconPicker(label, collection, selectedId, path) {
+      const item = findOption(collection, selectedId);
+      const cls = item ? 'icon-picker' : 'icon-picker empty';
+      return `<button class="${cls}" data-picker="${escapeHtml(collection)}" data-path="${escapeHtml(path)}" title="${escapeHtml(label)}" ${tooltipAttrs(item, collection)}>
+        ${item?.imageUrl ? `<img src="${escapeHtml(item.imageUrl)}" alt="${escapeHtml(displayNameFor(item, collection))}">` : `<span>${escapeHtml(label.split(' ').map(part => part[0]).join('').slice(0, 2))}</span>`}
+      </button>`;
+    }
+
     function renderCradleSlot(selectedId, index) {
       const item = byId('cradle', selectedId);
-      return `<button class="cradle-slot" data-picker="cradle" data-path="cradle.${index}" title="Cradle ${index + 1}" ${tooltipAttrs(item)}>
+      return `<button class="cradle-slot" data-picker="cradle" data-path="cradle.${index}" title="Cradle ${index + 1}" ${tooltipAttrs(item, 'cradle')}>
         ${item?.imageUrl ? `<img src="${escapeHtml(item.imageUrl)}" alt="${escapeHtml(item.name)}">` : `<span>${index + 1}</span>`}
       </button>`;
     }
 
-    function tooltipAttrs(item) {
+    function tooltipAttrs(item, collection = '') {
       if (!item) return '';
-      return `data-tip-id="${escapeHtml(item.id)}" data-tip-title="${escapeHtml(displayNameFor(item))}" data-tip-meta="${escapeHtml(metaFor(item))}" data-tip-effect="${escapeHtml(item.effect || item.description || 'No effect text available from OHDB list data.')}" data-tip-url="${escapeHtml(item.url || '')}"`;
+      const title = collection === 'calibrations' ? item.name : displayNameFor(item, collection);
+      return `data-tip-id="${escapeHtml(item.id)}" data-tip-title="${escapeHtml(title)}" data-tip-meta="${escapeHtml(metaFor(item, collection))}" data-tip-effect="${escapeHtml(item.effect || item.description || '')}" data-tip-url="${escapeHtml(item.url || '')}"`;
     }
 
     function titleCase(value) {
@@ -384,6 +422,7 @@
 
     function displayNameFor(item, collection = '') {
       if (!item) return '';
+      if (collection === 'calibrations') return item.shortName || String(item.name || '').replace(/^Calibration Blueprint -\s*/, '');
       if (isMod(item, collection) && item.variant) return `${item.name} - ${item.variant}`;
       return item.name || '';
     }
@@ -396,6 +435,8 @@
 
     function getOptions(collection) {
       if (collection === 'weaponMods') return state.data.mods.filter(item => item.category === 'Weapon Mod');
+      if (collection === 'animalSkins') return state.data.animalSkins || [];
+      if (collection === 'calibrations') return state.data.calibrations || [];
       if (collection === 'combatDeviations') return state.data.deviations.filter(item => item.type === 'Combat');
       if (collection.startsWith('armor:')) return state.data.armor.filter(item => item.slot === collection.split(':')[1]);
       if (collection.startsWith('armorMods:')) return state.data.mods.filter(item => item.category === 'Armor Mod' && item.slot === collection.split(':')[1]);
@@ -433,6 +474,8 @@
       if (!build) return [];
       if (collection === 'weapons') return Object.values(build.guns || {});
       if (collection === 'weaponMods') return Object.values(build.weaponMods || {});
+      if (collection === 'calibrations') return Object.values(build.calibrations || {});
+      if (collection === 'animalSkins') return ARMOR_SLOTS.map(slot => build.armorSlots?.[slot.key]?.animalSkin);
       if (collection.startsWith('armor:')) {
         const armorType = collection.split(':')[1];
         return ARMOR_SLOTS
@@ -682,10 +725,15 @@
           itemForExport('Primary Mod', 'weaponMods', build.weaponMods.primary),
           itemForExport('Secondary Mod', 'weaponMods', build.weaponMods.secondary)
         ]},
+        { title: 'Calibration', compact: true, items: [
+          itemForExport('Primary', 'calibrations', build.calibrations?.primary),
+          itemForExport('Secondary', 'calibrations', build.calibrations?.secondary)
+        ]},
         ...ARMOR_SLOTS.map(slot => {
           const current = build.armorSlots?.[slot.key] || { armor: '', mod: '' };
           return { title: slot.label, items: [
             itemForExport(`${slot.label} Armor`, `armor:${slot.armorType}`, current.armor),
+            itemForExport('Animal Skin', 'animalSkins', current.animalSkin),
             itemForExport(`${slot.label} Mod`, `armorMods:${slot.modType}`, current.mod)
           ]};
         }),
@@ -889,12 +937,13 @@
       const line = (label, collection, id) => {
         const item = findOption(collection, id);
         if (!item) return `${label}: —`;
-        links.push({ label, name: item.name, url: item.url });
-        return `${label}: ${escapeHtml(item.name)}`;
+        const name = displayNameFor(item, collection);
+        links.push({ label, name, url: item.url });
+        return `${label}: ${escapeHtml(name)}`;
       };
       const armorSections = ARMOR_SLOTS.map(slot => {
         const current = build.armorSlots[slot.key];
-        return `<div>${line(`${slot.label} Armor`, `armor:${slot.armorType}`, current.armor)}<br>${line(`${slot.label} Mod`, `armorMods:${slot.modType}`, current.mod)}</div>`;
+        return `<div>${line(`${slot.label} Armor`, `armor:${slot.armorType}`, current.armor)}<br>${line(`${slot.label} Animal Skin`, 'animalSkins', current.animalSkin)}<br>${line(`${slot.label} Mod`, `armorMods:${slot.modType}`, current.mod)}</div>`;
       }).join('');
       const cradleLines = build.cradle.map((id, i) => line(`Cradle ${i + 1}`, 'cradle', id)).join('<br>');
       const html = `<section class="print-build">
@@ -902,6 +951,7 @@
         <div class="print-grid">
           <div class="print-section"><h3>Gun</h3>${line('Primary Gun', 'weapons', build.guns.primary)}<br>${line('Secondary Gun', 'weapons', build.guns.secondary)}</div>
           <div class="print-section"><h3>Weapon Mods</h3>${line('Primary Weapon Mod', 'weaponMods', build.weaponMods.primary)}<br>${line('Secondary Weapon Mod', 'weaponMods', build.weaponMods.secondary)}</div>
+          <div class="print-section"><h3>Calibration</h3>${line('Primary Calibration', 'calibrations', build.calibrations?.primary)}<br>${line('Secondary Calibration', 'calibrations', build.calibrations?.secondary)}</div>
           <div class="print-section"><h3>Armor + Mods</h3>${armorSections}</div>
           <div class="print-section"><h3>Deviation</h3>${line('Attack Deviation', 'combatDeviations', build.deviation)}</div>
           <div class="print-section"><h3>Cradle</h3>${cradleLines}</div>

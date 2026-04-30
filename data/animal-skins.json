@@ -1,0 +1,512 @@
+[
+  {
+    "id": "beach-crocodile-skin",
+    "slug": "beach-crocodile-skin",
+    "name": "Beach Crocodile Skin",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Hydration DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310115.png",
+    "url": "https://www.oncehumandb.com/items/beach-crocodile-skin"
+  },
+  {
+    "id": "bear-skin",
+    "slug": "bear-skin",
+    "name": "Bear Skin",
+    "category": "Materials",
+    "rarity": "rare",
+    "effect": "Fullness DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310013.png",
+    "url": "https://www.oncehumandb.com/items/bear-skin"
+  },
+  {
+    "id": "cave-bear-skin",
+    "slug": "cave-bear-skin",
+    "name": "Cave Bear Skin",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "DMG Recovery",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310114.png",
+    "url": "https://www.oncehumandb.com/items/cave-bear-skin"
+  },
+  {
+    "id": "coastal-bay-crocodile-skin",
+    "slug": "coastal-bay-crocodile-skin",
+    "name": "Coastal Bay Crocodile Skin",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Invisibility DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310116.png",
+    "url": "https://www.oncehumandb.com/items/coastal-bay-crocodile-skin"
+  },
+  {
+    "id": "cowhide",
+    "slug": "cowhide",
+    "name": "Cowhide",
+    "category": "Materials",
+    "rarity": "rare",
+    "effect": "Crit DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310019.png",
+    "url": "https://www.oncehumandb.com/items/cowhide"
+  },
+  {
+    "id": "crocodile-hide",
+    "slug": "crocodile-hide",
+    "name": "Crocodile Hide",
+    "category": "Materials",
+    "rarity": "rare",
+    "effect": "Hydration DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310014.png",
+    "url": "https://www.oncehumandb.com/items/crocodile-hide"
+  },
+  {
+    "id": "deer-hide",
+    "slug": "deer-hide",
+    "name": "Deer Hide",
+    "category": "Materials",
+    "rarity": "uncommon",
+    "effect": "Sprint DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310008.png",
+    "url": "https://www.oncehumandb.com/items/deer-hide"
+  },
+  {
+    "id": "desert-fox-skin",
+    "slug": "desert-fox-skin",
+    "name": "Desert Fox Skin",
+    "category": "Materials",
+    "rarity": "epic",
+    "effect": "Non-Combat DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310118.png",
+    "url": "https://www.oncehumandb.com/items/desert-fox-skin"
+  },
+  {
+    "id": "dreamfused-cowhide",
+    "slug": "dreamfused-cowhide",
+    "name": "Dreamfused Cowhide",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Crit DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310129.png",
+    "url": "https://www.oncehumandb.com/items/dreamfused-cowhide"
+  },
+  {
+    "id": "dreamfused-deer-hide",
+    "slug": "dreamfused-deer-hide",
+    "name": "Dreamfused Deer Hide",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Sprint DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310125.png",
+    "url": "https://www.oncehumandb.com/items/dreamfused-deer-hide"
+  },
+  {
+    "id": "dreamfused-rabbit-fur",
+    "slug": "dreamfused-rabbit-fur",
+    "name": "Dreamfused Rabbit Fur",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Mid-Air DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310127.png",
+    "url": "https://www.oncehumandb.com/items/dreamfused-rabbit-fur"
+  },
+  {
+    "id": "dreamfused-wolf-skin",
+    "slug": "dreamfused-wolf-skin",
+    "name": "Dreamfused Wolf Skin",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Weakspot Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310126.png",
+    "url": "https://www.oncehumandb.com/items/dreamfused-wolf-skin"
+  },
+  {
+    "id": "dreamfused-wool",
+    "slug": "dreamfused-wool",
+    "name": "Dreamfused Wool",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Danger DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310128.png",
+    "url": "https://www.oncehumandb.com/items/dreamfused-wool"
+  },
+  {
+    "id": "dreamy-rabbit-fur",
+    "slug": "dreamy-rabbit-fur",
+    "name": "Dreamy Rabbit Fur",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Vaulting DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310107.png",
+    "url": "https://www.oncehumandb.com/items/dreamy-rabbit-fur"
+  },
+  {
+    "id": "floating-ice-bear-skin",
+    "slug": "floating-ice-bear-skin",
+    "name": "Floating Ice Bear Skin",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Fullness DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310112.png",
+    "url": "https://www.oncehumandb.com/items/floating-ice-bear-skin"
+  },
+  {
+    "id": "forest-deer-hide",
+    "slug": "forest-deer-hide",
+    "name": "Forest Deer Hide",
+    "category": "Materials",
+    "rarity": "epic",
+    "effect": "Scope DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310102.png",
+    "url": "https://www.oncehumandb.com/items/forest-deer-hide"
+  },
+  {
+    "id": "fox-skin",
+    "slug": "fox-skin",
+    "name": "Fox Skin",
+    "category": "Materials",
+    "rarity": "uncommon",
+    "effect": "Non-Combat DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310015.png",
+    "url": "https://www.oncehumandb.com/items/fox-skin"
+  },
+  {
+    "id": "golden-wool",
+    "slug": "golden-wool",
+    "name": "Golden Wool",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Random DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310111.png",
+    "url": "https://www.oncehumandb.com/items/golden-wool"
+  },
+  {
+    "id": "grassland-wolf-skin",
+    "slug": "grassland-wolf-skin",
+    "name": "Grassland Wolf Skin",
+    "category": "Materials",
+    "rarity": "epic",
+    "effect": "Team-Up DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310105.png",
+    "url": "https://www.oncehumandb.com/items/grassland-wolf-skin"
+  },
+  {
+    "id": "hide",
+    "slug": "hide",
+    "name": "Hide",
+    "category": "Materials",
+    "rarity": "uncommon",
+    "effect": "Max HP",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310006.png",
+    "url": "https://www.oncehumandb.com/items/hide"
+  },
+  {
+    "id": "highland-deer-hide",
+    "slug": "highland-deer-hide",
+    "name": "Highland Deer Hide",
+    "category": "Materials",
+    "rarity": "epic",
+    "effect": "Sprint DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310101.png",
+    "url": "https://www.oncehumandb.com/items/highland-deer-hide"
+  },
+  {
+    "id": "jungle-wolf-skin",
+    "slug": "jungle-wolf-skin",
+    "name": "Jungle Wolf Skin",
+    "category": "Materials",
+    "rarity": "epic",
+    "effect": "Weakspot Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310106.png",
+    "url": "https://www.oncehumandb.com/items/jungle-wolf-skin"
+  },
+  {
+    "id": "lucky-rabbit-fur",
+    "slug": "lucky-rabbit-fur",
+    "name": "Lucky Rabbit Fur",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Roll DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310108.png",
+    "url": "https://www.oncehumandb.com/items/lucky-rabbit-fur"
+  },
+  {
+    "id": "lunar-deer-hide",
+    "slug": "lunar-deer-hide",
+    "name": "Lunar Deer Hide",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Sprint DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310121.png",
+    "url": "https://www.oncehumandb.com/items/lunar-deer-hide"
+  },
+  {
+    "id": "lunar-rabbit-fur",
+    "slug": "lunar-rabbit-fur",
+    "name": "Lunar Rabbit Fur",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Mid-Air DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310123.png",
+    "url": "https://www.oncehumandb.com/items/lunar-rabbit-fur"
+  },
+  {
+    "id": "lunar-wolf-skin",
+    "slug": "lunar-wolf-skin",
+    "name": "Lunar Wolf Skin",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Weakspot Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310122.png",
+    "url": "https://www.oncehumandb.com/items/lunar-wolf-skin"
+  },
+  {
+    "id": "lunar-wool",
+    "slug": "lunar-wool",
+    "name": "Lunar Wool",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Danger DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310124.png",
+    "url": "https://www.oncehumandb.com/items/lunar-wool"
+  },
+  {
+    "id": "mountain-cowhide",
+    "slug": "mountain-cowhide",
+    "name": "Mountain Cowhide",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Crit DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310119.png",
+    "url": "https://www.oncehumandb.com/items/mountain-cowhide"
+  },
+  {
+    "id": "mountain-wool",
+    "slug": "mountain-wool",
+    "name": "Mountain Wool",
+    "category": "Materials",
+    "rarity": "epic",
+    "effect": "Non-Weakspot DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310110.png",
+    "url": "https://www.oncehumandb.com/items/mountain-wool"
+  },
+  {
+    "id": "mutant-skin",
+    "slug": "mutant-skin",
+    "name": "Mutant Skin",
+    "category": "Materials",
+    "rarity": "common",
+    "effect": "",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310005.png",
+    "url": "https://www.oncehumandb.com/items/mutant-skin"
+  },
+  {
+    "id": "polar-fox-skin",
+    "slug": "polar-fox-skin",
+    "name": "Polar Fox Skin",
+    "category": "Materials",
+    "rarity": "epic",
+    "effect": "Non-Combat DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310117.png",
+    "url": "https://www.oncehumandb.com/items/polar-fox-skin"
+  },
+  {
+    "id": "rabbit-fur",
+    "slug": "rabbit-fur",
+    "name": "Rabbit Fur",
+    "category": "Materials",
+    "rarity": "uncommon",
+    "effect": "Mid-Air DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310010.png",
+    "url": "https://www.oncehumandb.com/items/rabbit-fur"
+  },
+  {
+    "id": "rawhide",
+    "slug": "rawhide",
+    "name": "Rawhide",
+    "category": "Materials",
+    "rarity": "uncommon",
+    "effect": "",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310001.png",
+    "url": "https://www.oncehumandb.com/items/rawhide"
+  },
+  {
+    "id": "reindeer-hide",
+    "slug": "reindeer-hide",
+    "name": "Reindeer Hide",
+    "category": "Materials",
+    "rarity": "uncommon",
+    "effect": "Load DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310018.png",
+    "url": "https://www.oncehumandb.com/items/reindeer-hide"
+  },
+  {
+    "id": "rock-wall-wool",
+    "slug": "rock-wall-wool",
+    "name": "Rock Wall Wool",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Non-Weakspot DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310109.png",
+    "url": "https://www.oncehumandb.com/items/rock-wall-wool"
+  },
+  {
+    "id": "sealskin",
+    "slug": "sealskin",
+    "name": "Sealskin",
+    "category": "Materials",
+    "rarity": "rare",
+    "effect": "Swimming DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310017.png",
+    "url": "https://www.oncehumandb.com/items/sealskin"
+  },
+  {
+    "id": "shark-skin",
+    "slug": "shark-skin",
+    "name": "Shark Skin",
+    "category": "Materials",
+    "rarity": "rare",
+    "effect": "",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310020.png",
+    "url": "https://www.oncehumandb.com/items/shark-skin"
+  },
+  {
+    "id": "snowfield-bear-skin",
+    "slug": "snowfield-bear-skin",
+    "name": "Snowfield Bear Skin",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Fullness Survivability",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310113.png",
+    "url": "https://www.oncehumandb.com/items/snowfield-bear-skin"
+  },
+  {
+    "id": "squid-skin",
+    "slug": "squid-skin",
+    "name": "Squid Skin",
+    "category": "Materials",
+    "rarity": "rare",
+    "effect": "",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310021.png",
+    "url": "https://www.oncehumandb.com/items/squid-skin"
+  },
+  {
+    "id": "starfall-cowhide",
+    "slug": "starfall-cowhide",
+    "name": "Starfall Cowhide",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Crit DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310133.png",
+    "url": "https://www.oncehumandb.com/items/starfall-cowhide"
+  },
+  {
+    "id": "starfall-crocodile-skin",
+    "slug": "starfall-crocodile-skin",
+    "name": "Starfall Crocodile Skin",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Hydration DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310132.png",
+    "url": "https://www.oncehumandb.com/items/starfall-crocodile-skin"
+  },
+  {
+    "id": "starfall-down",
+    "slug": "starfall-down",
+    "name": "Starfall Down",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Pollution Resist",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30330117.png",
+    "url": "https://www.oncehumandb.com/items/starfall-down"
+  },
+  {
+    "id": "starfall-fox-skin",
+    "slug": "starfall-fox-skin",
+    "name": "Starfall Fox Skin",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Non-Combat DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310130.png",
+    "url": "https://www.oncehumandb.com/items/starfall-fox-skin"
+  },
+  {
+    "id": "starfall-fur",
+    "slug": "starfall-fur",
+    "name": "Starfall Fur",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30510130.png",
+    "url": "https://www.oncehumandb.com/items/starfall-fur"
+  },
+  {
+    "id": "thick-skin",
+    "slug": "thick-skin",
+    "name": "Thick Skin",
+    "category": "Materials",
+    "rarity": "common",
+    "effect": "",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310002.png",
+    "url": "https://www.oncehumandb.com/items/thick-skin"
+  },
+  {
+    "id": "tundra-deer-hide",
+    "slug": "tundra-deer-hide",
+    "name": "Tundra Deer Hide",
+    "category": "Materials",
+    "rarity": "epic",
+    "effect": "Moving DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310103.png",
+    "url": "https://www.oncehumandb.com/items/tundra-deer-hide"
+  },
+  {
+    "id": "valley-cowhide",
+    "slug": "valley-cowhide",
+    "name": "Valley Cowhide",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Crit Recovery",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310120.png",
+    "url": "https://www.oncehumandb.com/items/valley-cowhide"
+  },
+  {
+    "id": "velvet",
+    "slug": "velvet",
+    "name": "Velvet",
+    "category": "Materials",
+    "rarity": "rare",
+    "effect": "Pollution Resist",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30330115.png",
+    "url": "https://www.oncehumandb.com/items/velvet"
+  },
+  {
+    "id": "wasteland-wolf-skin",
+    "slug": "wasteland-wolf-skin",
+    "name": "Wasteland Wolf Skin",
+    "category": "Materials",
+    "rarity": "legendary",
+    "effect": "Weakspot Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310104.png",
+    "url": "https://www.oncehumandb.com/items/wasteland-wolf-skin"
+  },
+  {
+    "id": "wolf-skin",
+    "slug": "wolf-skin",
+    "name": "Wolf Skin",
+    "category": "Materials",
+    "rarity": "uncommon",
+    "effect": "Weakspot Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310009.png",
+    "url": "https://www.oncehumandb.com/items/wolf-skin"
+  },
+  {
+    "id": "wool",
+    "slug": "wool",
+    "name": "Wool",
+    "category": "Materials",
+    "rarity": "uncommon",
+    "effect": "Non-Weakspot DMG Reduction",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30310007.png",
+    "url": "https://www.oncehumandb.com/items/wool"
+  }
+]
