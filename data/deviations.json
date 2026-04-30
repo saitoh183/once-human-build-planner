@@ -1,0 +1,802 @@
+[
+  {
+    "id": "artisans-touch",
+    "slug": "artisans-touch",
+    "name": "Artisan's Touch",
+    "type": "Crafting",
+    "rarity": "rare",
+    "effect": "Once Human Artisan's Touch — Rare Crafting Deviation. Abilities: Formula: All-Purpose Hand. Produces special materials that can be used to craft Tactical...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000056.png",
+    "url": "https://www.oncehumandb.com/deviations/artisans-touch"
+  },
+  {
+    "id": "atomic-lighter",
+    "slug": "atomic-lighter",
+    "name": "Atomic Lighter",
+    "type": "Crafting",
+    "rarity": "rare",
+    "effect": "Once Human Atomic Lighter — Rare Crafting Deviation. Abilities: Tactical Item: Uncontrollable Fusion Lighter. Produces special materials that can be used...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000024.png",
+    "url": "https://www.oncehumandb.com/deviations/atomic-lighter"
+  },
+  {
+    "id": "atomic-snail",
+    "slug": "atomic-snail",
+    "name": "Atomic Snail",
+    "type": "Crafting",
+    "rarity": "rare",
+    "effect": "Once Human Atomic Snail — Rare Crafting Deviation. Abilities: Whim: Fluid Type. Produces special materials that can be used to craft Whim Potions. Using...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000042.png",
+    "url": "https://www.oncehumandb.com/deviations/atomic-snail"
+  },
+  {
+    "id": "azure-melody-chefosaurus-rex",
+    "slug": "azure-melody-chefosaurus-rex",
+    "name": "Azure Melody - Chefosaurus Rex",
+    "type": "Territory",
+    "rarity": "epic",
+    "effect": "Once Human Azure Melody - Chefosaurus Rex — Epic Territory Deviation. Abilities: culinary genius. Works in the Territory to help produce food.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/93000020.png",
+    "url": "https://www.oncehumandb.com/deviations/azure-melody-chefosaurus-rex"
+  },
+  {
+    "id": "behemoth",
+    "slug": "behemoth",
+    "name": "Behemoth",
+    "type": "Combat",
+    "rarity": "rare",
+    "effect": "Once Human Behemoth — Rare Combat Deviation. A loyal companion for Metas.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000069.png",
+    "url": "https://www.oncehumandb.com/deviations/behemoth"
+  },
+  {
+    "id": "berserkosaurus-rex",
+    "slug": "berserkosaurus-rex",
+    "name": "Berserkosaurus Rex",
+    "type": "Territory",
+    "rarity": "epic",
+    "effect": "Once Human Berserkosaurus Rex — Epic Territory Deviation. Abilities: culinary genius. Works within the territory to help produce food. A rare Prism...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/92000020.png",
+    "url": "https://www.oncehumandb.com/deviations/berserkosaurus-rex"
+  },
+  {
+    "id": "blackback",
+    "slug": "blackback",
+    "name": "Blackback",
+    "type": "Territory",
+    "rarity": "common",
+    "effect": "Once Human Blackback — Common Territory Deviation. Abilities: Furrever Friends. A loyal companion for Metas.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000062.png",
+    "url": "https://www.oncehumandb.com/deviations/blackback"
+  },
+  {
+    "id": "blackfell",
+    "slug": "blackfell",
+    "name": "Blackfell",
+    "type": "Territory",
+    "rarity": "rare",
+    "effect": "Once Human Blackfell — Rare Territory Deviation. Abilities: Strange Medicine. Work in the Territory to improve Supplies Workbench efficiency. Crafted...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000065.png",
+    "url": "https://www.oncehumandb.com/deviations/blackfell"
+  },
+  {
+    "id": "brave-george",
+    "slug": "brave-george",
+    "name": "Brave George",
+    "type": "Combat",
+    "rarity": "epic",
+    "effect": "Once Human Brave George — Epic Combat Deviation. A loyal companion for Metas.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000067.png",
+    "url": "https://www.oncehumandb.com/deviations/brave-george"
+  },
+  {
+    "id": "butterflys-emissary",
+    "slug": "butterflys-emissary",
+    "name": "Butterfly's Emissary",
+    "type": "Combat",
+    "rarity": "common",
+    "effect": "Once Human Butterfly's Emissary — Common Combat Deviation. Abilities: Tracking Missile, Fire Boost. Can participate in combat to mark enemy Weakspots,...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000001.png",
+    "url": "https://www.oncehumandb.com/deviations/butterflys-emissary"
+  },
+  {
+    "id": "buzzy-bee",
+    "slug": "buzzy-bee",
+    "name": "Buzzy Bee",
+    "type": "Territory",
+    "rarity": "common",
+    "effect": "Once Human Buzzy Bee — Common Territory Deviation. Abilities: Deviated Gardening. Works in the territory to increase the chance of crop mutation.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000019.png",
+    "url": "https://www.oncehumandb.com/deviations/buzzy-bee"
+  },
+  {
+    "id": "by-the-wind",
+    "slug": "by-the-wind",
+    "name": "By-the-Wind",
+    "type": "Combat",
+    "rarity": "rare",
+    "effect": "Once Human By-the-Wind — Rare Combat Deviation. Abilities: Protective Wind Wall, Aerial Platform. Can participate in combat to continuously increase the...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000032.png",
+    "url": "https://www.oncehumandb.com/deviations/by-the-wind"
+  },
+  {
+    "id": "cattiva",
+    "slug": "cattiva",
+    "name": "Cattiva",
+    "type": "Territory",
+    "rarity": "epic",
+    "effect": "Once Human Cattiva — Epic Territory Deviation. Abilities: Mine Ore. Works in the Territory to gather Ores or works at the Mining Platform.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000074.png",
+    "url": "https://www.oncehumandb.com/deviations/cattiva"
+  },
+  {
+    "id": "chaos-mini-wonder",
+    "slug": "chaos-mini-wonder",
+    "name": "Chaos - Mini Wonder",
+    "type": "Combat",
+    "rarity": "epic",
+    "effect": "Once Human Chaos - Mini Wonder — Epic Combat Deviation. Abilities: Bullet Immunity, Group Attraction. Can participate in combat to absorb bullets flying...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99200050.png",
+    "url": "https://www.oncehumandb.com/deviations/chaos-mini-wonder"
+  },
+  {
+    "id": "chaos-mr-wish",
+    "slug": "chaos-mr-wish",
+    "name": "Chaos Mr. Wish",
+    "type": "Combat",
+    "rarity": "epic",
+    "effect": "Once Human Chaos Mr. Wish — Epic Combat Deviation. Abilities: Fire Boost, Battle Partner. Can participate in combat to use guns to attack and apply The...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99200034.png",
+    "url": "https://www.oncehumandb.com/deviations/chaos-mr-wish"
+  },
+  {
+    "id": "chaos-snowsprite",
+    "slug": "chaos-snowsprite",
+    "name": "Chaos Snowsprite",
+    "type": "Combat",
+    "rarity": "epic",
+    "effect": "Once Human Chaos Snowsprite — Epic Combat Deviation. Abilities: Ice Crystal Detonation, Battle Partner. Can participate in combat to summon fragile frost...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99200058.png",
+    "url": "https://www.oncehumandb.com/deviations/chaos-snowsprite"
+  },
+  {
+    "id": "chaos-zeno-purifier",
+    "slug": "chaos-zeno-purifier",
+    "name": "Chaos Zeno-Purifier",
+    "type": "Combat",
+    "rarity": "epic",
+    "effect": "Once Human Chaos Zeno-Purifier — Epic Combat Deviation. Abilities: Melee Amplifier, Battle Partner. Can participate in combat, granting its owner the...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99200038.png",
+    "url": "https://www.oncehumandb.com/deviations/chaos-zeno-purifier"
+  },
+  {
+    "id": "chaosaurus",
+    "slug": "chaosaurus",
+    "name": "Chaosaurus",
+    "type": "Combat",
+    "rarity": "epic",
+    "effect": "Once Human Chaosaurus — Epic Combat Deviation. Abilities: Straight-line Burn, Telekinetic Effects. Can participate in combat to breathe fire.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99200030.png",
+    "url": "https://www.oncehumandb.com/deviations/chaosaurus"
+  },
+  {
+    "id": "chaotic-extradimensional-cat",
+    "slug": "chaotic-extradimensional-cat",
+    "name": "Chaotic Extradimensional Cat",
+    "type": "Territory",
+    "rarity": "epic",
+    "effect": "Once Human Chaotic Extradimensional Cat — Epic Territory Deviation. Abilities: Velvet Cushion. Enjoys itself inside the Territory. Accompanies its owner...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99200051.png",
+    "url": "https://www.oncehumandb.com/deviations/chaotic-extradimensional-cat"
+  },
+  {
+    "id": "chefosaurus-rex",
+    "slug": "chefosaurus-rex",
+    "name": "Chefosaurus Rex",
+    "type": "Territory",
+    "rarity": "epic",
+    "effect": "Once Human Chefosaurus Rex — Epic Territory Deviation. Abilities: culinary genius. Works in the Territory to help produce food.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000020.png",
+    "url": "https://www.oncehumandb.com/deviations/chefosaurus-rex"
+  },
+  {
+    "id": "chillet",
+    "slug": "chillet",
+    "name": "Chillet",
+    "type": "Territory",
+    "rarity": "rare",
+    "effect": "Once Human Chillet — Rare Territory Deviation. Abilities: Velvet Cushion. Enjoys itself inside the Territory. Accompanies its owner to sleep to make sure...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000073.png",
+    "url": "https://www.oncehumandb.com/deviations/chillet"
+  },
+  {
+    "id": "chuckles",
+    "slug": "chuckles",
+    "name": "Chuckles",
+    "type": "Combat",
+    "rarity": "rare",
+    "effect": "Once Human Chuckles — Rare Combat Deviation. A loyal companion for Metas.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000068.png",
+    "url": "https://www.oncehumandb.com/deviations/chuckles"
+  },
+  {
+    "id": "director-fox",
+    "slug": "director-fox",
+    "name": "Director Fox",
+    "type": "Territory",
+    "rarity": "rare",
+    "effect": "Once Human Director Fox — Rare Territory Deviation. Abilities: Taming Expert. Working in your territory helps tame, grow, and breed animals.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000070.png",
+    "url": "https://www.oncehumandb.com/deviations/director-fox"
+  },
+  {
+    "id": "disco-ball",
+    "slug": "disco-ball",
+    "name": "Disco Ball",
+    "type": "Crafting",
+    "rarity": "common",
+    "effect": "Once Human Disco Ball — Common Crafting Deviation. Abilities: Whim: Utter Delight. Produces special materials that can be used to craft Whim Potions. Use...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000002.png",
+    "url": "https://www.oncehumandb.com/deviations/disco-ball"
+  },
+  {
+    "id": "doberman",
+    "slug": "doberman",
+    "name": "Doberman",
+    "type": "Territory",
+    "rarity": "common",
+    "effect": "Once Human Doberman — Common Territory Deviation. Abilities: Furrever Friends. A loyal companion for Metas.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000063.png",
+    "url": "https://www.oncehumandb.com/deviations/doberman"
+  },
+  {
+    "id": "dr-teddy",
+    "slug": "dr-teddy",
+    "name": "Dr. Teddy",
+    "type": "Combat",
+    "rarity": "rare",
+    "effect": "Once Human Dr. Teddy — Rare Combat Deviation. Abilities: Healing Share, Support Summon. Can participate in combat. Will heal or rescue fallen Metas.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000018.png",
+    "url": "https://www.oncehumandb.com/deviations/dr-teddy"
+  },
+  {
+    "id": "dreamcatcher",
+    "slug": "dreamcatcher",
+    "name": "Dreamcatcher",
+    "type": "Crafting",
+    "rarity": "common",
+    "effect": "Once Human Dreamcatcher — Common Crafting Deviation. Abilities: Whim: Web of Silk. Produces special materials that can be used to craft Whim Potions....",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000010.png",
+    "url": "https://www.oncehumandb.com/deviations/dreamcatcher"
+  },
+  {
+    "id": "electric-eel",
+    "slug": "electric-eel",
+    "name": "Electric Eel",
+    "type": "Territory",
+    "rarity": "common",
+    "effect": "Once Human Electric Eel — Common Territory Deviation. Abilities: Electricity Fluctuations. Works in the Territory to provide power to Generators.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000005.png",
+    "url": "https://www.oncehumandb.com/deviations/electric-eel"
+  },
+  {
+    "id": "enchanting-void",
+    "slug": "enchanting-void",
+    "name": "Enchanting Void",
+    "type": "Combat",
+    "rarity": "epic",
+    "effect": "Once Human Enchanting Void — Epic Combat Deviation. Abilities: Super Jump, Move Marker. Can participate in combat to increase its master's Melee DMG.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000025.png",
+    "url": "https://www.oncehumandb.com/deviations/enchanting-void"
+  },
+  {
+    "id": "extradimensional-cat",
+    "slug": "extradimensional-cat",
+    "name": "Extradimensional Cat",
+    "type": "Territory",
+    "rarity": "epic",
+    "effect": "Once Human Extradimensional Cat — Epic Territory Deviation. Abilities: Velvet Cushion. Enjoys itself inside the Territory. Accompanies its owner to sleep...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000051.png",
+    "url": "https://www.oncehumandb.com/deviations/extradimensional-cat"
+  },
+  {
+    "id": "festering-gel",
+    "slug": "festering-gel",
+    "name": "Festering Gel",
+    "type": "Combat",
+    "rarity": "common",
+    "effect": "Once Human Festering Gel — Common Combat Deviation. Abilities: Force Generation, Shelter Summon. Can participate in combat to transform into Shelter and...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000008.png",
+    "url": "https://www.oncehumandb.com/deviations/festering-gel"
+  },
+  {
+    "id": "fetch-a-lot-bunny",
+    "slug": "fetch-a-lot-bunny",
+    "name": "Fetch-A-Lot Bunny",
+    "type": "Territory",
+    "rarity": "common",
+    "effect": "Once Human Fetch-A-Lot Bunny — Common Territory Deviation. Abilities: Collect from bushes. Works in the Territory to gather all sorts of Plants.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000014.png",
+    "url": "https://www.oncehumandb.com/deviations/fetch-a-lot-bunny"
+  },
+  {
+    "id": "flame-essence",
+    "slug": "flame-essence",
+    "name": "Flame Essence",
+    "type": "Territory",
+    "rarity": "common",
+    "effect": "Once Human Flame Essence — Common Territory Deviation. Abilities: Molten Heat. Works inside the Territory. Increases the production efficiency of the...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000048.png",
+    "url": "https://www.oncehumandb.com/deviations/flame-essence"
+  },
+  {
+    "id": "frog-the-leaper",
+    "slug": "frog-the-leaper",
+    "name": "Frog the Leaper",
+    "type": "Crafting",
+    "rarity": "common",
+    "effect": "Once Human Frog the Leaper — Common Crafting Deviation. Abilities: Whim: Spring Legs. Produces special materials that can be used to craft Whim Potions....",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000004.png",
+    "url": "https://www.oncehumandb.com/deviations/frog-the-leaper"
+  },
+  {
+    "id": "gazocchio",
+    "slug": "gazocchio",
+    "name": "Gazocchio",
+    "type": "Territory",
+    "rarity": "epic",
+    "effect": "Once Human Gazocchio — Epic Territory Deviation. Abilities: Territory Guard. Works within the territory to guard it, capable of producing a special...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000043.png",
+    "url": "https://www.oncehumandb.com/deviations/gazocchio"
+  },
+  {
+    "id": "gingerbread-house",
+    "slug": "gingerbread-house",
+    "name": "Gingerbread House",
+    "type": "Crafting",
+    "rarity": "rare",
+    "effect": "Once Human Gingerbread House — Rare Crafting Deviation. Abilities: Tactical Item: Transformation Cookie. Produces special materials that can be used to...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000022.png",
+    "url": "https://www.oncehumandb.com/deviations/gingerbread-house"
+  },
+  {
+    "id": "growshroom",
+    "slug": "growshroom",
+    "name": "Growshroom",
+    "type": "Territory",
+    "rarity": "rare",
+    "effect": "Once Human Growshroom — Rare Territory Deviation. Abilities: Thriving Growth. Works inside the Territory. Can proactively plant and harvest.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000037.png",
+    "url": "https://www.oncehumandb.com/deviations/growshroom"
+  },
+  {
+    "id": "grumpy-bulb",
+    "slug": "grumpy-bulb",
+    "name": "Grumpy Bulb",
+    "type": "Combat",
+    "rarity": "rare",
+    "effect": "Once Human Grumpy Bulb — Rare Combat Deviation. Abilities: Chaos Target, AoE Chaos. Can participate in combat to disrupt enemy threat, making them attack...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000035.png",
+    "url": "https://www.oncehumandb.com/deviations/grumpy-bulb"
+  },
+  {
+    "id": "h37",
+    "slug": "h37",
+    "name": "H37",
+    "type": "Territory",
+    "rarity": "rare",
+    "effect": "Once Human H37 — Rare Territory Deviation. Abilities: Explorer. Enters Strongholds occupied by the enemy and collects resources from their Storage Crates.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000021.png",
+    "url": "https://www.oncehumandb.com/deviations/h37"
+  },
+  {
+    "id": "harveseed",
+    "slug": "harveseed",
+    "name": "Harveseed",
+    "type": "Crafting",
+    "rarity": "rare",
+    "effect": "Once Human Harveseed — Rare Crafting Deviation. Abilities: Whim: Chloro-armor. Produces special materials that can be used to craft Whim Potions. Gives...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000009.png",
+    "url": "https://www.oncehumandb.com/deviations/harveseed"
+  },
+  {
+    "id": "hug-in-a-bowl",
+    "slug": "hug-in-a-bowl",
+    "name": "Hug-in-a-Bowl",
+    "type": "Crafting",
+    "rarity": "common",
+    "effect": "Once Human Hug-in-a-Bowl — Common Crafting Deviation. Abilities: Food: Homemade Noodles. Produces special materials that can be used to craft special...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000023.png",
+    "url": "https://www.oncehumandb.com/deviations/hug-in-a-bowl"
+  },
+  {
+    "id": "hydronaut-fish",
+    "slug": "hydronaut-fish",
+    "name": "Hydronaut Fish",
+    "type": "Territory",
+    "rarity": "rare",
+    "effect": "Once Human Hydronaut Fish — Rare Territory Deviation. Abilities: Rapid Purification. Can work in the territory to gather Sea Water, or operate a water...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000044.png",
+    "url": "https://www.oncehumandb.com/deviations/hydronaut-fish"
+  },
+  {
+    "id": "ice-pot",
+    "slug": "ice-pot",
+    "name": "Ice Pot",
+    "type": "Crafting",
+    "rarity": "common",
+    "effect": "Once Human Ice Pot — Common Crafting Deviation. Abilities: Sticky Ice Crystal. Produces special materials that can be used to craft Tactical Items. Use to...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000016.png",
+    "url": "https://www.oncehumandb.com/deviations/ice-pot"
+  },
+  {
+    "id": "invincible-sun",
+    "slug": "invincible-sun",
+    "name": "Invincible Sun",
+    "type": "Combat",
+    "rarity": "rare",
+    "effect": "Once Human Invincible Sun — Rare Combat Deviation. Abilities: Force Generation, Area Bombardment. Can participate in combat to periodically release...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000026.png",
+    "url": "https://www.oncehumandb.com/deviations/invincible-sun"
+  },
+  {
+    "id": "labrador",
+    "slug": "labrador",
+    "name": "Labrador",
+    "type": "Territory",
+    "rarity": "common",
+    "effect": "Once Human Labrador — Common Territory Deviation. Abilities: Furrever Friends. A loyal companion for Metas.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000061.png",
+    "url": "https://www.oncehumandb.com/deviations/labrador"
+  },
+  {
+    "id": "lethal-rabbit",
+    "slug": "lethal-rabbit",
+    "name": "Lethal Rabbit",
+    "type": "Territory",
+    "rarity": "rare",
+    "effect": "Once Human Lethal Rabbit — Rare Territory Deviation. Abilities: Hunter Instincts. Works inside the Territory. Can hunt animals and bring back Leather and...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000055.png",
+    "url": "https://www.oncehumandb.com/deviations/lethal-rabbit"
+  },
+  {
+    "id": "logging-beaver",
+    "slug": "logging-beaver",
+    "name": "Logging Beaver",
+    "type": "Territory",
+    "rarity": "rare",
+    "effect": "Once Human Logging Beaver — Rare Territory Deviation. Abilities: Log trees. Works in the Territory to gather Wood or works at the Logging Platform.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000028.png",
+    "url": "https://www.oncehumandb.com/deviations/logging-beaver"
+  },
+  {
+    "id": "lonewolfs-whisper",
+    "slug": "lonewolfs-whisper",
+    "name": "Lonewolf's Whisper",
+    "type": "Combat",
+    "rarity": "rare",
+    "effect": "Once Human Lonewolf's Whisper — Rare Combat Deviation. Abilities: Group Attraction, Plural Summon. Can participate in combat. Will transform into a black...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000011.png",
+    "url": "https://www.oncehumandb.com/deviations/lonewolfs-whisper"
+  },
+  {
+    "id": "masonic-pyramid",
+    "slug": "masonic-pyramid",
+    "name": "Masonic Pyramid",
+    "type": "Crafting",
+    "rarity": "common",
+    "effect": "Once Human Masonic Pyramid — Common Crafting Deviation. Abilities: Whim: Predator, Whim: Parapsychology. Produces special materials that can be used to...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000033.png",
+    "url": "https://www.oncehumandb.com/deviations/masonic-pyramid"
+  },
+  {
+    "id": "mini-feaster",
+    "slug": "mini-feaster",
+    "name": "Mini Feaster",
+    "type": "Combat",
+    "rarity": "epic",
+    "effect": "Once Human Mini Feaster — Epic Combat Deviation. Abilities: Battle Partner. Can participate in combat, marking enemies or summoning tentacles to attack...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000053.png",
+    "url": "https://www.oncehumandb.com/deviations/mini-feaster"
+  },
+  {
+    "id": "mini-wonder",
+    "slug": "mini-wonder",
+    "name": "Mini Wonder",
+    "type": "Combat",
+    "rarity": "epic",
+    "effect": "Once Human Mini Wonder — Epic Combat Deviation. Abilities: Bullet Immunity, Group Attraction. Can participate in combat to absorb bullets flying toward...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000050.png",
+    "url": "https://www.oncehumandb.com/deviations/mini-wonder"
+  },
+  {
+    "id": "mr-wish",
+    "slug": "mr-wish",
+    "name": "Mr. Wish",
+    "type": "Combat",
+    "rarity": "epic",
+    "effect": "Once Human Mr. Wish — Epic Combat Deviation. Abilities: Fire Boost, Battle Partner. Can participate in combat to use guns to attack and apply The Bull's...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000034.png",
+    "url": "https://www.oncehumandb.com/deviations/mr-wish"
+  },
+  {
+    "id": "night-watch-lamp",
+    "slug": "night-watch-lamp",
+    "name": "Night Watch Lamp",
+    "type": "Territory",
+    "rarity": "epic",
+    "effect": "Once Human Night Watch Lamp — Epic Territory Deviation. Abilities: Territory Guard. Unavailable in certain Arena battles. Used for display icons only.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99900043.png",
+    "url": "https://www.oncehumandb.com/deviations/night-watch-lamp"
+  },
+  {
+    "id": "nutcracker",
+    "slug": "nutcracker",
+    "name": "Nutcracker",
+    "type": "Territory",
+    "rarity": "rare",
+    "effect": "Once Human Nutcracker — Rare Territory Deviation. Abilities: Territory Guard. Works in the Territory to defend it from invading enemies.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000027.png",
+    "url": "https://www.oncehumandb.com/deviations/nutcracker"
+  },
+  {
+    "id": "orb-lightning",
+    "slug": "orb-lightning",
+    "name": "Orb Lightning",
+    "type": "Crafting",
+    "rarity": "common",
+    "effect": "Once Human Orb Lightning — Common Crafting Deviation. Abilities: Tactical Item: Lightning Bottle. Produces special materials that can be used to craft...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000052.png",
+    "url": "https://www.oncehumandb.com/deviations/orb-lightning"
+  },
+  {
+    "id": "paper-doll",
+    "slug": "paper-doll",
+    "name": "Paper Doll",
+    "type": "Territory",
+    "rarity": "common",
+    "effect": "Once Human Paper Doll — Common Territory Deviation. Abilities: Safe Haven Barrier. Works inside the Territory. Will discover lost materials while cleaning...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000054.png",
+    "url": "https://www.oncehumandb.com/deviations/paper-doll"
+  },
+  {
+    "id": "party-monkey",
+    "slug": "party-monkey",
+    "name": "Party Monkey",
+    "type": "Crafting",
+    "rarity": "common",
+    "effect": "Once Human Party Monkey — Common Crafting Deviation. Abilities: Formula: Party Monkey. Produces special materials and can repair its own replicas. It will...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000045.png",
+    "url": "https://www.oncehumandb.com/deviations/party-monkey"
+  },
+  {
+    "id": "peach-weasel",
+    "slug": "peach-weasel",
+    "name": "Peach Weasel",
+    "type": "Territory",
+    "rarity": "rare",
+    "effect": "Once Human Peach Weasel — Rare Territory Deviation. Abilities: Velvet Cushion. Enjoys itself inside the Territory. Accompanies its owner to sleep to make...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000075.png",
+    "url": "https://www.oncehumandb.com/deviations/peach-weasel"
+  },
+  {
+    "id": "polar-jelly",
+    "slug": "polar-jelly",
+    "name": "Polar Jelly",
+    "type": "Combat",
+    "rarity": "rare",
+    "effect": "Once Human Polar Jelly — Rare Combat Deviation. Abilities: AoE Slowdown, Telekinetic Effects. Can participate in combat to deal Ice DMG to a large area.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000003.png",
+    "url": "https://www.oncehumandb.com/deviations/polar-jelly"
+  },
+  {
+    "id": "pup-buddy",
+    "slug": "pup-buddy",
+    "name": "Pup Buddy",
+    "type": "Crafting",
+    "rarity": "rare",
+    "effect": "Once Human Pup Buddy — Rare Crafting Deviation. Abilities: Whim: Featherweight. Produces special materials that can be used to craft Whim Potions. Use it...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000007.png",
+    "url": "https://www.oncehumandb.com/deviations/pup-buddy"
+  },
+  {
+    "id": "pyro-dino",
+    "slug": "pyro-dino",
+    "name": "Pyro Dino",
+    "type": "Combat",
+    "rarity": "epic",
+    "effect": "Once Human Pyro Dino — Epic Combat Deviation. Abilities: Straight-line Burn, Telekinetic Effects. Can participate in combat to breathe fire.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000030.png",
+    "url": "https://www.oncehumandb.com/deviations/pyro-dino"
+  },
+  {
+    "id": "radiant-one",
+    "slug": "radiant-one",
+    "name": "Radiant One",
+    "type": "Combat",
+    "rarity": "epic",
+    "effect": "Once Human Radiant One — Epic Combat Deviation. Abilities: Protective Wind Wall, Aerial Platform. Can participate in combat to continuously increase the...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/92000032.png",
+    "url": "https://www.oncehumandb.com/deviations/radiant-one"
+  },
+  {
+    "id": "rain-man",
+    "slug": "rain-man",
+    "name": "Rain Man",
+    "type": "Territory",
+    "rarity": "rare",
+    "effect": "Once Human Rain Man — Rare Territory Deviation. Abilities: Hoping for a downpour. Works inside the Territory. Can cause rainfall around him to help crops...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000039.png",
+    "url": "https://www.oncehumandb.com/deviations/rain-man"
+  },
+  {
+    "id": "rebecca",
+    "slug": "rebecca",
+    "name": "Rebecca",
+    "type": "Territory",
+    "rarity": "epic",
+    "effect": "Once Human Rebecca — Epic Territory Deviation. Abilities: Energy Recover. Can summon the avatar of \"her\" to comfort and soothe other Deviations.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000031.png",
+    "url": "https://www.oncehumandb.com/deviations/rebecca"
+  },
+  {
+    "id": "shattered-maiden",
+    "slug": "shattered-maiden",
+    "name": "Shattered Maiden",
+    "type": "Combat",
+    "rarity": "common",
+    "effect": "Once Human Shattered Maiden — Common Combat Deviation. Abilities: Petrifying Gaze. Can participate in combat, fearing and freezing enemies.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000049.png",
+    "url": "https://www.oncehumandb.com/deviations/shattered-maiden"
+  },
+  {
+    "id": "snow-globe",
+    "slug": "snow-globe",
+    "name": "Snow Globe",
+    "type": "Crafting",
+    "rarity": "common",
+    "effect": "Once Human Snow Globe — Common Crafting Deviation. Abilities: Formula: Snowball. Produces special materials that can be used to craft Tactical Items. When...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000036.png",
+    "url": "https://www.oncehumandb.com/deviations/snow-globe"
+  },
+  {
+    "id": "snowsprite",
+    "slug": "snowsprite",
+    "name": "Snowsprite",
+    "type": "Combat",
+    "rarity": "epic",
+    "effect": "Once Human Snowsprite — Epic Combat Deviation. Abilities: Ice Crystal Detonation, Battle Partner. Can participate in combat to summon fragile frost...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000058.png",
+    "url": "https://www.oncehumandb.com/deviations/snowsprite"
+  },
+  {
+    "id": "soul-summoner",
+    "slug": "soul-summoner",
+    "name": "Soul Summoner",
+    "type": "Combat",
+    "rarity": "rare",
+    "effect": "Once Human Soul Summoner — Rare Combat Deviation. Abilities: Vulnerability Mark, Fire Boost. Can participate in combat to weaken enemies with cursed...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000066.png",
+    "url": "https://www.oncehumandb.com/deviations/soul-summoner"
+  },
+  {
+    "id": "space-turner",
+    "slug": "space-turner",
+    "name": "Space Turner",
+    "type": "Crafting",
+    "rarity": "rare",
+    "effect": "Once Human Space Turner — Rare Crafting Deviation. Abilities: Tactical Item: Space Twister. Produces special materials that can be used to craft Tactical...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000013.png",
+    "url": "https://www.oncehumandb.com/deviations/space-turner"
+  },
+  {
+    "id": "strange-door",
+    "slug": "strange-door",
+    "name": "Strange Door",
+    "type": "Crafting",
+    "rarity": "rare",
+    "effect": "Once Human Strange Door — Rare Crafting Deviation. Abilities: Formula: Portal. Produces special materials and can repair its own replicas. Its owner can...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000041.png",
+    "url": "https://www.oncehumandb.com/deviations/strange-door"
+  },
+  {
+    "id": "tar-pudding",
+    "slug": "tar-pudding",
+    "name": "Tar Pudding",
+    "type": "Territory",
+    "rarity": "rare",
+    "effect": "Once Human Tar Pudding — Rare Territory Deviation. Abilities: Oil Gathering. Works within the territory, able to extract crude oil or work in refining...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000057.png",
+    "url": "https://www.oncehumandb.com/deviations/tar-pudding"
+  },
+  {
+    "id": "the-digby-boy",
+    "slug": "the-digby-boy",
+    "name": "The Digby Boy",
+    "type": "Territory",
+    "rarity": "common",
+    "effect": "Once Human The Digby Boy — Common Territory Deviation. Abilities: Mine Ore. Works in the Territory to gather Ores or works at the Mining Platform.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000029.png",
+    "url": "https://www.oncehumandb.com/deviations/the-digby-boy"
+  },
+  {
+    "id": "upper-world-spawn",
+    "slug": "upper-world-spawn",
+    "name": "Upper World Spawn",
+    "type": "Crafting",
+    "rarity": "epic",
+    "effect": "Once Human Upper World Spawn — Epic Crafting Deviation. Abilities: Formula: Upper World Protection. Produces special materials that can be used to craft...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000046.png",
+    "url": "https://www.oncehumandb.com/deviations/upper-world-spawn"
+  },
+  {
+    "id": "voodoo-doll",
+    "slug": "voodoo-doll",
+    "name": "Voodoo Doll",
+    "type": "Combat",
+    "rarity": "rare",
+    "effect": "Once Human Voodoo Doll — Rare Combat Deviation. Abilities: Enhance Vulnerability, Group Vulnerability. Can participate in combat, sharing the damage...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000047.png",
+    "url": "https://www.oncehumandb.com/deviations/voodoo-doll"
+  },
+  {
+    "id": "watcher",
+    "slug": "watcher",
+    "name": "Watcher",
+    "type": "Combat",
+    "rarity": "rare",
+    "effect": "Once Human Watcher — Rare Combat Deviation. A loyal companion for Metas.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000071.png",
+    "url": "https://www.oncehumandb.com/deviations/watcher"
+  },
+  {
+    "id": "whalepup",
+    "slug": "whalepup",
+    "name": "Whalepup",
+    "type": "Combat",
+    "rarity": "rare",
+    "effect": "Once Human Whalepup — Rare Combat Deviation. Abilities: Transformation Effect, Waterflow Restraint. Can participate in combat, transforming the...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000064.png",
+    "url": "https://www.oncehumandb.com/deviations/whalepup"
+  },
+  {
+    "id": "wish-box",
+    "slug": "wish-box",
+    "name": "Wish Box",
+    "type": "Territory",
+    "rarity": "rare",
+    "effect": "Once Human Wish Box — Rare Territory Deviation. Abilities: Unfair Trade. Use it in your territory to transform items in the Wish Box into something else...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000060.png",
+    "url": "https://www.oncehumandb.com/deviations/wish-box"
+  },
+  {
+    "id": "zapcam",
+    "slug": "zapcam",
+    "name": "ZapCam",
+    "type": "Combat",
+    "rarity": "rare",
+    "effect": "Once Human ZapCam — Rare Combat Deviation. Abilities: Vulnerability Mark, Locked Fire. Can participate in combat to constantly photograph nearby enemies,...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000040.png",
+    "url": "https://www.oncehumandb.com/deviations/zapcam"
+  },
+  {
+    "id": "zapamander",
+    "slug": "zapamander",
+    "name": "Zapamander",
+    "type": "Combat",
+    "rarity": "epic",
+    "effect": "Once Human Zapamander — Epic Combat Deviation. Abilities: Sprint Boost, Silence Effect. Can participate in combat to summon thunderclouds to strike...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000059.png",
+    "url": "https://www.oncehumandb.com/deviations/zapamander"
+  },
+  {
+    "id": "zeno-purifier",
+    "slug": "zeno-purifier",
+    "name": "Zeno-Purifier",
+    "type": "Combat",
+    "rarity": "epic",
+    "effect": "Once Human Zeno-Purifier — Epic Combat Deviation. Abilities: Melee Amplifier, Battle Partner. Can participate in combat, granting its owner a blink strike...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/99000038.png",
+    "url": "https://www.oncehumandb.com/deviations/zeno-purifier"
+  }
+]

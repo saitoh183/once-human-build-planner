@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Once Human Build Planner</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080b10;
+      --panel: #111823;
+      --panel-2: #151f2d;
+      --line: #273448;
+      --line-soft: #1c2737;
+      --text: #e7edf7;
+      --muted: #94a3b8;
+      --accent: #67e8f9;
+      --accent-2: #a78bfa;
+      --danger: #fb7185;
+      --ok: #86efac;
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --radius: 14px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: radial-gradient(circle at top left, #162033 0, transparent 38rem), var(--bg); color: var(--text); }
+    button, select, input, textarea { font: inherit; color: inherit; }
+    button { cursor: pointer; }
+    a { color: var(--accent); }
+    .app { padding: 18px; max-width: 1920px; margin: 0 auto; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 14px; }
+    h1 { margin: 0; font-size: 24px; letter-spacing: .02em; }
+    .subtitle { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+    .btn { border: 1px solid var(--line); background: linear-gradient(180deg, #192335, #101827); padding: 9px 12px; border-radius: 10px; min-height: 36px; }
+    .btn:hover { border-color: var(--accent); }
+    .btn.primary { background: linear-gradient(180deg, #0e7490, #155e75); border-color: #22d3ee66; }
+    .btn.danger { color: #fecdd3; border-color: #7f1d1d; background: #33121a; }
+    .status { color: var(--muted); font-size: 13px; margin-bottom: 10px; }
+    .table-shell { overflow: auto; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(9,13,20,.84); box-shadow: var(--shadow); }
+    table { border-collapse: separate; border-spacing: 0; width: max-content; min-width: 100%; }
+    th, td { border-right: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+    th { position: sticky; top: 0; z-index: 5; background: #111827; color: #cbd5e1; font-size: 12px; text-transform: uppercase; letter-spacing: .09em; padding: 10px 8px; text-align: center; }
+    td { padding: 8px; min-width: 130px; background: rgba(13,19,30,.64); }
+    tr:nth-child(even) td { background: rgba(17,24,39,.64); }
+    .col-gun { width: 220px; }
+    .col-build { width: 110px; min-width: 110px; }
+    .col-weapon { width: 220px; }
+    .col-armor { width: 170px; }
+    .col-deviation { width: 170px; }
+    .col-cradle { width: 170px; }
+    .col-food { width: 190px; }
+    .col-actions { width: 115px; }
+    .stack { display: grid; gap: 7px; }
+    .slot-label { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 3px; }
+    .picker { display: flex; align-items: center; gap: 7px; width: 100%; min-height: 34px; padding: 5px 7px; border-radius: 10px; border: 1px solid var(--line); background: #0b1220; text-align: left; }
+    .picker:hover { border-color: var(--accent); background: #101827; }
+    .picker.empty { color: #64748b; border-style: dashed; }
+    .picker img, .icon { width: 26px; height: 26px; border-radius: 7px; object-fit: cover; flex: 0 0 auto; background: #020617; border: 1px solid #334155; }
+    .picker-text { min-width: 0; flex: 1; }
+    .picker-name { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px; }
+    .picker-meta { display: block; color: var(--muted); font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .build-select { width: 100%; min-height: 34px; background: #0b1220; border: 1px solid var(--line); border-radius: 10px; padding: 6px; }
+    .cradle-grid { display: grid; grid-template-columns: repeat(3, 42px); gap: 7px; justify-content: center; }
+    .cradle-slot { width: 42px; height: 36px; display: grid; place-items: center; border: 1px dashed var(--line); border-radius: 10px; background: #0b1220; }
+    .cradle-slot:hover { border-color: var(--accent); }
+    .cradle-slot img { width: 28px; height: 28px; border-radius: 8px; object-fit: cover; }
+    .food-stack { display: grid; gap: 7px; }
+    .row-actions { display: grid; gap: 7px; }
+    .tiny { padding: 6px 8px; font-size: 12px; }
+    .modal-backdrop { position: fixed; inset: 0; z-index: 50; background: rgba(2,6,23,.78); display: none; align-items: center; justify-content: center; padding: 20px; }
+    .modal-backdrop.open { display: flex; }
+    .modal { width: min(860px, 100%); max-height: min(760px, 92vh); display: grid; grid-template-rows: auto auto 1fr; background: #0f172a; border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); overflow: hidden; }
+    .modal-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px; border-bottom: 1px solid var(--line); }
+    .modal-title { font-weight: 700; }
+    .search-row { display: flex; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+    .search-row input { flex: 1; background: #020617; border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+    .results { overflow: auto; padding: 8px; }
+    .result { width: 100%; display: grid; grid-template-columns: 42px 1fr auto; gap: 10px; align-items: center; padding: 8px; border: 1px solid transparent; border-radius: 12px; background: transparent; text-align: left; }
+    .result:hover, .result.active { background: #152033; border-color: var(--accent); }
+    .result img { width: 38px; height: 38px; border-radius: 9px; object-fit: cover; background: #020617; }
+    .result .name { font-weight: 600; }
+    .result .effect { color: var(--muted); font-size: 12px; margin-top: 2px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .badge { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; padding: 2px 7px; color: var(--muted); font-size: 10px; margin-left: 4px; }
+    .tooltip { position: fixed; z-index: 100; display: none; max-width: 330px; background: #020617; border: 1px solid #334155; border-radius: 12px; padding: 10px 11px; box-shadow: var(--shadow); pointer-events: auto; }
+    .tooltip.open { display: block; }
+    .tooltip-title { font-weight: 700; margin-bottom: 4px; }
+    .tooltip-meta { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+    .tooltip-effect { color: #dbeafe; font-size: 12px; line-height: 1.35; white-space: pre-wrap; }
+    .tooltip-link { display: inline-block; margin-top: 7px; font-size: 12px; }
+    .print-root { display: none; }
+    .print-build { page-break-inside: avoid; border: 1px solid #94a3b8; margin-bottom: 10px; padding: 8px; }
+    .print-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; font-size: 10px; }
+    .print-section { border: 1px solid #cbd5e1; padding: 5px; }
+    .print-section h3 { margin: 0 0 4px; font-size: 11px; }
+    .print-link-list { margin-top: 8px; columns: 2; font-size: 9px; }
+    .print-link-list div { break-inside: avoid; margin-bottom: 2px; }
+    .sr-file { display: none; }
+    .error { color: #fecaca; background: #3f1d2a; border: 1px solid #7f1d1d; border-radius: 10px; padding: 10px; margin-bottom: 10px; display:none; }
+    @page { size: A4 landscape; margin: 8mm; }
+    @media print {
+      body { background: white; color: black; }
+      .app, .modal-backdrop, .tooltip { display: none !important; }
+      .print-root { display: block; color: black; font-family: Arial, sans-serif; }
+      a { color: black; text-decoration: underline; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <div class="topbar">
+      <div>
+        <h1>Once Human Build Planner</h1>
+        <p class="subtitle">OHDB-powered one-row-per-build planner. Compact table, noisy data kept on a leash.</p>
+      </div>
+      <div class="toolbar">
+        <button class="btn primary" id="addBuildBtn">+ Add Build</button>
+        <button class="btn" id="exportAllBtn">Export All PDF</button>
+        <button class="btn" id="saveBackupBtn">Save Backup</button>
+        <button class="btn" id="loadBackupBtn">Load Backup</button>
+        <input class="sr-file" id="backupFile" type="file" accept="application/json,.json">
+      </div>
+    </div>
+    <div class="error" id="errorBox"></div>
+    <div class="status" id="status">Loading OHDB data…</div>
+    <div class="table-shell">
+      <table>
+        <thead>
+          <tr>
+            <th class="col-gun">Gun</th>
+            <th class="col-build">Build type</th>
+            <th class="col-weapon">Weapon</th>
+            <th class="col-armor">Mask</th>
+            <th class="col-armor">Head</th>
+            <th class="col-armor">Legs</th>
+            <th class="col-armor">Shoes</th>
+            <th class="col-armor">Top</th>
+            <th class="col-deviation">Deviation</th>
+            <th class="col-cradle">Cradle</th>
+            <th class="col-food">Food</th>
+            <th class="col-actions">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="buildRows"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <section class="print-root" id="printRoot"></section>
+
+  <div class="modal-backdrop" id="pickerModal" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div class="modal-head">
+        <div class="modal-title" id="pickerTitle">Select item</div>
+        <button class="btn tiny" id="closePickerBtn">Close</button>
+      </div>
+      <div class="search-row">
+        <input id="pickerSearch" type="search" placeholder="Search…" autocomplete="off">
+        <button class="btn tiny danger" id="clearPickerBtn">Clear</button>
+      </div>
+      <div class="results" id="pickerResults"></div>
+    </div>
+  </div>
+
+  <div class="tooltip" id="tooltip"></div>
+
+  <script>
+    const STORAGE_KEY = 'oh_build_planner_rows_v1';
+    const DATA_FILES = {
+      weapons: 'data/weapons.json',
+      armor: 'data/armor.json',
+      mods: 'data/mods.json',
+      deviations: 'data/deviations.json',
+      cradle: 'data/cradle.json',
+      food: 'data/food.json'
+    };
+    const ARMOR_SLOTS = [
+      { key: 'mask', label: 'Mask', armorType: 'Mask', modType: 'Mask' },
+      { key: 'head', label: 'Head', armorType: 'Helmet', modType: 'Helmet' },
+      { key: 'legs', label: 'Legs', armorType: 'Bottoms', modType: 'Bottoms' },
+      { key: 'shoes', label: 'Shoes', armorType: 'Shoes', modType: 'Shoes' },
+      { key: 'top', label: 'Top', armorType: 'Top', modType: 'Top' }
+    ];
+    const state = { data: {}, builds: [], picker: null, printMode: 'all' };
+
+    const $ = (selector, root = document) => root.querySelector(selector);
+    const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+    const escapeHtml = value => String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+    const uuid = () => crypto?.randomUUID?.() || `id-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+
+    function defaultBuild() {
+      return {
+        id: uuid(),
+        buildType: 'High HP',
+        guns: { primary: '', secondary: '' },
+        weaponMods: { primary: '', secondary: '' },
+        armorSlots: Object.fromEntries(ARMOR_SLOTS.map(slot => [slot.key, { armor: '', mod: '' }])),
+        deviation: '',
+        cradle: Array(8).fill(''),
+        food: { main1: '', main2: '', chef1: '', chef2: '' }
+      };
+    }
+
+    async function init() {
+      try {
+        state.data = await loadData();
+        loadBuilds();
+        if (!state.builds.length) state.builds.push(defaultBuild());
+        render();
+        setStatus();
+      } catch (error) {
+        showError(`Could not load data/*.json. If you opened index.html directly, serve the folder instead: python3 -m http.server 8080. Details: ${error.message}`);
+      }
+    }
+
+    async function loadData() {
+      const entries = await Promise.all(Object.entries(DATA_FILES).map(async ([key, path]) => {
+        const response = await fetch(path);
+        if (!response.ok) throw new Error(`${path}: ${response.status}`);
+        return [key, await response.json()];
+      }));
+      return Object.fromEntries(entries);
+    }
+
+    function loadBuilds() {
+      try { state.builds = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+      catch { state.builds = []; }
+    }
+
+    function saveBuilds() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state.builds));
+      setStatus();
+    }
+
+    function setStatus() {
+      const counts = Object.entries(state.data).map(([key, rows]) => `${key}: ${rows.length}`).join(' · ');
+      $('#status').textContent = `${state.builds.length} build row(s). ${counts}`;
+    }
+
+    function showError(message) {
+      const box = $('#errorBox');
+      box.textContent = message;
+      box.style.display = 'block';
+    }
+
+    function byId(collection, id) {
+      return (state.data[collection] || []).find(item => item.id === id) || null;
+    }
+
+    function render() {
+      $('#buildRows').innerHTML = state.builds.map(build => renderBuildRow(build)).join('');
+      bindRowEvents();
+      saveBuilds();
+    }
+
+    function renderBuildRow(build) {
+      return `
+        <tr data-build-id="${build.id}">
+          <td class="col-gun"><div class="stack">
+            ${renderPicker('Primary', 'weapons', build.guns.primary, 'guns.primary')}
+            ${renderPicker('Secondary', 'weapons', build.guns.secondary, 'guns.secondary')}
+          </div></td>
+          <td class="col-build">
+            <select class="build-select" data-path="buildType">
+              <option ${build.buildType === 'High HP' ? 'selected' : ''}>High HP</option>
+              <option ${build.buildType === 'Low HP' ? 'selected' : ''}>Low HP</option>
+            </select>
+          </td>
+          <td class="col-weapon"><div class="stack">
+            ${renderPicker('Primary Mod', 'weaponMods', build.weaponMods.primary, 'weaponMods.primary')}
+            ${renderPicker('Secondary Mod', 'weaponMods', build.weaponMods.secondary, 'weaponMods.secondary')}
+          </div></td>
+          ${ARMOR_SLOTS.map(slot => renderArmorCell(build, slot)).join('')}
+          <td class="col-deviation">${renderPicker('Attack Deviation', 'combatDeviations', build.deviation, 'deviation')}</td>
+          <td class="col-cradle"><div class="cradle-grid">
+            ${build.cradle.map((id, index) => renderCradleSlot(id, index)).join('')}
+          </div></td>
+          <td class="col-food"><div class="food-stack">
+            ${renderPicker('Main 1', 'food', build.food.main1, 'food.main1')}
+            ${renderPicker('Main 2', 'food', build.food.main2, 'food.main2')}
+            ${renderPicker('Chef 1', 'food', build.food.chef1, 'food.chef1')}
+            ${renderPicker('Chef 2', 'food', build.food.chef2, 'food.chef2')}
+          </div></td>
+          <td class="col-actions"><div class="row-actions">
+            <button class="btn tiny" data-action="export-row">Export PDF</button>
+            <button class="btn tiny" data-action="duplicate-row">Duplicate</button>
+            <button class="btn tiny danger" data-action="delete-row">Delete</button>
+          </div></td>
+        </tr>`;
+    }
+
+    function renderArmorCell(build, slot) {
+      const value = build.armorSlots?.[slot.key] || { armor: '', mod: '' };
+      return `<td class="col-armor"><div class="stack">
+        ${renderPicker(`${slot.label} Armor`, `armor:${slot.armorType}`, value.armor, `armorSlots.${slot.key}.armor`)}
+        ${renderPicker(`${slot.label} Mod`, `armorMods:${slot.modType}`, value.mod, `armorSlots.${slot.key}.mod`)}
+      </div></td>`;
+    }
+
+    function renderPicker(label, collection, selectedId, path) {
+      const item = findOption(collection, selectedId);
+      const cls = item ? 'picker' : 'picker empty';
+      return `<div>
+        <div class="slot-label">${escapeHtml(label)}</div>
+        <button class="${cls}" data-picker="${escapeHtml(collection)}" data-path="${escapeHtml(path)}" ${tooltipAttrs(item)}>
+          ${item?.imageUrl ? `<img src="${escapeHtml(item.imageUrl)}" alt="">` : '<span class="icon"></span>'}
+          <span class="picker-text">
+            <span class="picker-name">${escapeHtml(item?.name || 'Select')}</span>
+            <span class="picker-meta">${escapeHtml(metaFor(item, collection))}</span>
+          </span>
+        </button>
+      </div>`;
+    }
+
+    function renderCradleSlot(selectedId, index) {
+      const item = byId('cradle', selectedId);
+      return `<button class="cradle-slot" data-picker="cradle" data-path="cradle.${index}" title="Cradle ${index + 1}" ${tooltipAttrs(item)}>
+        ${item?.imageUrl ? `<img src="${escapeHtml(item.imageUrl)}" alt="${escapeHtml(item.name)}">` : `<span>${index + 1}</span>`}
+      </button>`;
+    }
+
+    function tooltipAttrs(item) {
+      if (!item) return '';
+      return `data-tip-id="${escapeHtml(item.id)}" data-tip-title="${escapeHtml(item.name)}" data-tip-meta="${escapeHtml(metaFor(item))}" data-tip-effect="${escapeHtml(item.effect || item.description || 'No effect text available from OHDB list data.')}" data-tip-url="${escapeHtml(item.url || '')}"`;
+    }
+
+    function metaFor(item, collection = '') {
+      if (!item) return '';
+      return [item.category, item.slot, item.type, item.style, item.variant, item.rarity].filter(Boolean).join(' · ');
+    }
+
+    function getOptions(collection) {
+      if (collection === 'weaponMods') return state.data.mods.filter(item => item.category === 'Weapon Mod');
+      if (collection === 'combatDeviations') return state.data.deviations.filter(item => item.type === 'Combat');
+      if (collection.startsWith('armor:')) return state.data.armor.filter(item => item.slot === collection.split(':')[1]);
+      if (collection.startsWith('armorMods:')) return state.data.mods.filter(item => item.category === 'Armor Mod' && item.slot === collection.split(':')[1]);
+      return state.data[collection] || [];
+    }
+
+    function findOption(collection, id) {
+      if (!id) return null;
+      return getOptions(collection).find(item => item.id === id) || null;
+    }
+
+    function bindRowEvents() {
+      $$('#buildRows tr').forEach(row => {
+        const build = state.builds.find(item => item.id === row.dataset.buildId);
+        row.addEventListener('change', event => {
+          const target = event.target;
+          if (target.matches('[data-path="buildType"]')) {
+            build.buildType = target.value;
+            saveBuilds();
+          }
+        });
+        row.addEventListener('click', event => {
+          const pickerButton = event.target.closest('[data-picker]');
+          if (pickerButton) {
+            openPicker(build.id, pickerButton.dataset.path, pickerButton.dataset.picker);
+            return;
+          }
+          const action = event.target.closest('[data-action]')?.dataset.action;
+          if (!action) return;
+          if (action === 'export-row') exportPdf(build.id);
+          if (action === 'duplicate-row') {
+            const clone = JSON.parse(JSON.stringify(build));
+            clone.id = uuid();
+            state.builds.splice(state.builds.indexOf(build) + 1, 0, clone);
+            render();
+          }
+          if (action === 'delete-row') {
+            state.builds = state.builds.filter(item => item.id !== build.id);
+            if (!state.builds.length) state.builds.push(defaultBuild());
+            render();
+          }
+        });
+      });
+      bindTooltips();
+    }
+
+    function openPicker(buildId, path, collection) {
+      state.picker = { buildId, path, collection, options: getOptions(collection) };
+      $('#pickerTitle').textContent = `Select ${pathLabel(path)}`;
+      $('#pickerSearch').value = '';
+      $('#pickerModal').classList.add('open');
+      renderPickerResults();
+      setTimeout(() => $('#pickerSearch').focus(), 0);
+    }
+
+    function pathLabel(path) {
+      return path.replaceAll('.', ' ').replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+    function closePicker() { $('#pickerModal').classList.remove('open'); state.picker = null; }
+
+    function renderPickerResults() {
+      const query = $('#pickerSearch').value.trim().toLowerCase();
+      const options = state.picker.options
+        .filter(item => !query || `${item.name} ${metaFor(item)} ${item.effect || ''}`.toLowerCase().includes(query))
+        .slice(0, 220);
+      $('#pickerResults').innerHTML = options.map(item => `
+        <button class="result" data-select-id="${escapeHtml(item.id)}">
+          ${item.imageUrl ? `<img src="${escapeHtml(item.imageUrl)}" alt="">` : '<span class="icon"></span>'}
+          <span>
+            <span class="name">${escapeHtml(item.name)}</span>
+            <span class="badge">${escapeHtml(metaFor(item))}</span>
+            <span class="effect">${escapeHtml(item.effect || item.description || '')}</span>
+          </span>
+          <span>Choose</span>
+        </button>`).join('') || '<p class="subtitle">No matches.</p>';
+    }
+
+    function setPath(object, path, value) {
+      const parts = path.split('.');
+      let target = object;
+      for (let i = 0; i < parts.length - 1; i++) target = target[parts[i]];
+      target[parts.at(-1)] = value;
+    }
+
+    $('#pickerResults').addEventListener('click', event => {
+      const result = event.target.closest('[data-select-id]');
+      if (!result || !state.picker) return;
+      const build = state.builds.find(item => item.id === state.picker.buildId);
+      setPath(build, state.picker.path, result.dataset.selectId);
+      closePicker();
+      render();
+    });
+    $('#pickerSearch').addEventListener('input', renderPickerResults);
+    $('#closePickerBtn').addEventListener('click', closePicker);
+    $('#clearPickerBtn').addEventListener('click', () => {
+      if (!state.picker) return;
+      const build = state.builds.find(item => item.id === state.picker.buildId);
+      setPath(build, state.picker.path, '');
+      closePicker();
+      render();
+    });
+    $('#pickerModal').addEventListener('click', event => { if (event.target.id === 'pickerModal') closePicker(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') closePicker(); });
+
+    function bindTooltips() {
+      const tooltip = $('#tooltip');
+      $$('[data-tip-title]').forEach(el => {
+        el.addEventListener('mouseenter', () => showTooltip(el));
+        el.addEventListener('focus', () => showTooltip(el));
+        el.addEventListener('mouseleave', hideTooltip);
+        el.addEventListener('blur', hideTooltip);
+      });
+      function showTooltip(el) {
+        tooltip.innerHTML = `
+          <div class="tooltip-title">${escapeHtml(el.dataset.tipTitle)}</div>
+          <div class="tooltip-meta">${escapeHtml(el.dataset.tipMeta)}</div>
+          <div class="tooltip-effect">${escapeHtml(el.dataset.tipEffect)}</div>
+          ${el.dataset.tipUrl ? `<a class="tooltip-link" href="${escapeHtml(el.dataset.tipUrl)}" target="_blank" rel="noopener">Link</a>` : ''}`;
+        tooltip.classList.add('open');
+        const rect = el.getBoundingClientRect();
+        const tipRect = tooltip.getBoundingClientRect();
+        let left = rect.left + rect.width / 2 - tipRect.width / 2;
+        let top = rect.bottom + 8;
+        if (top + tipRect.height > window.innerHeight - 8) top = rect.top - tipRect.height - 8;
+        left = Math.max(8, Math.min(left, window.innerWidth - tipRect.width - 8));
+        top = Math.max(8, top);
+        tooltip.style.left = `${left}px`;
+        tooltip.style.top = `${top}px`;
+      }
+      function hideTooltip() { tooltip.classList.remove('open'); }
+    }
+
+    $('#addBuildBtn').addEventListener('click', () => { state.builds.push(defaultBuild()); render(); });
+    $('#exportAllBtn').addEventListener('click', () => exportPdf());
+    $('#saveBackupBtn').addEventListener('click', () => {
+      const blob = new Blob([JSON.stringify({ version: 1, builds: state.builds }, null, 2)], { type: 'application/json' });
+      const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: 'once-human-builds.json' });
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+    $('#loadBackupBtn').addEventListener('click', () => $('#backupFile').click());
+    $('#backupFile').addEventListener('change', async event => {
+      const file = event.target.files[0];
+      if (!file) return;
+      const parsed = JSON.parse(await file.text());
+      state.builds = Array.isArray(parsed) ? parsed : parsed.builds || [];
+      render();
+      event.target.value = '';
+    });
+
+    function exportPdf(buildId = null) {
+      const builds = buildId ? state.builds.filter(build => build.id === buildId) : state.builds;
+      $('#printRoot').innerHTML = builds.map(renderPrintBuild).join('');
+      window.print();
+    }
+
+    function renderPrintBuild(build, index) {
+      const links = [];
+      const line = (label, collection, id) => {
+        const item = findOption(collection, id);
+        if (!item) return `${label}: —`;
+        links.push({ label, name: item.name, url: item.url });
+        return `${label}: ${escapeHtml(item.name)}`;
+      };
+      const armorSections = ARMOR_SLOTS.map(slot => {
+        const current = build.armorSlots[slot.key];
+        return `<div>${line(`${slot.label} Armor`, `armor:${slot.armorType}`, current.armor)}<br>${line(`${slot.label} Mod`, `armorMods:${slot.modType}`, current.mod)}</div>`;
+      }).join('');
+      const cradleLines = build.cradle.map((id, i) => line(`Cradle ${i + 1}`, 'cradle', id)).join('<br>');
+      const html = `<section class="print-build">
+        <h2>Build ${index + 1}: ${escapeHtml(build.buildType)}</h2>
+        <div class="print-grid">
+          <div class="print-section"><h3>Gun</h3>${line('Primary Gun', 'weapons', build.guns.primary)}<br>${line('Secondary Gun', 'weapons', build.guns.secondary)}</div>
+          <div class="print-section"><h3>Weapon Mods</h3>${line('Primary Weapon Mod', 'weaponMods', build.weaponMods.primary)}<br>${line('Secondary Weapon Mod', 'weaponMods', build.weaponMods.secondary)}</div>
+          <div class="print-section"><h3>Armor + Mods</h3>${armorSections}</div>
+          <div class="print-section"><h3>Deviation</h3>${line('Attack Deviation', 'combatDeviations', build.deviation)}</div>
+          <div class="print-section"><h3>Cradle</h3>${cradleLines}</div>
+          <div class="print-section"><h3>Food</h3>${line('Main 1', 'food', build.food.main1)}<br>${line('Main 2', 'food', build.food.main2)}<br>${line('Chef 1', 'food', build.food.chef1)}<br>${line('Chef 2', 'food', build.food.chef2)}</div>
+        </div>
+        <div class="print-link-list"><strong>Links</strong>${links.map(item => `<div>${escapeHtml(item.label)}: ${escapeHtml(item.name)} — <a href="${escapeHtml(item.url)}">Link</a></div>`).join('')}</div>
+      </section>`;
+      return html;
+    }
+
+    init();
+  </script>
+</body>
+</html>

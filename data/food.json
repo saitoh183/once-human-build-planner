@@ -1,0 +1,2774 @@
+[
+  {
+    "id": "all-weather-stew",
+    "slug": "all-weather-stew",
+    "name": "All-Weather Stew",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human All-Weather Stew — Legendary Food. +100 Energy, +100 Hydration.",
+    "description": "Once Human All-Weather Stew — Legendary Food. +100 Energy, +100 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110371.png",
+    "url": "https://www.oncehumandb.com/items/all-weather-stew",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "anti-gravity-milkshake",
+    "slug": "anti-gravity-milkshake",
+    "name": "Anti-gravity Milkshake",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.05,
+    "effect": "Once Human Anti-gravity Milkshake — Legendary Food. +100 Energy, +100 Hydration.",
+    "description": "Once Human Anti-gravity Milkshake — Legendary Food. +100 Energy, +100 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110351.png",
+    "url": "https://www.oncehumandb.com/items/anti-gravity-milkshake",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.05 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "aromatic-fruit-and-roasted-meat",
+    "slug": "aromatic-fruit-and-roasted-meat",
+    "name": "Aromatic Fruit and Roasted Meat",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Aromatic Fruit and Roasted Meat — Epic Creative Cuisine. +80 Energy.",
+    "description": "Once Human Aromatic Fruit and Roasted Meat — Epic Creative Cuisine. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111202.png",
+    "url": "https://www.oncehumandb.com/items/aromatic-fruit-and-roasted-meat",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "aromatic-land-sea-vegetable-platter",
+    "slug": "aromatic-land-sea-vegetable-platter",
+    "name": "Aromatic Land & Sea Vegetable Platter",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Aromatic Land & Sea Vegetable Platter — Epic Creative Cuisine. +80 Energy.",
+    "description": "Once Human Aromatic Land & Sea Vegetable Platter — Epic Creative Cuisine. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111191.png",
+    "url": "https://www.oncehumandb.com/items/aromatic-land-sea-vegetable-platter",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "assorted-canned-fruit",
+    "slug": "assorted-canned-fruit",
+    "name": "Assorted Canned Fruit",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Assorted Canned Fruit — Epic Food. +80 Energy, +40 Hydration.",
+    "description": "Once Human Assorted Canned Fruit — Epic Food. +80 Energy, +40 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110112.png",
+    "url": "https://www.oncehumandb.com/items/assorted-canned-fruit",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "bacon-burger",
+    "slug": "bacon-burger",
+    "name": "Bacon Burger",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Bacon Burger — Legendary Food. +100 Energy.",
+    "description": "Once Human Bacon Burger — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110323.png",
+    "url": "https://www.oncehumandb.com/items/bacon-burger",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "bone-in-deviated-sausage",
+    "slug": "bone-in-deviated-sausage",
+    "name": "Bone-in Deviated Sausage",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Bone-in Deviated Sausage — Epic Food. +100 Energy.",
+    "description": "Once Human Bone-in Deviated Sausage — Epic Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110324.png",
+    "url": "https://www.oncehumandb.com/items/bone-in-deviated-sausage",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "borscht-deluxe",
+    "slug": "borscht-deluxe",
+    "name": "Borscht Deluxe",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Borscht Deluxe — Epic Food. +100 Energy, +50 Hydration.",
+    "description": "Once Human Borscht Deluxe — Epic Food. +100 Energy, +50 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110318.png",
+    "url": "https://www.oncehumandb.com/items/borscht-deluxe",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "butter-matsutake-mushrooms",
+    "slug": "butter-matsutake-mushrooms",
+    "name": "Butter Matsutake Mushrooms",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Butter Matsutake Mushrooms — Legendary Food. +100 Energy.",
+    "description": "Once Human Butter Matsutake Mushrooms — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110373.png",
+    "url": "https://www.oncehumandb.com/items/butter-matsutake-mushrooms",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "canned-lunch-meat",
+    "slug": "canned-lunch-meat",
+    "name": "Canned Lunch Meat",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Canned Lunch Meat — Epic Food. +80 Energy.",
+    "description": "Once Human Canned Lunch Meat — Epic Food. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110111.png",
+    "url": "https://www.oncehumandb.com/items/canned-lunch-meat",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "canned-minty-meat",
+    "slug": "canned-minty-meat",
+    "name": "Canned Minty Meat",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Canned Minty Meat — Legendary Food. +100 Energy.",
+    "description": "Once Human Canned Minty Meat — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110379.png",
+    "url": "https://www.oncehumandb.com/items/canned-minty-meat",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "canned-seafood-in-oil",
+    "slug": "canned-seafood-in-oil",
+    "name": "Canned Seafood in Oil",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Canned Seafood in Oil — Legendary Food. +100 Energy.",
+    "description": "Once Human Canned Seafood in Oil — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110329.png",
+    "url": "https://www.oncehumandb.com/items/canned-seafood-in-oil",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "canned-spicy-rabbit-dices",
+    "slug": "canned-spicy-rabbit-dices",
+    "name": "Canned Spicy Rabbit Dices",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Canned Spicy Rabbit Dices — Legendary Food. +80 Energy.",
+    "description": "Once Human Canned Spicy Rabbit Dices — Legendary Food. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110381.png",
+    "url": "https://www.oncehumandb.com/items/canned-spicy-rabbit-dices",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "canned-steak",
+    "slug": "canned-steak",
+    "name": "Canned Steak",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Canned Steak — Epic Food. +80 Energy.",
+    "description": "Once Human Canned Steak — Epic Food. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110330.png",
+    "url": "https://www.oncehumandb.com/items/canned-steak",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "chilled-icemelon-soup",
+    "slug": "chilled-icemelon-soup",
+    "name": "Chilled Icemelon Soup",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Chilled Icemelon Soup — Epic Food. +80 Hydration.",
+    "description": "Once Human Chilled Icemelon Soup — Epic Food. +80 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110365.png",
+    "url": "https://www.oncehumandb.com/items/chilled-icemelon-soup",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "contaminated-aloe-vera",
+    "slug": "contaminated-aloe-vera",
+    "name": "Contaminated Aloe Vera",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Contaminated Aloe Vera — Epic Food. Overexposure to the Pollution Zone has rendered it inedible, but it can be fermented to produce acid.",
+    "description": "Once Human Contaminated Aloe Vera — Epic Food. Overexposure to the Pollution Zone has rendered it inedible, but it can be fermented to produce acid.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30103909.png",
+    "url": "https://www.oncehumandb.com/items/contaminated-aloe-vera",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "corn-ale",
+    "slug": "corn-ale",
+    "name": "Corn Ale",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Corn Ale — Epic Food. +100 Hydration.",
+    "description": "Once Human Corn Ale — Epic Food. +100 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110114.png",
+    "url": "https://www.oncehumandb.com/items/corn-ale",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "croquette",
+    "slug": "croquette",
+    "name": "Croquette",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Croquette — Epic Food. +80 Energy.",
+    "description": "Once Human Croquette — Epic Food. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110207.png",
+    "url": "https://www.oncehumandb.com/items/croquette",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "crumbly-bread",
+    "slug": "crumbly-bread",
+    "name": "Crumbly Bread",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Crumbly Bread — Legendary Food. +100 Energy.",
+    "description": "Once Human Crumbly Bread — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110345.png",
+    "url": "https://www.oncehumandb.com/items/crumbly-bread",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "curry-and-rice",
+    "slug": "curry-and-rice",
+    "name": "Curry and Rice",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Curry and Rice — Epic Food. +80 Energy.",
+    "description": "Once Human Curry and Rice — Epic Food. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110369.png",
+    "url": "https://www.oncehumandb.com/items/curry-and-rice",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-aloe-vera",
+    "slug": "deviated-aloe-vera",
+    "name": "Deviated Aloe Vera",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Aloe Vera — Legendary Food. Cut open the aloe vera plant's wide leaves to get at that sticky, translucent juice.",
+    "description": "Once Human Deviated Aloe Vera — Legendary Food. Cut open the aloe vera plant's wide leaves to get at that sticky, translucent juice.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30103901.png",
+    "url": "https://www.oncehumandb.com/items/deviated-aloe-vera",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-beet",
+    "slug": "deviated-beet",
+    "name": "Deviated Beet",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Beet — Epic Food. +5 Energy, -100 Sanity.",
+    "description": "Once Human Deviated Beet — Epic Food. +5 Energy, -100 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102905.png",
+    "url": "https://www.oncehumandb.com/items/deviated-beet",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-bellflower",
+    "slug": "deviated-bellflower",
+    "name": "Deviated Bellflower",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Bellflower — Epic Food. A herb with purple, bell-like flowers. Can be used as medicine to treat fevers and soothe persistent coughs.",
+    "description": "Once Human Deviated Bellflower — Epic Food. A herb with purple, bell-like flowers. Can be used as medicine to treat fevers and soothe persistent coughs.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30103903.png",
+    "url": "https://www.oncehumandb.com/items/deviated-bellflower",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-cabbage",
+    "slug": "deviated-cabbage",
+    "name": "Deviated Cabbage",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Cabbage — Epic Food. +5 Energy, +5 Hydration, -100 Sanity.",
+    "description": "Once Human Deviated Cabbage — Epic Food. +5 Energy, +5 Hydration, -100 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102904.png",
+    "url": "https://www.oncehumandb.com/items/deviated-cabbage",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-coneflower",
+    "slug": "deviated-coneflower",
+    "name": "Deviated Coneflower",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Coneflower — Epic Food. A plant with cone-like seed pods. Contains a variety of active substances that help boost immunity.",
+    "description": "Once Human Deviated Coneflower — Epic Food. A plant with cone-like seed pods. Contains a variety of active substances that help boost immunity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30103907.png",
+    "url": "https://www.oncehumandb.com/items/deviated-coneflower",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-corn",
+    "slug": "deviated-corn",
+    "name": "Deviated Corn",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Corn — Epic Food. +5 Energy, -100 Sanity.",
+    "description": "Once Human Deviated Corn — Epic Food. +5 Energy, -100 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102908.png",
+    "url": "https://www.oncehumandb.com/items/deviated-corn",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-cucumber",
+    "slug": "deviated-cucumber",
+    "name": "Deviated Cucumber",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Cucumber — Legendary Food. +5 Energy, -100 Sanity.",
+    "description": "Once Human Deviated Cucumber — Legendary Food. +5 Energy, -100 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102916.png",
+    "url": "https://www.oncehumandb.com/items/deviated-cucumber",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-honeysuckle",
+    "slug": "deviated-honeysuckle",
+    "name": "Deviated Honeysuckle",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Honeysuckle — Epic Food. The flowers that bloom from this shrub are so delicate as to make you wonder if the Starfall ever really...",
+    "description": "Once Human Deviated Honeysuckle — Epic Food. The flowers that bloom from this shrub are so delicate as to make you wonder if the Starfall ever really...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30103904.png",
+    "url": "https://www.oncehumandb.com/items/deviated-honeysuckle",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-ice-melon",
+    "slug": "deviated-ice-melon",
+    "name": "Deviated Ice Melon",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Ice Melon — Epic Food. +5 Energy, -100 Sanity.",
+    "description": "Once Human Deviated Ice Melon — Epic Food. +5 Energy, -100 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102920.png",
+    "url": "https://www.oncehumandb.com/items/deviated-ice-melon",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-mint",
+    "slug": "deviated-mint",
+    "name": "Deviated Mint",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Mint — Epic Food. +5 Energy, -100 Sanity.",
+    "description": "Once Human Deviated Mint — Epic Food. +5 Energy, -100 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102922.png",
+    "url": "https://www.oncehumandb.com/items/deviated-mint",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-morel",
+    "slug": "deviated-morel",
+    "name": "Deviated Morel",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Morel — Legendary Food. +5 Energy, -100 Sanity.",
+    "description": "Once Human Deviated Morel — Legendary Food. +5 Energy, -100 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102919.png",
+    "url": "https://www.oncehumandb.com/items/deviated-morel",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-mushroom",
+    "slug": "deviated-mushroom",
+    "name": "Deviated Mushroom",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Mushroom — Epic Food. +5 Energy, -100 Sanity.",
+    "description": "Once Human Deviated Mushroom — Epic Food. +5 Energy, -100 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102910.png",
+    "url": "https://www.oncehumandb.com/items/deviated-mushroom",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-onion",
+    "slug": "deviated-onion",
+    "name": "Deviated Onion",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Onion — Legendary Food. +5 Energy, -100 Sanity.",
+    "description": "Once Human Deviated Onion — Legendary Food. +5 Energy, -100 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102918.png",
+    "url": "https://www.oncehumandb.com/items/deviated-onion",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-peppercorn",
+    "slug": "deviated-peppercorn",
+    "name": "Deviated Peppercorn",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Peppercorn — Legendary Food. A common spice with a pungent note which is widely used in cooking to season delicacies and tenderize...",
+    "description": "Once Human Deviated Peppercorn — Legendary Food. A common spice with a pungent note which is widely used in cooking to season delicacies and tenderize...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30104903.png",
+    "url": "https://www.oncehumandb.com/items/deviated-peppercorn",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-polar-pepper",
+    "slug": "deviated-polar-pepper",
+    "name": "Deviated Polar Pepper",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Polar Pepper — Epic Food. +5 Energy, -100 Sanity.",
+    "description": "Once Human Deviated Polar Pepper — Epic Food. +5 Energy, -100 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102923.png",
+    "url": "https://www.oncehumandb.com/items/deviated-polar-pepper",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-potato",
+    "slug": "deviated-potato",
+    "name": "Deviated Potato",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Potato — Epic Food. +5 Energy, -100 Sanity.",
+    "description": "Once Human Deviated Potato — Epic Food. +5 Energy, -100 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102909.png",
+    "url": "https://www.oncehumandb.com/items/deviated-potato",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-pumpkin",
+    "slug": "deviated-pumpkin",
+    "name": "Deviated Pumpkin",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Pumpkin — Epic Food. +5 Energy, -100 Sanity.",
+    "description": "Once Human Deviated Pumpkin — Epic Food. +5 Energy, -100 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102907.png",
+    "url": "https://www.oncehumandb.com/items/deviated-pumpkin",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-saffron",
+    "slug": "deviated-saffron",
+    "name": "Deviated Saffron",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Saffron — Legendary Food. A spice comprising the dried stigma and styles of a certain species of crocus. Some claim it invigorates the...",
+    "description": "Once Human Deviated Saffron — Legendary Food. A spice comprising the dried stigma and styles of a certain species of crocus. Some claim it invigorates the...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30103905.png",
+    "url": "https://www.oncehumandb.com/items/deviated-saffron",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-sage",
+    "slug": "deviated-sage",
+    "name": "Deviated Sage",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Sage — Epic Food. A simple yet appealing mountain herb. Consume in moderation to avoid toxicity.",
+    "description": "Once Human Deviated Sage — Epic Food. A simple yet appealing mountain herb. Consume in moderation to avoid toxicity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30103902.png",
+    "url": "https://www.oncehumandb.com/items/deviated-sage",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-scarlet-calamus",
+    "slug": "deviated-scarlet-calamus",
+    "name": "Deviated Scarlet Calamus",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Scarlet Calamus — Epic Food. The deviated calamus features a top that changes from brown to bright red. It mainly grows in lakes,...",
+    "description": "Once Human Deviated Scarlet Calamus — Epic Food. The deviated calamus features a top that changes from brown to bright red. It mainly grows in lakes,...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30103906.png",
+    "url": "https://www.oncehumandb.com/items/deviated-scarlet-calamus",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-snow-fungus",
+    "slug": "deviated-snow-fungus",
+    "name": "Deviated Snow Fungus",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Snow Fungus — Epic Food. +5 Energy, -100 Sanity.",
+    "description": "Once Human Deviated Snow Fungus — Epic Food. +5 Energy, -100 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102925.png",
+    "url": "https://www.oncehumandb.com/items/deviated-snow-fungus",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-spikemato",
+    "slug": "deviated-spikemato",
+    "name": "Deviated Spikemato",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Spikemato — Epic Food. +5 Energy, -100 Sanity.",
+    "description": "Once Human Deviated Spikemato — Epic Food. +5 Energy, -100 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102921.png",
+    "url": "https://www.oncehumandb.com/items/deviated-spikemato",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-sunny-ginger",
+    "slug": "deviated-sunny-ginger",
+    "name": "Deviated Sunny Ginger",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Sunny Ginger — Epic Food. +5 Energy, -100 Sanity.",
+    "description": "Once Human Deviated Sunny Ginger — Epic Food. +5 Energy, -100 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102924.png",
+    "url": "https://www.oncehumandb.com/items/deviated-sunny-ginger",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-tomato",
+    "slug": "deviated-tomato",
+    "name": "Deviated Tomato",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Tomato — Legendary Food. +5 Energy, -100 Sanity.",
+    "description": "Once Human Deviated Tomato — Legendary Food. +5 Energy, -100 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102917.png",
+    "url": "https://www.oncehumandb.com/items/deviated-tomato",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-wheat",
+    "slug": "deviated-wheat",
+    "name": "Deviated Wheat",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Wheat — Epic Food. +5 Energy, -100 Sanity.",
+    "description": "Once Human Deviated Wheat — Epic Food. +5 Energy, -100 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102902.png",
+    "url": "https://www.oncehumandb.com/items/deviated-wheat",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "deviated-yellow-lotus",
+    "slug": "deviated-yellow-lotus",
+    "name": "Deviated Yellow Lotus",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Deviated Yellow Lotus — Epic Food. A pale yellow flower with a wondrous fragrance, native to shallow waters and marshes. It is both a cooking...",
+    "description": "Once Human Deviated Yellow Lotus — Epic Food. A pale yellow flower with a wondrous fragrance, native to shallow waters and marshes. It is both a cooking...",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30103908.png",
+    "url": "https://www.oncehumandb.com/items/deviated-yellow-lotus",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "exquisite-fish-flavored-fried-eggs",
+    "slug": "exquisite-fish-flavored-fried-eggs",
+    "name": "Exquisite Fish-Flavored Fried Eggs",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Exquisite Fish-Flavored Fried Eggs — Epic Creative Cuisine. +80 Energy.",
+    "description": "Once Human Exquisite Fish-Flavored Fried Eggs — Epic Creative Cuisine. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111222.png",
+    "url": "https://www.oncehumandb.com/items/exquisite-fish-flavored-fried-eggs",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "exquisite-fruit-and-roasted-meat-skewer",
+    "slug": "exquisite-fruit-and-roasted-meat-skewer",
+    "name": "Exquisite Fruit and Roasted Meat Skewer",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Exquisite Fruit and Roasted Meat Skewer — Epic Creative Cuisine. +80 Energy.",
+    "description": "Once Human Exquisite Fruit and Roasted Meat Skewer — Epic Creative Cuisine. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111050.png",
+    "url": "https://www.oncehumandb.com/items/exquisite-fruit-and-roasted-meat-skewer",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "exquisite-grilled-fish-skewer",
+    "slug": "exquisite-grilled-fish-skewer",
+    "name": "Exquisite Grilled Fish Skewer",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Exquisite Grilled Fish Skewer — Epic Creative Cuisine. +80 Energy.",
+    "description": "Once Human Exquisite Grilled Fish Skewer — Epic Creative Cuisine. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111063.png",
+    "url": "https://www.oncehumandb.com/items/exquisite-grilled-fish-skewer",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "exquisite-land-sea-skewer",
+    "slug": "exquisite-land-sea-skewer",
+    "name": "Exquisite Land & Sea Skewer",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Exquisite Land & Sea Skewer — Epic Creative Cuisine. +80 Energy.",
+    "description": "Once Human Exquisite Land & Sea Skewer — Epic Creative Cuisine. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111047.png",
+    "url": "https://www.oncehumandb.com/items/exquisite-land-sea-skewer",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "exquisite-mixed-vegetable-grilled-fish-skewer",
+    "slug": "exquisite-mixed-vegetable-grilled-fish-skewer",
+    "name": "Exquisite Mixed Vegetable Grilled Fish Skewer",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Exquisite Mixed Vegetable Grilled Fish Skewer — Epic Creative Cuisine. +80 Energy.",
+    "description": "Once Human Exquisite Mixed Vegetable Grilled Fish Skewer — Epic Creative Cuisine. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111219.png",
+    "url": "https://www.oncehumandb.com/items/exquisite-mixed-vegetable-grilled-fish-skewer",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "exquisite-mixed-vegetable-roasted-meat-skewer",
+    "slug": "exquisite-mixed-vegetable-roasted-meat-skewer",
+    "name": "Exquisite Mixed Vegetable Roasted Meat Skewer",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Exquisite Mixed Vegetable Roasted Meat Skewer — Epic Creative Cuisine. +80 Energy.",
+    "description": "Once Human Exquisite Mixed Vegetable Roasted Meat Skewer — Epic Creative Cuisine. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111208.png",
+    "url": "https://www.oncehumandb.com/items/exquisite-mixed-vegetable-roasted-meat-skewer",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "exquisite-mixed-vegetable-skewer",
+    "slug": "exquisite-mixed-vegetable-skewer",
+    "name": "Exquisite Mixed Vegetable Skewer",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Exquisite Mixed Vegetable Skewer — Epic Creative Cuisine. +80 Energy.",
+    "description": "Once Human Exquisite Mixed Vegetable Skewer — Epic Creative Cuisine. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111085.png",
+    "url": "https://www.oncehumandb.com/items/exquisite-mixed-vegetable-skewer",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "exquisite-roasted-meat-skewer",
+    "slug": "exquisite-roasted-meat-skewer",
+    "name": "Exquisite Roasted Meat Skewer",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Exquisite Roasted Meat Skewer — Epic Creative Cuisine. +80 Energy.",
+    "description": "Once Human Exquisite Roasted Meat Skewer — Epic Creative Cuisine. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111044.png",
+    "url": "https://www.oncehumandb.com/items/exquisite-roasted-meat-skewer",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "exquisite-vegetable-grilled-fish-skewer",
+    "slug": "exquisite-vegetable-grilled-fish-skewer",
+    "name": "Exquisite Vegetable Grilled Fish Skewer",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Exquisite Vegetable Grilled Fish Skewer — Epic Creative Cuisine. +80 Energy.",
+    "description": "Once Human Exquisite Vegetable Grilled Fish Skewer — Epic Creative Cuisine. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111067.png",
+    "url": "https://www.oncehumandb.com/items/exquisite-vegetable-grilled-fish-skewer",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "exquisite-vegetable-skewer",
+    "slug": "exquisite-vegetable-skewer",
+    "name": "Exquisite Vegetable Skewer",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Exquisite Vegetable Skewer — Epic Creative Cuisine. +80 Energy.",
+    "description": "Once Human Exquisite Vegetable Skewer — Epic Creative Cuisine. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111082.png",
+    "url": "https://www.oncehumandb.com/items/exquisite-vegetable-skewer",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "exquisite-veggie-roasted-meat-skewer",
+    "slug": "exquisite-veggie-roasted-meat-skewer",
+    "name": "Exquisite Veggie Roasted Meat Skewer",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Exquisite Veggie Roasted Meat Skewer — Epic Creative Cuisine. +80 Energy.",
+    "description": "Once Human Exquisite Veggie Roasted Meat Skewer — Epic Creative Cuisine. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111053.png",
+    "url": "https://www.oncehumandb.com/items/exquisite-veggie-roasted-meat-skewer",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "exquisite-wild-vegetable-grilled-fish-skewer",
+    "slug": "exquisite-wild-vegetable-grilled-fish-skewer",
+    "name": "Exquisite Wild Vegetable Grilled Fish Skewer",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Exquisite Wild Vegetable Grilled Fish Skewer — Epic Creative Cuisine. +80 Energy.",
+    "description": "Once Human Exquisite Wild Vegetable Grilled Fish Skewer — Epic Creative Cuisine. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111070.png",
+    "url": "https://www.oncehumandb.com/items/exquisite-wild-vegetable-grilled-fish-skewer",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "exquisite-wild-vegetable-roasted-meat-skewer",
+    "slug": "exquisite-wild-vegetable-roasted-meat-skewer",
+    "name": "Exquisite Wild Vegetable Roasted Meat Skewer",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Exquisite Wild Vegetable Roasted Meat Skewer — Epic Creative Cuisine. +80 Energy.",
+    "description": "Once Human Exquisite Wild Vegetable Roasted Meat Skewer — Epic Creative Cuisine. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111056.png",
+    "url": "https://www.oncehumandb.com/items/exquisite-wild-vegetable-roasted-meat-skewer",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "exquisite-wild-vegetable-skewer",
+    "slug": "exquisite-wild-vegetable-skewer",
+    "name": "Exquisite Wild Vegetable Skewer",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Exquisite Wild Vegetable Skewer — Epic Creative Cuisine. +80 Energy.",
+    "description": "Once Human Exquisite Wild Vegetable Skewer — Epic Creative Cuisine. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111091.png",
+    "url": "https://www.oncehumandb.com/items/exquisite-wild-vegetable-skewer",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "fantasy-truffle",
+    "slug": "fantasy-truffle",
+    "name": "Fantasy Truffle",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.01,
+    "effect": "Once Human Fantasy Truffle — Legendary Food. +10 Energy.",
+    "description": "Once Human Fantasy Truffle — Legendary Food. +10 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102928.png",
+    "url": "https://www.oncehumandb.com/items/fantasy-truffle",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "fat-burning-juice",
+    "slug": "fat-burning-juice",
+    "name": "Fat-Burning Juice",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.05,
+    "effect": "Once Human Fat-Burning Juice — Legendary Food. +100 Hydration.",
+    "description": "Once Human Fat-Burning Juice — Legendary Food. +100 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110348.png",
+    "url": "https://www.oncehumandb.com/items/fat-burning-juice",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.05 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "fiery-meat-skewer",
+    "slug": "fiery-meat-skewer",
+    "name": "Fiery Meat Skewer",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Fiery Meat Skewer — Epic Food. +80 Energy.",
+    "description": "Once Human Fiery Meat Skewer — Epic Food. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110363.png",
+    "url": "https://www.oncehumandb.com/items/fiery-meat-skewer",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "fine-turtle-meat",
+    "slug": "fine-turtle-meat",
+    "name": "Fine Turtle Meat",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Fine Turtle Meat — Legendary Food. +20 Energy.",
+    "description": "Once Human Fine Turtle Meat — Legendary Food. +20 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30101028.png",
+    "url": "https://www.oncehumandb.com/items/fine-turtle-meat",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "fish-chips",
+    "slug": "fish-chips",
+    "name": "Fish & Chips",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.1,
+    "effect": "Once Human Fish & Chips — Legendary Food. +100 Energy.",
+    "description": "Once Human Fish & Chips — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110327.png",
+    "url": "https://www.oncehumandb.com/items/fish-chips",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "flaming-eggtart",
+    "slug": "flaming-eggtart",
+    "name": "Flaming Eggtart",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Flaming Eggtart — Legendary Food. +100 Energy.",
+    "description": "Once Human Flaming Eggtart — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110376.png",
+    "url": "https://www.oncehumandb.com/items/flaming-eggtart",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "fluffy-sweet",
+    "slug": "fluffy-sweet",
+    "name": "Fluffy Sweet",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Fluffy Sweet — Epic Food. +100 Energy.",
+    "description": "Once Human Fluffy Sweet — Epic Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110390.png",
+    "url": "https://www.oncehumandb.com/items/fluffy-sweet",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "french-fries",
+    "slug": "french-fries",
+    "name": "French Fries",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human French Fries — Epic Food. +100 Energy.",
+    "description": "Once Human French Fries — Epic Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110206.png",
+    "url": "https://www.oncehumandb.com/items/french-fries",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "fruit-cake",
+    "slug": "fruit-cake",
+    "name": "Fruit Cake",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Fruit Cake — Epic Food. +80 Energy.",
+    "description": "Once Human Fruit Cake — Epic Food. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110367.png",
+    "url": "https://www.oncehumandb.com/items/fruit-cake",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "fruity-pancake",
+    "slug": "fruity-pancake",
+    "name": "Fruity Pancake",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Fruity Pancake — Epic Food. +50 Energy, +80 Hydration.",
+    "description": "Once Human Fruity Pancake — Epic Food. +50 Energy, +80 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110202.png",
+    "url": "https://www.oncehumandb.com/items/fruity-pancake",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "fruity-sanity-capsule",
+    "slug": "fruity-sanity-capsule",
+    "name": "Fruity Sanity Capsule",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Fruity Sanity Capsule — Epic Food. +150 Sanity.",
+    "description": "Once Human Fruity Sanity Capsule — Epic Food. +150 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110302.png",
+    "url": "https://www.oncehumandb.com/items/fruity-sanity-capsule",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "ghoul-cookies",
+    "slug": "ghoul-cookies",
+    "name": "Ghoul Cookies",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Ghoul Cookies — Legendary Food. +100 Energy.",
+    "description": "Once Human Ghoul Cookies — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110347.png",
+    "url": "https://www.oncehumandb.com/items/ghoul-cookies",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "ginger-poppers",
+    "slug": "ginger-poppers",
+    "name": "Ginger Poppers",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Ginger Poppers — Legendary Food. +100 Energy.",
+    "description": "Once Human Ginger Poppers — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110377.png",
+    "url": "https://www.oncehumandb.com/items/ginger-poppers",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "gingerdrop",
+    "slug": "gingerdrop",
+    "name": "Gingerdrop",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Gingerdrop — Legendary Food. +100 Energy.",
+    "description": "Once Human Gingerdrop — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110378.png",
+    "url": "https://www.oncehumandb.com/items/gingerdrop",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "hearty-meat-stew",
+    "slug": "hearty-meat-stew",
+    "name": "Hearty Meat Stew",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Hearty Meat Stew — Legendary Food. +100 Energy, +100 Hydration.",
+    "description": "Once Human Hearty Meat Stew — Legendary Food. +100 Energy, +100 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110380.png",
+    "url": "https://www.oncehumandb.com/items/hearty-meat-stew",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "honey",
+    "slug": "honey",
+    "name": "Honey",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Honey — Epic Food. +300 Sanity.",
+    "description": "Once Human Honey — Epic Food. +300 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30104012.png",
+    "url": "https://www.oncehumandb.com/items/honey",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "honey-glazed-meat",
+    "slug": "honey-glazed-meat",
+    "name": "Honey Glazed Meat",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Honey Glazed Meat — Legendary Food. +100 Energy, +100 Hydration.",
+    "description": "Once Human Honey Glazed Meat — Legendary Food. +100 Energy, +100 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110305.png",
+    "url": "https://www.oncehumandb.com/items/honey-glazed-meat",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "hug-in-a-bowl",
+    "slug": "hug-in-a-bowl",
+    "name": "Hug-in-a-Bowl",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Hug-in-a-Bowl — Epic Food. +100 Energy, +100 Hydration.",
+    "description": "Once Human Hug-in-a-Bowl — Epic Food. +100 Energy, +100 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30119997.png",
+    "url": "https://www.oncehumandb.com/items/hug-in-a-bowl",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "ice-tea",
+    "slug": "ice-tea",
+    "name": "Ice Tea",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.05,
+    "effect": "Once Human Ice Tea — Epic Food. +80 Hydration.",
+    "description": "Once Human Ice Tea — Epic Food. +80 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110334.png",
+    "url": "https://www.oncehumandb.com/items/ice-tea",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.05 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "iced-mint-tea",
+    "slug": "iced-mint-tea",
+    "name": "Iced Mint Tea",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Iced Mint Tea — Epic Food. +80 Hydration.",
+    "description": "Once Human Iced Mint Tea — Epic Food. +80 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110364.png",
+    "url": "https://www.oncehumandb.com/items/iced-mint-tea",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "layered-galaxy",
+    "slug": "layered-galaxy",
+    "name": "Layered Galaxy",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.1,
+    "effect": "Once Human Layered Galaxy — Legendary Food. +100 Energy.",
+    "description": "Once Human Layered Galaxy — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110389.png",
+    "url": "https://www.oncehumandb.com/items/layered-galaxy",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "lunar-gummy",
+    "slug": "lunar-gummy",
+    "name": "Lunar Gummy",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Lunar Gummy — Epic Food. +50 Energy, -300 Sanity.",
+    "description": "Once Human Lunar Gummy — Epic Food. +50 Energy, -300 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110384.png",
+    "url": "https://www.oncehumandb.com/items/lunar-gummy",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "luxury-all-fish-feast",
+    "slug": "luxury-all-fish-feast",
+    "name": "Luxury All-Fish Feast",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Luxury All-Fish Feast — Epic Creative Cuisine. +80 Energy.",
+    "description": "Once Human Luxury All-Fish Feast — Epic Creative Cuisine. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111172.png",
+    "url": "https://www.oncehumandb.com/items/luxury-all-fish-feast",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "luxury-all-meat-feast",
+    "slug": "luxury-all-meat-feast",
+    "name": "Luxury All-Meat Feast",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Luxury All-Meat Feast — Epic Creative Cuisine. +80 Energy.",
+    "description": "Once Human Luxury All-Meat Feast — Epic Creative Cuisine. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111170.png",
+    "url": "https://www.oncehumandb.com/items/luxury-all-meat-feast",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "malt-ale",
+    "slug": "malt-ale",
+    "name": "Malt Ale",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Malt Ale — Epic Food. +100 Hydration.",
+    "description": "Once Human Malt Ale — Epic Food. +100 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110113.png",
+    "url": "https://www.oncehumandb.com/items/malt-ale",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "marbled-beef",
+    "slug": "marbled-beef",
+    "name": "Marbled Beef",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Marbled Beef — Legendary Food. +10 Energy, -300 Sanity.",
+    "description": "Once Human Marbled Beef — Legendary Food. +10 Energy, -300 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30101125.png",
+    "url": "https://www.oncehumandb.com/items/marbled-beef",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "minty-meat-salad",
+    "slug": "minty-meat-salad",
+    "name": "Minty Meat Salad",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Minty Meat Salad — Epic Food. +80 Energy.",
+    "description": "Once Human Minty Meat Salad — Epic Food. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110361.png",
+    "url": "https://www.oncehumandb.com/items/minty-meat-salad",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "minty-tartare",
+    "slug": "minty-tartare",
+    "name": "Minty Tartare",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Minty Tartare — Epic Food. +80 Energy.",
+    "description": "Once Human Minty Tartare — Epic Food. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110362.png",
+    "url": "https://www.oncehumandb.com/items/minty-tartare",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "miracle-recovery-milk",
+    "slug": "miracle-recovery-milk",
+    "name": "Miracle Recovery Milk",
+    "category": "Creative Beverages",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Miracle Recovery Milk — Epic Creative Beverages. +80 Hydration.",
+    "description": "Once Human Miracle Recovery Milk — Epic Creative Beverages. +80 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111176.png",
+    "url": "https://www.oncehumandb.com/items/miracle-recovery-milk",
+    "properties": {
+      "Category": "Creative Beverages",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "miracle-tea",
+    "slug": "miracle-tea",
+    "name": "Miracle Tea",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Miracle Tea — Legendary Food. +100 Hydration.",
+    "description": "Once Human Miracle Tea — Legendary Food. +100 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110343.png",
+    "url": "https://www.oncehumandb.com/items/miracle-tea",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "mixed-fried-hot-dog",
+    "slug": "mixed-fried-hot-dog",
+    "name": "Mixed Fried Hot Dog",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.2,
+    "effect": "Once Human Mixed Fried Hot Dog — Epic Food. +100 Energy.",
+    "description": "Once Human Mixed Fried Hot Dog — Epic Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110328.png",
+    "url": "https://www.oncehumandb.com/items/mixed-fried-hot-dog",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "mixed-fruit-pie",
+    "slug": "mixed-fruit-pie",
+    "name": "Mixed Fruit Pie",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Mixed Fruit Pie — Epic Food. +80 Energy.",
+    "description": "Once Human Mixed Fruit Pie — Epic Food. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110368.png",
+    "url": "https://www.oncehumandb.com/items/mixed-fruit-pie",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "nalcott-easter-egg",
+    "slug": "nalcott-easter-egg",
+    "name": "Nalcott Easter Egg",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Nalcott Easter Egg — Legendary Food. +100 Energy, +100 Hydration, -500 Sanity.",
+    "description": "Once Human Nalcott Easter Egg — Legendary Food. +100 Energy, +100 Hydration, -500 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30119998.png",
+    "url": "https://www.oncehumandb.com/items/nalcott-easter-egg",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "nectar-honey",
+    "slug": "nectar-honey",
+    "name": "Nectar Honey",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.01,
+    "effect": "Once Human Nectar Honey — Legendary Food. +500 Sanity.",
+    "description": "Once Human Nectar Honey — Legendary Food. +500 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30104904.png",
+    "url": "https://www.oncehumandb.com/items/nectar-honey",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "nut-jam",
+    "slug": "nut-jam",
+    "name": "Nut Jam",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Nut Jam — Epic Food. +30 Energy.",
+    "description": "Once Human Nut Jam — Epic Food. +30 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30104014.png",
+    "url": "https://www.oncehumandb.com/items/nut-jam",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "popcorn",
+    "slug": "popcorn",
+    "name": "Popcorn",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Popcorn — Legendary Food. +100 Energy.",
+    "description": "Once Human Popcorn — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110375.png",
+    "url": "https://www.oncehumandb.com/items/popcorn",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "preserved-deviated-chops",
+    "slug": "preserved-deviated-chops",
+    "name": "Preserved Deviated Chops",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Preserved Deviated Chops — Epic Food. +100 Energy.",
+    "description": "Once Human Preserved Deviated Chops — Epic Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110314.png",
+    "url": "https://www.oncehumandb.com/items/preserved-deviated-chops",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "pristine-bear-meat",
+    "slug": "pristine-bear-meat",
+    "name": "Pristine Bear Meat",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Pristine Bear Meat — Legendary Food. +20 Energy.",
+    "description": "Once Human Pristine Bear Meat — Legendary Food. +20 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30101019.png",
+    "url": "https://www.oncehumandb.com/items/pristine-bear-meat",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "pristine-beast-meat",
+    "slug": "pristine-beast-meat",
+    "name": "Pristine Beast Meat",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Pristine Beast Meat — Legendary Food. +20 Energy.",
+    "description": "Once Human Pristine Beast Meat — Legendary Food. +20 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30101015.png",
+    "url": "https://www.oncehumandb.com/items/pristine-beast-meat",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "pristine-beef",
+    "slug": "pristine-beef",
+    "name": "Pristine Beef",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Pristine Beef — Legendary Food. +20 Energy.",
+    "description": "Once Human Pristine Beef — Legendary Food. +20 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30101025.png",
+    "url": "https://www.oncehumandb.com/items/pristine-beef",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "pristine-cow-milk",
+    "slug": "pristine-cow-milk",
+    "name": "Pristine Cow Milk",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.2,
+    "effect": "Once Human Pristine Cow Milk — Epic Food. +20 Hydration.",
+    "description": "Once Human Pristine Cow Milk — Epic Food. +20 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30100100.png",
+    "url": "https://www.oncehumandb.com/items/pristine-cow-milk",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "pristine-crocodile-meat",
+    "slug": "pristine-crocodile-meat",
+    "name": "Pristine Crocodile Meat",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Pristine Crocodile Meat — Legendary Food. +20 Energy.",
+    "description": "Once Human Pristine Crocodile Meat — Legendary Food. +20 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30101020.png",
+    "url": "https://www.oncehumandb.com/items/pristine-crocodile-meat",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "pristine-deer-meat",
+    "slug": "pristine-deer-meat",
+    "name": "Pristine Deer Meat",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Pristine Deer Meat — Legendary Food. +20 Energy.",
+    "description": "Once Human Pristine Deer Meat — Legendary Food. +20 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30101014.png",
+    "url": "https://www.oncehumandb.com/items/pristine-deer-meat",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "pristine-deer-milk",
+    "slug": "pristine-deer-milk",
+    "name": "Pristine Deer Milk",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.2,
+    "effect": "Once Human Pristine Deer Milk — Epic Food. +20 Hydration.",
+    "description": "Once Human Pristine Deer Milk — Epic Food. +20 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30100098.png",
+    "url": "https://www.oncehumandb.com/items/pristine-deer-milk",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "pristine-egg",
+    "slug": "pristine-egg",
+    "name": "Pristine Egg",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.2,
+    "effect": "Once Human Pristine Egg — Epic Food. +20 Energy.",
+    "description": "Once Human Pristine Egg — Epic Food. +20 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30100101.png",
+    "url": "https://www.oncehumandb.com/items/pristine-egg",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "pristine-goat-meat",
+    "slug": "pristine-goat-meat",
+    "name": "Pristine Goat Meat",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Pristine Goat Meat — Legendary Food. +20 Energy.",
+    "description": "Once Human Pristine Goat Meat — Legendary Food. +20 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30101017.png",
+    "url": "https://www.oncehumandb.com/items/pristine-goat-meat",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "pristine-goat-milk",
+    "slug": "pristine-goat-milk",
+    "name": "Pristine Goat Milk",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.2,
+    "effect": "Once Human Pristine Goat Milk — Epic Food. +20 Hydration.",
+    "description": "Once Human Pristine Goat Milk — Epic Food. +20 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30100099.png",
+    "url": "https://www.oncehumandb.com/items/pristine-goat-milk",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "pristine-horse-meat",
+    "slug": "pristine-horse-meat",
+    "name": "Pristine Horse Meat",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Pristine Horse Meat — Legendary Food. +20 Energy.",
+    "description": "Once Human Pristine Horse Meat — Legendary Food. +20 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30101024.png",
+    "url": "https://www.oncehumandb.com/items/pristine-horse-meat",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "pristine-pork",
+    "slug": "pristine-pork",
+    "name": "Pristine Pork",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Pristine Pork — Legendary Food. +20 Energy.",
+    "description": "Once Human Pristine Pork — Legendary Food. +20 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30101018.png",
+    "url": "https://www.oncehumandb.com/items/pristine-pork",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "pristine-poultry",
+    "slug": "pristine-poultry",
+    "name": "Pristine Poultry",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Pristine Poultry — Legendary Food. +20 Energy.",
+    "description": "Once Human Pristine Poultry — Legendary Food. +20 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30101021.png",
+    "url": "https://www.oncehumandb.com/items/pristine-poultry",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "pristine-rabbit-meat",
+    "slug": "pristine-rabbit-meat",
+    "name": "Pristine Rabbit Meat",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Pristine Rabbit Meat — Legendary Food. +20 Energy.",
+    "description": "Once Human Pristine Rabbit Meat — Legendary Food. +20 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30101016.png",
+    "url": "https://www.oncehumandb.com/items/pristine-rabbit-meat",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "rich-land-sea-fruit-platter",
+    "slug": "rich-land-sea-fruit-platter",
+    "name": "Rich Land & Sea Fruit Platter",
+    "category": "Creative Cuisine",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Rich Land & Sea Fruit Platter — Epic Creative Cuisine. +80 Energy, +80 Hydration.",
+    "description": "Once Human Rich Land & Sea Fruit Platter — Epic Creative Cuisine. +80 Energy, +80 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111194.png",
+    "url": "https://www.oncehumandb.com/items/rich-land-sea-fruit-platter",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "rock-salt",
+    "slug": "rock-salt",
+    "name": "Rock Salt",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Rock Salt — Epic Food. -10 Hydration.",
+    "description": "Once Human Rock Salt — Epic Food. -10 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30104013.png",
+    "url": "https://www.oncehumandb.com/items/rock-salt",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "roulette-dumplings",
+    "slug": "roulette-dumplings",
+    "name": "Roulette Dumplings",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.1,
+    "effect": "Once Human Roulette Dumplings — Legendary Food. +100 Energy.",
+    "description": "Once Human Roulette Dumplings — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110386.png",
+    "url": "https://www.oncehumandb.com/items/roulette-dumplings",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "safety-sandwich",
+    "slug": "safety-sandwich",
+    "name": "Safety Sandwich",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Safety Sandwich — Legendary Food. +100 Energy.",
+    "description": "Once Human Safety Sandwich — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110346.png",
+    "url": "https://www.oncehumandb.com/items/safety-sandwich",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "seafood-and-meat-platter",
+    "slug": "seafood-and-meat-platter",
+    "name": "Seafood and Meat Platter",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Seafood and Meat Platter — Legendary Food. +100 Energy.",
+    "description": "Once Human Seafood and Meat Platter — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110372.png",
+    "url": "https://www.oncehumandb.com/items/seafood-and-meat-platter",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "securement-soup",
+    "slug": "securement-soup",
+    "name": "Securement Soup",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Securement Soup — Legendary Food. +100 Hydration.",
+    "description": "Once Human Securement Soup — Legendary Food. +100 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110353.png",
+    "url": "https://www.oncehumandb.com/items/securement-soup",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "shellfish-meat",
+    "slug": "shellfish-meat",
+    "name": "Shellfish Meat",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.2,
+    "effect": "Once Human Shellfish Meat — Epic Food. +80 Energy.",
+    "description": "Once Human Shellfish Meat — Epic Food. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110342.png",
+    "url": "https://www.oncehumandb.com/items/shellfish-meat",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "signature-ice-brew",
+    "slug": "signature-ice-brew",
+    "name": "Signature Ice Brew",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Signature Ice Brew — Legendary Food. +100 Hydration, +125 Sanity.",
+    "description": "Once Human Signature Ice Brew — Legendary Food. +100 Hydration, +125 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110333.png",
+    "url": "https://www.oncehumandb.com/items/signature-ice-brew",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "snow-mushroom-fried-rice",
+    "slug": "snow-mushroom-fried-rice",
+    "name": "Snow Mushroom Fried Rice",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Snow Mushroom Fried Rice — Epic Food. +80 Energy.",
+    "description": "Once Human Snow Mushroom Fried Rice — Epic Food. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110370.png",
+    "url": "https://www.oncehumandb.com/items/snow-mushroom-fried-rice",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "source-of-deviation",
+    "slug": "source-of-deviation",
+    "name": "Source of Deviation",
+    "category": "Creative Cuisine",
+    "rarity": "legendary",
+    "weight": 0.1,
+    "effect": "Once Human Source of Deviation — Legendary Creative Cuisine. +100 Energy.",
+    "description": "Once Human Source of Deviation — Legendary Creative Cuisine. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111180.png",
+    "url": "https://www.oncehumandb.com/items/source-of-deviation",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "legendary",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "sparkling-pumpkin-soup",
+    "slug": "sparkling-pumpkin-soup",
+    "name": "Sparkling Pumpkin Soup",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Sparkling Pumpkin Soup — Legendary Food. +100 Hydration.",
+    "description": "Once Human Sparkling Pumpkin Soup — Legendary Food. +100 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110374.png",
+    "url": "https://www.oncehumandb.com/items/sparkling-pumpkin-soup",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "spectral-canned-mushroom",
+    "slug": "spectral-canned-mushroom",
+    "name": "Spectral Canned Mushroom",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Spectral Canned Mushroom — Legendary Food. +100 Hydration.",
+    "description": "Once Human Spectral Canned Mushroom — Legendary Food. +100 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110350.png",
+    "url": "https://www.oncehumandb.com/items/spectral-canned-mushroom",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "spicy-grilled-fish",
+    "slug": "spicy-grilled-fish",
+    "name": "Spicy Grilled Fish",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Spicy Grilled Fish — Epic Food. +80 Energy.",
+    "description": "Once Human Spicy Grilled Fish — Epic Food. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110360.png",
+    "url": "https://www.oncehumandb.com/items/spicy-grilled-fish",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "spicy-roasted-meat",
+    "slug": "spicy-roasted-meat",
+    "name": "Spicy Roasted Meat",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Spicy Roasted Meat — Epic Food. +80 Energy.",
+    "description": "Once Human Spicy Roasted Meat — Epic Food. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110366.png",
+    "url": "https://www.oncehumandb.com/items/spicy-roasted-meat",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "spicy-sizzling-meat",
+    "slug": "spicy-sizzling-meat",
+    "name": "Spicy Sizzling Meat",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.15,
+    "effect": "Once Human Spicy Sizzling Meat — Epic Food. +80 Energy.",
+    "description": "Once Human Spicy Sizzling Meat — Epic Food. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110359.png",
+    "url": "https://www.oncehumandb.com/items/spicy-sizzling-meat",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "stardust-corn-ale",
+    "slug": "stardust-corn-ale",
+    "name": "Stardust Corn Ale",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Stardust Corn Ale — Legendary Food. +100 Hydration, +125 Sanity.",
+    "description": "Once Human Stardust Corn Ale — Legendary Food. +100 Hydration, +125 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110355.png",
+    "url": "https://www.oncehumandb.com/items/stardust-corn-ale",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "stardust-deer-milk",
+    "slug": "stardust-deer-milk",
+    "name": "Stardust Deer Milk",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Stardust Deer Milk — Legendary Food. +20 Hydration.",
+    "description": "Once Human Stardust Deer Milk — Legendary Food. +20 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30100103.png",
+    "url": "https://www.oncehumandb.com/items/stardust-deer-milk",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "stardust-energy-drink",
+    "slug": "stardust-energy-drink",
+    "name": "Stardust Energy Drink",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.1,
+    "effect": "Once Human Stardust Energy Drink — Legendary Food. +100 Hydration.",
+    "description": "Once Human Stardust Energy Drink — Legendary Food. +100 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110301.png",
+    "url": "https://www.oncehumandb.com/items/stardust-energy-drink",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "stardust-goat-milk",
+    "slug": "stardust-goat-milk",
+    "name": "Stardust Goat Milk",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Stardust Goat Milk — Legendary Food. +20 Hydration.",
+    "description": "Once Human Stardust Goat Milk — Legendary Food. +20 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30100104.png",
+    "url": "https://www.oncehumandb.com/items/stardust-goat-milk",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "stardust-italian-soup-can",
+    "slug": "stardust-italian-soup-can",
+    "name": "Stardust Italian Soup Can",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.2,
+    "effect": "Once Human Stardust Italian Soup Can — Epic Food. +100 Energy, +30 Hydration.",
+    "description": "Once Human Stardust Italian Soup Can — Epic Food. +100 Energy, +30 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110331.png",
+    "url": "https://www.oncehumandb.com/items/stardust-italian-soup-can",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "stardust-malt-ale",
+    "slug": "stardust-malt-ale",
+    "name": "Stardust Malt Ale",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Stardust Malt Ale — Legendary Food. +100 Hydration, +125 Sanity.",
+    "description": "Once Human Stardust Malt Ale — Legendary Food. +100 Hydration, +125 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110354.png",
+    "url": "https://www.oncehumandb.com/items/stardust-malt-ale",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "stardust-milk",
+    "slug": "stardust-milk",
+    "name": "Stardust Milk",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Stardust Milk — Legendary Food. +20 Hydration.",
+    "description": "Once Human Stardust Milk — Legendary Food. +20 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30100105.png",
+    "url": "https://www.oncehumandb.com/items/stardust-milk",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "stardust-mushroom-soup",
+    "slug": "stardust-mushroom-soup",
+    "name": "Stardust Mushroom Soup",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Stardust Mushroom Soup — Epic Food. +80 Hydration, +100 Sanity.",
+    "description": "Once Human Stardust Mushroom Soup — Epic Food. +80 Hydration, +100 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110313.png",
+    "url": "https://www.oncehumandb.com/items/stardust-mushroom-soup",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "stardust-pumpkin-salad",
+    "slug": "stardust-pumpkin-salad",
+    "name": "Stardust Pumpkin Salad",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.2,
+    "effect": "Once Human Stardust Pumpkin Salad — Epic Food. +80 Energy.",
+    "description": "Once Human Stardust Pumpkin Salad — Epic Food. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110322.png",
+    "url": "https://www.oncehumandb.com/items/stardust-pumpkin-salad",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "stardust-pumpkin-soup",
+    "slug": "stardust-pumpkin-soup",
+    "name": "Stardust Pumpkin Soup",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Stardust Pumpkin Soup — Epic Food. +50 Energy, +100 Hydration.",
+    "description": "Once Human Stardust Pumpkin Soup — Epic Food. +50 Energy, +100 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110321.png",
+    "url": "https://www.oncehumandb.com/items/stardust-pumpkin-soup",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "stardust-raspberry-shaved-ice",
+    "slug": "stardust-raspberry-shaved-ice",
+    "name": "Stardust Raspberry Shaved Ice",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Stardust Raspberry Shaved Ice — Legendary Food. +100 Hydration, +125 Sanity.",
+    "description": "Once Human Stardust Raspberry Shaved Ice — Legendary Food. +100 Hydration, +125 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110332.png",
+    "url": "https://www.oncehumandb.com/items/stardust-raspberry-shaved-ice",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "stardust-ratatouille",
+    "slug": "stardust-ratatouille",
+    "name": "Stardust Ratatouille",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Stardust Ratatouille — Epic Food. +80 Energy.",
+    "description": "Once Human Stardust Ratatouille — Epic Food. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110304.png",
+    "url": "https://www.oncehumandb.com/items/stardust-ratatouille",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "stardust-salt",
+    "slug": "stardust-salt",
+    "name": "Stardust Salt",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.01,
+    "effect": "Once Human Stardust Salt — Legendary Food. -10 Hydration.",
+    "description": "Once Human Stardust Salt — Legendary Food. -10 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30104905.png",
+    "url": "https://www.oncehumandb.com/items/stardust-salt",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "stardust-tea",
+    "slug": "stardust-tea",
+    "name": "Stardust Tea",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.05,
+    "effect": "Once Human Stardust Tea — Epic Food. +100 Hydration.",
+    "description": "Once Human Stardust Tea — Epic Food. +100 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110320.png",
+    "url": "https://www.oncehumandb.com/items/stardust-tea",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.05 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "stargazy-pie",
+    "slug": "stargazy-pie",
+    "name": "Stargazy Pie",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.1,
+    "effect": "Once Human Stargazy Pie — Legendary Food. +100 Energy.",
+    "description": "Once Human Stargazy Pie — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110303.png",
+    "url": "https://www.oncehumandb.com/items/stargazy-pie",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "stargazy-pizza",
+    "slug": "stargazy-pizza",
+    "name": "Stargazy Pizza",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Stargazy Pizza — Legendary Food. +100 Energy.",
+    "description": "Once Human Stargazy Pizza — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110349.png",
+    "url": "https://www.oncehumandb.com/items/stargazy-pizza",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "starry-bubble-tea",
+    "slug": "starry-bubble-tea",
+    "name": "Starry Bubble Tea",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Starry Bubble Tea — Epic Food. +100 Hydration.",
+    "description": "Once Human Starry Bubble Tea — Epic Food. +100 Hydration.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110391.png",
+    "url": "https://www.oncehumandb.com/items/starry-bubble-tea",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "starry-pudding",
+    "slug": "starry-pudding",
+    "name": "Starry Pudding",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.1,
+    "effect": "Once Human Starry Pudding — Legendary Food. +100 Energy.",
+    "description": "Once Human Starry Pudding — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110388.png",
+    "url": "https://www.oncehumandb.com/items/starry-pudding",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "supreme-meat-platter",
+    "slug": "supreme-meat-platter",
+    "name": "Supreme Meat Platter",
+    "category": "Creative Cuisine",
+    "rarity": "legendary",
+    "weight": 0.1,
+    "effect": "Once Human Supreme Meat Platter — Legendary Creative Cuisine. +100 Energy.",
+    "description": "Once Human Supreme Meat Platter — Legendary Creative Cuisine. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111177.png",
+    "url": "https://www.oncehumandb.com/items/supreme-meat-platter",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "legendary",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "supreme-vegetable-platter",
+    "slug": "supreme-vegetable-platter",
+    "name": "Supreme Vegetable Platter",
+    "category": "Creative Cuisine",
+    "rarity": "legendary",
+    "weight": 0.1,
+    "effect": "Once Human Supreme Vegetable Platter — Legendary Creative Cuisine. +100 Energy.",
+    "description": "Once Human Supreme Vegetable Platter — Legendary Creative Cuisine. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111178.png",
+    "url": "https://www.oncehumandb.com/items/supreme-vegetable-platter",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "legendary",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "supreme-wild-vegetable-platter",
+    "slug": "supreme-wild-vegetable-platter",
+    "name": "Supreme Wild Vegetable Platter",
+    "category": "Creative Cuisine",
+    "rarity": "legendary",
+    "weight": 0.1,
+    "effect": "Once Human Supreme Wild Vegetable Platter — Legendary Creative Cuisine. +100 Energy.",
+    "description": "Once Human Supreme Wild Vegetable Platter — Legendary Creative Cuisine. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111179.png",
+    "url": "https://www.oncehumandb.com/items/supreme-wild-vegetable-platter",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "legendary",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "surprise-spring-roll",
+    "slug": "surprise-spring-roll",
+    "name": "Surprise Spring Roll",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.1,
+    "effect": "Once Human Surprise Spring Roll — Legendary Food. +100 Energy.",
+    "description": "Once Human Surprise Spring Roll — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110385.png",
+    "url": "https://www.oncehumandb.com/items/surprise-spring-roll",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "taco",
+    "slug": "taco",
+    "name": "Taco",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.1,
+    "effect": "Once Human Taco — Epic Food. +80 Energy.",
+    "description": "Once Human Taco — Epic Food. +80 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110307.png",
+    "url": "https://www.oncehumandb.com/items/taco",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "truffle",
+    "slug": "truffle",
+    "name": "Truffle",
+    "category": "Food",
+    "rarity": "epic",
+    "weight": 0.01,
+    "effect": "Once Human Truffle — Epic Food. +10 Energy.",
+    "description": "Once Human Truffle — Epic Food. +10 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30102029.png",
+    "url": "https://www.oncehumandb.com/items/truffle",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "epic",
+      "Weight": "0.01 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "ultraman",
+    "slug": "ultraman",
+    "name": "Ultraman",
+    "category": "Creative Cuisine",
+    "rarity": "legendary",
+    "weight": 0.1,
+    "effect": "Once Human Ultraman — Legendary Creative Cuisine. +100 Energy.",
+    "description": "Once Human Ultraman — Legendary Creative Cuisine. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30111181.png",
+    "url": "https://www.oncehumandb.com/items/ultraman",
+    "properties": {
+      "Category": "Creative Cuisine",
+      "Rarity": "legendary",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "unusual-braised-meat",
+    "slug": "unusual-braised-meat",
+    "name": "Unusual Braised Meat",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.1,
+    "effect": "Once Human Unusual Braised Meat — Legendary Food. +100 Energy.",
+    "description": "Once Human Unusual Braised Meat — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110387.png",
+    "url": "https://www.oncehumandb.com/items/unusual-braised-meat",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.1 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "whimsical-drink",
+    "slug": "whimsical-drink",
+    "name": "Whimsical Drink",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.2,
+    "effect": "Once Human Whimsical Drink — Legendary Food. +100 Hydration, +125 Sanity.",
+    "description": "Once Human Whimsical Drink — Legendary Food. +100 Hydration, +125 Sanity.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110344.png",
+    "url": "https://www.oncehumandb.com/items/whimsical-drink",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.2 kg",
+      "Stack Size": "100"
+    }
+  },
+  {
+    "id": "yuanbao-dumplings",
+    "slug": "yuanbao-dumplings",
+    "name": "Yuanbao Dumplings",
+    "category": "Food",
+    "rarity": "legendary",
+    "weight": 0.15,
+    "effect": "Once Human Yuanbao Dumplings — Legendary Food. +100 Energy.",
+    "description": "Once Human Yuanbao Dumplings — Legendary Food. +100 Energy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/entities/30110352.png",
+    "url": "https://www.oncehumandb.com/items/yuanbao-dumplings",
+    "properties": {
+      "Category": "Food",
+      "Rarity": "legendary",
+      "Weight": "0.15 kg",
+      "Stack Size": "100"
+    }
+  }
+]

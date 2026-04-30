@@ -1,0 +1,1532 @@
+[
+  {
+    "id": "advantage-barrier",
+    "slug": "advantage-barrier",
+    "name": "Advantage Barrier",
+    "style": "Scenario",
+    "effect": "Hitting Weakspots or reloading grants a shield equal to 30% of max HP. While the shield is active, Weapon DMG Reduction +15%. Cooldown: 30s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_dkqx.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/advantage-barrier"
+  },
+  {
+    "id": "aerial-suppression",
+    "slug": "aerial-suppression",
+    "name": "Aerial Suppression",
+    "style": "Combat",
+    "effect": "While airborne, DMG received from monsters is reduced by 30%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_dxlfy.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/aerial-suppression"
+  },
+  {
+    "id": "agility",
+    "slug": "agility",
+    "name": "Agility",
+    "style": "Combat",
+    "effect": "After rolling, Weapon DMG Reduction/n+15% and Status DMG Reduction +15% for 4s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_lq.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/agility"
+  },
+  {
+    "id": "ammo-cascade-3008",
+    "slug": "ammo-cascade-3008",
+    "name": "Ammo Cascade",
+    "style": "Combat",
+    "effect": "After performing a successful backstab/execution/impact, Melee DMG +0.3% and Movement Speed +0.1% for 10s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jzshts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/ammo-cascade-3008"
+  },
+  {
+    "id": "ammo-cascade",
+    "slug": "ammo-cascade",
+    "name": "Ammo Cascade",
+    "style": "Gunplay",
+    "effect": "Reloading grants Crit DMG +0.45% for 3 seconds",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_hdbj.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/ammo-cascade"
+  },
+  {
+    "id": "anti-coherence",
+    "slug": "anti-coherence",
+    "name": "Anti-Coherence",
+    "style": "Combat",
+    "effect": "When using pistols, light machine guns, or melee weapons, DMG +15%, with an additional 100% DMG against Super Anomaly - Coherence.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sqzt.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/anti-coherence"
+  },
+  {
+    "id": "anti-coherence-crossbow",
+    "slug": "anti-coherence-crossbow",
+    "name": "Anti-Coherence: Crossbow",
+    "style": "Scenario",
+    "effect": "Crossbows deal 100% DMG to Super Anomaly - Coherence.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_gnsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/anti-coherence-crossbow"
+  },
+  {
+    "id": "anti-coherence-pistol",
+    "slug": "anti-coherence-pistol",
+    "name": "Anti-Coherence: Pistol",
+    "style": "Scenario",
+    "effect": "Pistols deal 100% DMG to Super Anomaly- Coherence.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sqzt.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/anti-coherence-pistol"
+  },
+  {
+    "id": "anti-phase",
+    "slug": "anti-phase",
+    "name": "Anti-Phase",
+    "style": "Combat",
+    "effect": "When using sniper rifles, SMGs, or crossbows, DMG +15%, with an additional 100% DMG against Super Anomaly - Phase.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jjqcfjl.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/anti-phase"
+  },
+  {
+    "id": "anti-phase-smg",
+    "slug": "anti-phase-smg",
+    "name": "Anti-Phase: SMG",
+    "style": "Scenario",
+    "effect": "SMGs deal 100% damage to Super Anomaly - Phase.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_cfqzt.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/anti-phase-smg"
+  },
+  {
+    "id": "anti-phase-sniper-rifle",
+    "slug": "anti-phase-sniper-rifle",
+    "name": "Anti-Phase: Sniper Rifle",
+    "style": "Scenario",
+    "effect": "Sniper Rifles deal 100% DMG to Super Anomaly - Phase.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jjqcfjl.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/anti-phase-sniper-rifle"
+  },
+  {
+    "id": "anti-regen",
+    "slug": "anti-regen",
+    "name": "Anti-Regen",
+    "style": "Combat",
+    "effect": "When using pistols, light machine guns, or melee weapons, DMG +15%, with an additional 100% DMG against Super Anomaly - Regen.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sqzt.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/anti-regen"
+  },
+  {
+    "id": "anti-regen-pistol",
+    "slug": "anti-regen-pistol",
+    "name": "Anti-Regen: Pistol",
+    "style": "Scenario",
+    "effect": "Pistols deal 100% DMG to Super Anomaly - Regen.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sqzt.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/anti-regen-pistol"
+  },
+  {
+    "id": "anti-regen-sniper-rifle",
+    "slug": "anti-regen-sniper-rifle",
+    "name": "Anti-Regen: Sniper Rifle",
+    "style": "Scenario",
+    "effect": "Sniper Rifles deal 100% DMG to Super Anomaly - Regen.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jjqcfjl.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/anti-regen-sniper-rifle"
+  },
+  {
+    "id": "anti-void",
+    "slug": "anti-void",
+    "name": "Anti-Void",
+    "style": "Combat",
+    "effect": "When using rifles, shotguns, or heavy weapons, DMG +15%, with an additional 100% DMG against Super Anomaly - Void.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_bqsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/anti-void"
+  },
+  {
+    "id": "anti-void-rifle",
+    "slug": "anti-void-rifle",
+    "name": "Anti-Void: Rifle",
+    "style": "Scenario",
+    "effect": "Rifles deal 100% DMG to Super Anomaly - Void.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_bqsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/anti-void-rifle"
+  },
+  {
+    "id": "anti-void-shotgun",
+    "slug": "anti-void-shotgun",
+    "name": "Anti-Void: Shotgun",
+    "style": "Scenario",
+    "effect": "Shotguns deal 100% DMG to Super Anomaly - Void.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_xdqbjsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/anti-void-shotgun"
+  },
+  {
+    "id": "arctic-blast",
+    "slug": "arctic-blast",
+    "name": "Arctic Blast",
+    "style": "Element",
+    "effect": "Frost DMG +0.1% per enemy affected by Frost Vortex, capping at +0.5%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_bsxwmzsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/arctic-blast"
+  },
+  {
+    "id": "automatic-weapon-enhancement",
+    "slug": "automatic-weapon-enhancement",
+    "name": "Automatic Weapon Enhancement",
+    "style": "Combat",
+    "effect": "DMG +20% when holding SMGs, rifles, or LMGs. Reload 10% of magazine capacity from reserve upon defeating an enemy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_cfqzt.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/automatic-weapon-enhancement"
+  },
+  {
+    "id": "ballistic-synchronization-signal",
+    "slug": "ballistic-synchronization-signal",
+    "name": "Ballistic Synchronization Signal",
+    "style": "Specialist",
+    "effect": "After using the Gene Coherence Injection, Weapon DMG and Melee DMG +30% for {2}s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_chjshts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/ballistic-synchronization-signal"
+  },
+  {
+    "id": "blazing-detonation",
+    "slug": "blazing-detonation",
+    "name": "Blazing Detonation",
+    "style": "Combat",
+    "effect": "When inflicting Burn on a unit that already has Burn, immediately deal one instance of Burn DMG (Cooldown: 3s) and gain Burn DMG +25% for 10s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_zs_xgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/blazing-detonation"
+  },
+  {
+    "id": "blood-pump",
+    "slug": "blood-pump",
+    "name": "Blood Pump",
+    "style": "Specialist",
+    "effect": "While Gene Resonance Gear is active, quickly recover HP after crouching for a while without taking damage, up to 80%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_chjhf.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/blood-pump"
+  },
+  {
+    "id": "boomerang-bullet",
+    "slug": "boomerang-bullet",
+    "name": "Boomerang Bullet",
+    "style": "Element",
+    "effect": "Bounce Trigger Count +1",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_tscf.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/boomerang-bullet"
+  },
+  {
+    "id": "bounce-rampage",
+    "slug": "bounce-rampage",
+    "name": "Bounce Rampage",
+    "style": "Specialist",
+    "effect": "Hitting by Bounce grants Weapon DMG +1% up to 50 stacks for 1 second",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_tsmzsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/bounce-rampage"
+  },
+  {
+    "id": "bounce-rampage-5104",
+    "slug": "bounce-rampage-5104",
+    "name": "Bounce Rampage",
+    "style": "Combat",
+    "effect": "After triggering a bounce, Bounce DMG +5% for 15 seconds. Up to 5 stacks.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_tsxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/bounce-rampage-5104"
+  },
+  {
+    "id": "bounce-rampage-9801",
+    "slug": "bounce-rampage-9801",
+    "name": "Bounce Rampage",
+    "style": "Scenario",
+    "effect": "After triggering a bounce, Bounce DMG +5% for 15 seconds. Up to 5 stacks.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_tsxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/bounce-rampage-9801"
+  },
+  {
+    "id": "bounce-rampage-5114",
+    "slug": "bounce-rampage-5114",
+    "name": "Bounce Rampage",
+    "style": "Combat",
+    "effect": "After triggering a bounce, Bounce DMG +5% for 15 seconds. Up to 5 stacks.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_tsxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/bounce-rampage-5114"
+  },
+  {
+    "id": "bounty-hunter",
+    "slug": "bounty-hunter",
+    "name": "Bounty Hunter",
+    "style": "Combat",
+    "effect": "After defeating a unit you marked, Weapon DMG +25%, Weakspot DMG +35%, for 15s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jmcl.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/bounty-hunter"
+  },
+  {
+    "id": "bounty-hunter-5118",
+    "slug": "bounty-hunter-5118",
+    "name": "Bounty Hunter",
+    "style": "Combat",
+    "effect": "First marking a target grants Attack +2% for 15s, up to 5 stacks. Effect is removed after switching weapons. Renewing the mark grants Weapon DMG +3s for 10s, up to 5 stack(s).",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sjlr.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/bounty-hunter-5118"
+  },
+  {
+    "id": "bounty-hunter-5108",
+    "slug": "bounty-hunter-5108",
+    "name": "Bounty Hunter",
+    "style": "Combat",
+    "effect": "Hitting a marked target grants +5% Weapon DMG for 8s, up to 6 stack(s). Switching weapons removes half stacks.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sjlr.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/bounty-hunter-5108"
+  },
+  {
+    "id": "bounty-hunter-9401",
+    "slug": "bounty-hunter-9401",
+    "name": "Bounty Hunter",
+    "style": "Scenario",
+    "effect": "After defeating a unit you marked, Weapon DMG +25%, Weakspot DMG +35%, for 15s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sjlr.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/bounty-hunter-9401"
+  },
+  {
+    "id": "brawl-boost-4009",
+    "slug": "brawl-boost-4009",
+    "name": "Brawl Boost",
+    "style": "Combat",
+    "effect": "Damage from Metas -20%, effect halved after dealing damage to a Meta but reset once out of combat.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jzsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/brawl-boost-4009"
+  },
+  {
+    "id": "brawl-boost-5120",
+    "slug": "brawl-boost-5120",
+    "name": "Brawl Boost",
+    "style": "Combat",
+    "effect": "After dealing melee DMG, gain 5% DMG Reduction and 5% Movement Speed for 6s, up to 5 stacks. Effect ends when you switch weapons.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jznlhf.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/brawl-boost-5120"
+  },
+  {
+    "id": "brawl-boost",
+    "slug": "brawl-boost",
+    "name": "Brawl Boost",
+    "style": "Combat",
+    "effect": "Dealing DMG with Melee attacks grants 0.05% DMG Reduction for 12 seconds, up to 5 stacks",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jzsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/brawl-boost"
+  },
+  {
+    "id": "bullet-hunt",
+    "slug": "bullet-hunt",
+    "name": "Bullet Hunt",
+    "style": "Combat",
+    "effect": "Upon a kill with special ammo effects (Bounce and Shrapnel), Weapon DMG +0.3% for 3 seconds",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_ts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/bullet-hunt"
+  },
+  {
+    "id": "burning-wrath",
+    "slug": "burning-wrath",
+    "name": "Burning Wrath",
+    "style": "Element",
+    "effect": "Blaze DMG +0.5% over 8 seconds upon killing an enemy affected by Burn",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_zsznsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/burning-wrath"
+  },
+  {
+    "id": "chaotic-thoughts",
+    "slug": "chaotic-thoughts",
+    "name": "Chaotic Thoughts",
+    "style": "Combat",
+    "effect": "When you have a Whim due to low Sanity, DMG Reduction against Deviants +10%, and DMG against Deviants +10%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_hxxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/chaotic-thoughts"
+  },
+  {
+    "id": "critical-precision",
+    "slug": "critical-precision",
+    "name": "Critical Precision",
+    "style": "Combat",
+    "effect": "When in Scope Mode, Weakspot DMG +30%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jmcl.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/critical-precision"
+  },
+  {
+    "id": "crossbow-dmg-boost",
+    "slug": "crossbow-dmg-boost",
+    "name": "Crossbow DMG Boost",
+    "style": "Combat",
+    "effect": "Upon a kill using a Crossbow, there is a 0.3% chance to refill an arrow from inventory with its Weakspot DMG +0.5%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_glzt.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/crossbow-dmg-boost"
+  },
+  {
+    "id": "deadly-combo",
+    "slug": "deadly-combo",
+    "name": "Deadly Combo",
+    "style": "Combat",
+    "effect": "Healing medicine cooldown time -0.3%, and healing effects +0.15%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_dcsxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/deadly-combo"
+  },
+  {
+    "id": "deadly-combo-2017",
+    "slug": "deadly-combo-2017",
+    "name": "Deadly Combo",
+    "style": "Element",
+    "effect": "Shrapnel DMG 7#+0.2% over 3 seconds upon a Weakspot Hit with Shrapnel",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sdrdsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/deadly-combo-2017"
+  },
+  {
+    "id": "deadly-combo-4015",
+    "slug": "deadly-combo-4015",
+    "name": "Deadly Combo",
+    "style": "Combat",
+    "effect": "After triggering bullet effects (Bounce and Shrapnel), bullet effect DMG +25% for 4s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_ts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/deadly-combo-4015"
+  },
+  {
+    "id": "deadly-combo-1015",
+    "slug": "deadly-combo-1015",
+    "name": "Deadly Combo",
+    "style": "Combat",
+    "effect": "Upon a Weakspot hit with special ammo effects (Bounce and Shrapnel), base DMG Multiplier +0.25% for 3 seconds",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sdrd.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/deadly-combo-1015"
+  },
+  {
+    "id": "deadly-combo-3022",
+    "slug": "deadly-combo-3022",
+    "name": "Deadly Combo",
+    "style": "Combat",
+    "effect": "Healing medicine cooldown time -30%, healing effects +15%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_ksyz.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/deadly-combo-3022"
+  },
+  {
+    "id": "deviant-energy-defense",
+    "slug": "deviant-energy-defense",
+    "name": "Deviant Energy Defense",
+    "style": "Combat",
+    "effect": "Summoning or handling Deviations grants a temporary shield equal to 30% of Max HP, lasting 30s. While the shield is active, Weapon DMG Reduction and Status DMG Reduction +10%. Cooldown: 30s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_chjfy.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/deviant-energy-defense"
+  },
+  {
+    "id": "deviant-energy-defense-9014",
+    "slug": "deviant-energy-defense-9014",
+    "name": "Deviant Energy Defense",
+    "style": "Scenario",
+    "effect": "Summoning or handling Deviations grants a shield equal to 30% of max HP. While the shield is active, Status DMG Reduction +15%. Cooldown: 30s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_yczk.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/deviant-energy-defense-9014"
+  },
+  {
+    "id": "deviation-handling-3013",
+    "slug": "deviation-handling-3013",
+    "name": "Deviation Handling",
+    "style": "Combat",
+    "effect": "Summoning Deviation grants Status DMG +30% for 20 seconds",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_yczk.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/deviation-handling-3013"
+  },
+  {
+    "id": "deviation-handling",
+    "slug": "deviation-handling",
+    "name": "Deviation Handling",
+    "style": "Combat",
+    "effect": "Summoning Deviation grants Status DMG +30% for 20 seconds",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sqzt.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/deviation-handling"
+  },
+  {
+    "id": "deviation-master",
+    "slug": "deviation-master",
+    "name": "Deviation Master",
+    "style": "Combat",
+    "effect": "While a Deviation is present, DMG against the Great Ones (bosses) and elites +50%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_yczk.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/deviation-master"
+  },
+  {
+    "id": "deviation-master-4023",
+    "slug": "deviation-master-4023",
+    "name": "Deviation Master",
+    "style": "Combat",
+    "effect": "While a Deviation is present, DMG against the Great Ones (bosses) and elites +25%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_yczk.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/deviation-master-4023"
+  },
+  {
+    "id": "dexterity-3011",
+    "slug": "dexterity-3011",
+    "name": "Dexterity",
+    "style": "Combat",
+    "effect": "Rolling grants DMG Reduction + 20% for 4 seconds",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_lq.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/dexterity-3011"
+  },
+  {
+    "id": "dexterity",
+    "slug": "dexterity",
+    "name": "Dexterity",
+    "style": "Combat",
+    "effect": "Rolling grants DMG Reduction + 20% for 4 seconds",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sqzt.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/dexterity"
+  },
+  {
+    "id": "dominant-demeanor",
+    "slug": "dominant-demeanor",
+    "name": "Dominant Demeanor",
+    "style": "Specialist",
+    "effect": "Suppression DMG +15%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jbss.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/dominant-demeanor"
+  },
+  {
+    "id": "elemental-charge",
+    "slug": "elemental-charge",
+    "name": "Elemental Charge",
+    "style": "Combat",
+    "effect": "Killing enemies grants Elemental DMG (Blaze, Frost, Shock, Blast) +15% for 3 seconds",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_yscn.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/elemental-charge"
+  },
+  {
+    "id": "elemental-sense-5013",
+    "slug": "elemental-sense-5013",
+    "name": "Elemental Sense",
+    "style": "Combat",
+    "effect": "After dealing Elemental DMG, the corresponding Element's DMG +25% for 4s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_yscn.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/elemental-sense-5013"
+  },
+  {
+    "id": "elemental-sense-3017",
+    "slug": "elemental-sense-3017",
+    "name": "Elemental Sense",
+    "style": "Combat",
+    "effect": "Elemental DMG increases based on the number of enemies affected by consecutive buffs (Burn and Frost Vortex), with +10% Elemental DMG +10% per enemy, capping at +50%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_cxshxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/elemental-sense-3017"
+  },
+  {
+    "id": "elemental-sense",
+    "slug": "elemental-sense",
+    "name": "Elemental Sense",
+    "style": "Combat",
+    "effect": "+0.3% Blast and Shock DMG",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_yssh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/elemental-sense"
+  },
+  {
+    "id": "elemental-surge",
+    "slug": "elemental-surge",
+    "name": "Elemental Surge",
+    "style": "Defense",
+    "effect": "Elemental DMG +0.3% for Blaze, Frost and Shock",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_yssh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/elemental-surge"
+  },
+  {
+    "id": "embers",
+    "slug": "embers",
+    "name": "Embers",
+    "style": "Element",
+    "effect": "Buff effect continues, but with Burn stacks halved",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_zssj.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/embers"
+  },
+  {
+    "id": "energy-surge",
+    "slug": "energy-surge",
+    "name": "Energy Surge",
+    "style": "Combat",
+    "effect": "Every 8s at night (9:00 PM–3:00 AM), Deviations recover 1 Deviant Power.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_yczk.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/energy-surge"
+  },
+  {
+    "id": "energy-surge-5020",
+    "slug": "energy-surge-5020",
+    "name": "Energy Surge",
+    "style": "Combat",
+    "effect": "While airborne, Deviations recover 6 Deviant Power every 1s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_yczk.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/energy-surge-5020"
+  },
+  {
+    "id": "engineer",
+    "slug": "engineer",
+    "name": "Engineer",
+    "style": "Scenario",
+    "effect": "While driving a vehicle, all passengers receive DMG Reduction +15%, and Tactical Item Duration +50%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_zjxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/engineer"
+  },
+  {
+    "id": "explosive-barrage",
+    "slug": "explosive-barrage",
+    "name": "Explosive Barrage",
+    "style": "Element",
+    "effect": "Shrapnel DMG +0.2% for each part hit by Shrapnel, capping at +0.6%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sdshts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/explosive-barrage"
+  },
+  {
+    "id": "explosives-bonus",
+    "slug": "explosives-bonus",
+    "name": "Explosives Bonus",
+    "style": "Combat",
+    "effect": "After triggering Unstable Bomber, Unstable Bomber DMG +5% for 8s, up to 5 stack(s).",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_lhbp.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/explosives-bonus"
+  },
+  {
+    "id": "extreme-freezing",
+    "slug": "extreme-freezing",
+    "name": "Extreme Freezing",
+    "style": "Combat",
+    "effect": "When dealing Frost Elemental DMG, Frost Vortex DMG +2.5% and inflict Deviants with 3% Slowdown for 8s, up to 10 stack(s). Freezes targets when fully stacked, up to 1 time per target.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_bsxwsjsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/extreme-freezing"
+  },
+  {
+    "id": "fast-pursuit-5119",
+    "slug": "fast-pursuit-5119",
+    "name": "Fast Pursuit",
+    "style": "Combat",
+    "effect": "Upon triggering Fast Gunner, gain one of the following effects for 12s at random: Attack +3%, Crit Rate +3%, or Crit DMG +8%. Up to 5 stack(s). Effect is removed after switching weapons.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_wdqh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/fast-pursuit-5119"
+  },
+  {
+    "id": "fast-pursuit",
+    "slug": "fast-pursuit",
+    "name": "Fast Pursuit",
+    "style": "Combat",
+    "effect": "In Fast Gunner status, there is a chance to fire 1 extra bullet(s) when firing. (The higher the stacks, the greater the chance—each stack adds 1%, up to a max of 20%)",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_wdqh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/fast-pursuit"
+  },
+  {
+    "id": "fast-pursuit-9701",
+    "slug": "fast-pursuit-9701",
+    "name": "Fast Pursuit",
+    "style": "Scenario",
+    "effect": "After defeating a target in Fast Gunner state, Crit Rate +10% and Weapon DMG +15% for 15s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_wdqh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/fast-pursuit-9701"
+  },
+  {
+    "id": "first-round-blast",
+    "slug": "first-round-blast",
+    "name": "First Round Blast",
+    "style": "Combat",
+    "effect": "After reloading, Instant DMG (Power Surge and Unstable Bomber) +25% for 4s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_lhbp.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/first-round-blast"
+  },
+  {
+    "id": "flame-resonance-2015",
+    "slug": "flame-resonance-2015",
+    "name": "Flame Resonance",
+    "style": "Element",
+    "effect": "Burn stacks +3",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_zscs.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/flame-resonance-2015"
+  },
+  {
+    "id": "flame-resonance",
+    "slug": "flame-resonance",
+    "name": "Flame Resonance",
+    "style": "Combat",
+    "effect": "After a roll, Status DMG +0.25% for 6 seconds",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_wqqh_cgqd.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/flame-resonance"
+  },
+  {
+    "id": "fortress-link",
+    "slug": "fortress-link",
+    "name": "Fortress Link",
+    "style": "Combat",
+    "effect": "Fortress Warfare range +50%, with an additional damage boost of +5%. After activating Fortress Warfare for 5s, Fortress Warfare will appear within 10 meters at a non-hostile target's location (or at your location if no such targets are nearby).",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_zzxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/fortress-link"
+  },
+  {
+    "id": "frost-sense",
+    "slug": "frost-sense",
+    "name": "Frost Sense",
+    "style": "Combat",
+    "effect": "Every time you summon Frost Vortex, Ice Crystal, or Ice Spike, Frost DMG +3% for 8s, stacking up to 12 time(s).",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_bsxwsjsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/frost-sense"
+  },
+  {
+    "id": "frostwave",
+    "slug": "frostwave",
+    "name": "Frostwave",
+    "style": "Element",
+    "effect": "Frost Vortex DMG +0.15% per second, capping at +0.9%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_bsxwsjsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/frostwave"
+  },
+  {
+    "id": "golden-glitter",
+    "slug": "golden-glitter",
+    "name": "Golden Glitter",
+    "style": "Specialist",
+    "effect": "Hitting enemies with Grenade triggers The Bull's Eye",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jssg.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/golden-glitter"
+  },
+  {
+    "id": "guardian-plan",
+    "slug": "guardian-plan",
+    "name": "Guardian Plan",
+    "style": "Specialist",
+    "effect": "After summoning a Rosetta drone, the summoner gains 30% Shield. If the drone is destroyed, the summoner gains an additional 30% Shield.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_wrjfy.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/guardian-plan"
+  },
+  {
+    "id": "guerrilla-tactics",
+    "slug": "guerrilla-tactics",
+    "name": "Guerrilla Tactics",
+    "style": "Scenario",
+    "effect": "Removes see-through effects when HP is below 50% (including Lonely Cortex and The Bull's Eye abilities) and grants immunity to see-through effects.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_dxlfy.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/guerrilla-tactics"
+  },
+  {
+    "id": "gunners-gambit",
+    "slug": "gunners-gambit",
+    "name": "Gunner's Gambit",
+    "style": "Combat",
+    "effect": "Within the duration of any continuous buff (Fortress Warfare and Fast Gunner), Reload Speed +20%, Weapon DMG +20%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_wdqh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/gunners-gambit"
+  },
+  {
+    "id": "handgun-enhancement",
+    "slug": "handgun-enhancement",
+    "name": "Handgun Enhancement",
+    "style": "Combat",
+    "effect": "DMG +20% when holding pistols or shotguns. Reload 1 ammo from reserve upon defeating an enemy.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sqzt.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/handgun-enhancement"
+  },
+  {
+    "id": "heat-agglutination-5102",
+    "slug": "heat-agglutination-5102",
+    "name": "Heat Agglutination",
+    "style": "Combat",
+    "effect": "For every 1 stack of Burn triggered, Burn DMG +5% for 6s. Up to 6 stacks.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_zs_xgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/heat-agglutination-5102"
+  },
+  {
+    "id": "heat-agglutination-9101",
+    "slug": "heat-agglutination-9101",
+    "name": "Heat Agglutination",
+    "style": "Scenario",
+    "effect": "For every 1 stack of Burn triggered, Burn DMG +5% for 6s. Up to 6 stacks.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_zs_xgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/heat-agglutination-9101"
+  },
+  {
+    "id": "heat-agglutination",
+    "slug": "heat-agglutination",
+    "name": "Heat Agglutination",
+    "style": "Combat",
+    "effect": "Enemies affected by negative effects (Burn, Power Surge, Frost Vortex, The Bull's Eye) takes +25% DMG",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_hsjy.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/heat-agglutination"
+  },
+  {
+    "id": "heavy-strike-9501",
+    "slug": "heavy-strike-9501",
+    "name": "Heavy Strike",
+    "style": "Scenario",
+    "effect": "Fortress Warfare range +50%. After activating Fortress Warfare, Weapon DMG +25% for 8s. Effect is removed after switching weapons.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_zzxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/heavy-strike-9501"
+  },
+  {
+    "id": "heavy-strike",
+    "slug": "heavy-strike",
+    "name": "Heavy Strike",
+    "style": "Combat",
+    "effect": "Fortress Warfare range +50%. After activating Fortress Warfare, Weapon DMG +25% for 8s. Effect is removed after switching weapons.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_zzxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/heavy-strike"
+  },
+  {
+    "id": "ice-blockade",
+    "slug": "ice-blockade",
+    "name": "Ice Blockade",
+    "style": "Element",
+    "effect": "Frost Vortex duration +1%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_bsxwsj.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/ice-blockade"
+  },
+  {
+    "id": "ice-blockade-3019",
+    "slug": "ice-blockade-3019",
+    "name": "Ice Blockade",
+    "style": "Specialist",
+    "effect": "Frost Vortex duration +60%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_bsxwsj.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/ice-blockade-3019"
+  },
+  {
+    "id": "instant-obliteration",
+    "slug": "instant-obliteration",
+    "name": "Instant Obliteration",
+    "style": "Combat",
+    "effect": "Killing an enemy with any instant buff (Power Surge, Blast) grants Status DMG +25% for 3 seconds",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_stcj.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/instant-obliteration"
+  },
+  {
+    "id": "invincible-strike",
+    "slug": "invincible-strike",
+    "name": "Invincible Strike",
+    "style": "Element",
+    "effect": "Shrapnel DMG Loss due to distance -0.5%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sdsjjd.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/invincible-strike"
+  },
+  {
+    "id": "invincible-strike-5113",
+    "slug": "invincible-strike-5113",
+    "name": "Invincible Strike",
+    "style": "Combat",
+    "effect": "After dealing Weakspot DMG, Shrapnel DMG +2.5% and Shrapnel Crit DMG +3.5% for 6s, up to 10 stack(s). When fully stacked, Shrapnel DMG loss due to distance -50%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sdshts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/invincible-strike-5113"
+  },
+  {
+    "id": "ironclad-fortitude",
+    "slug": "ironclad-fortitude",
+    "name": "Ironclad Fortitude",
+    "style": "Specialist",
+    "effect": "Placing the Stardust Barrier triggers Fortress Warfare",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_dkqx.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/ironclad-fortitude"
+  },
+  {
+    "id": "joint-operations",
+    "slug": "joint-operations",
+    "name": "Joint Operations",
+    "style": "Specialist",
+    "effect": "Summoning a Rosetta drone increases the summoner's Weapon DMG and Melee DMG by 30% for 30 seconds.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_wrjshts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/joint-operations"
+  },
+  {
+    "id": "lmg-reload-boost",
+    "slug": "lmg-reload-boost",
+    "name": "LMG Reload Boost",
+    "style": "Combat",
+    "effect": "The fewer bullets left in the LMG mag, the higher the Reload Speed, capping at +40",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_qjqhdsd.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/lmg-reload-boost"
+  },
+  {
+    "id": "logistical-support",
+    "slug": "logistical-support",
+    "name": "Logistical Support",
+    "style": "Scenario",
+    "effect": "Non-contest area Movement Speed +10%, Sprint Stamina Consumption -50%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_bpxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/logistical-support"
+  },
+  {
+    "id": "lone-walker",
+    "slug": "lone-walker",
+    "name": "Lone Walker",
+    "style": "Combat",
+    "effect": "When fighting solo, medicine usage speed +35%, DMG from monsters -30% when HP is below 30%, and DMG to monsters +20%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_qdf.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/lone-walker"
+  },
+  {
+    "id": "lone-walker-5006",
+    "slug": "lone-walker-5006",
+    "name": "Lone Walker",
+    "style": "Combat",
+    "effect": "When fighting solo, medicine usage cooldown -30%; when HP is below 40%, medicine usage speed +30% and medicine's healing effect +15%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_qdf.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/lone-walker-5006"
+  },
+  {
+    "id": "long-range-enhancement",
+    "slug": "long-range-enhancement",
+    "name": "Long-Range Enhancement",
+    "style": "Combat",
+    "effect": "DMG +20% when holding sniper rifles or crossbows. 30% chance to automatically reload one bullet from your backpack upon defeating a target.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_glzt.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/long-range-enhancement"
+  },
+  {
+    "id": "loyal-wingman",
+    "slug": "loyal-wingman",
+    "name": "Loyal Wingman",
+    "style": "Specialist",
+    "effect": "When the Rosetta drone is within 10 meters, it will connect with the summoner, sharing the damage taken.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_wrjxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/loyal-wingman"
+  },
+  {
+    "id": "marked-strike",
+    "slug": "marked-strike",
+    "name": "Marked Strike",
+    "style": "Combat",
+    "effect": "Weakspot DMG +20% against targets marked with The Bull's Eye.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jmcl.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/marked-strike"
+  },
+  {
+    "id": "master-tactician",
+    "slug": "master-tactician",
+    "name": "Master Tactician",
+    "style": "Combat",
+    "effect": "After using a tactical item, DMG against the Great Ones (bosses) +25% for 15s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_zsds.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/master-tactician"
+  },
+  {
+    "id": "medic",
+    "slug": "medic",
+    "name": "Medic",
+    "style": "Scenario",
+    "effect": "Using the lowest-level Heal Pack during rescue reduces the time it takes to rescue a teammate by 50%, and the rescued teammate gains 100% HP and Shield equal to 25% of Max HP.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jzxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/medic"
+  },
+  {
+    "id": "melee-attack-boost",
+    "slug": "melee-attack-boost",
+    "name": "Melee Attack Boost",
+    "style": "Combat",
+    "effect": "Killing enemies using melee weapons restores 0.2% of Stamina consumed, up to once every 3 seconds",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jznlhf.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/melee-attack-boost"
+  },
+  {
+    "id": "melee-enhancement",
+    "slug": "melee-enhancement",
+    "name": "Melee Enhancement",
+    "style": "Combat",
+    "effect": "DMG +20% when holding melee weapons. Recover 20% of expended Stamina upon defeating a target with a melee weapon. Can trigger once every 3s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jznlhf.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/melee-enhancement"
+  },
+  {
+    "id": "meteor-blitz",
+    "slug": "meteor-blitz",
+    "name": "Meteor Blitz",
+    "style": "Element",
+    "effect": "Hitting the target with Bounce deals an additional +0.5% Bounce DMG",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_tsxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/meteor-blitz"
+  },
+  {
+    "id": "neural-stimulation-signal",
+    "slug": "neural-stimulation-signal",
+    "name": "Neural Stimulation Signal",
+    "style": "Specialist",
+    "effect": "After using the Gene Coherence Injection, Status DMG and Tactical Item DMG +30% for {2}s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_chjycsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/neural-stimulation-signal"
+  },
+  {
+    "id": "overload",
+    "slug": "overload",
+    "name": "Overload",
+    "style": "Combat",
+    "effect": "Upon dealing Power Surge DMG, energy charges up to 10 stack(s). Reloading removes all stacks and each stack grants +2.5% Power Surge DMG. The boost lasts until the next reload and Energy can be charged during the period.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_stcj.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/overload"
+  },
+  {
+    "id": "pain-editor",
+    "slug": "pain-editor",
+    "name": "Pain Editor",
+    "style": "Specialist",
+    "effect": "While Gene Resonance Gear is active, reduce damage taken from Meta-Humans by 10%, with an additional reduction of 10% when jumping or rolling.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_chjfy.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/pain-editor"
+  },
+  {
+    "id": "pistol-dmg-boost",
+    "slug": "pistol-dmg-boost",
+    "name": "Pistol DMG Boost",
+    "style": "Combat",
+    "effect": "Defeating a target with a pistol refills 2 bullets from your inventory and grants Crit Rate +0.3% for the next 2 bullets",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sqzt.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/pistol-dmg-boost"
+  },
+  {
+    "id": "prairie-fire-inferno",
+    "slug": "prairie-fire-inferno",
+    "name": "Prairie Fire Inferno",
+    "style": "Combat",
+    "effect": "Based on the number of nearby units affected by Burn, increases Blaze DMG by +15% per unit, up to a maximum of \b+60%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_zscs.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/prairie-fire-inferno"
+  },
+  {
+    "id": "precise-execution",
+    "slug": "precise-execution",
+    "name": "Precise Execution",
+    "style": "Specialist",
+    "effect": "Triggering The Bull's Eye grants Crit Rate +25% for 3 seconds",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sjlr.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/precise-execution"
+  },
+  {
+    "id": "precise-shot",
+    "slug": "precise-shot",
+    "name": "Precise Shot",
+    "style": "Gunplay",
+    "effect": "Weapon DMG +0.2%, Accuracy +30 for SMG, Assault Rifle and Shotgun",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_dcqsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/precise-shot"
+  },
+  {
+    "id": "precise-shot-3001",
+    "slug": "precise-shot-3001",
+    "name": "Precise Shot",
+    "style": "Combat",
+    "effect": "Weapon DMG +20%, Accuracy +30 for SMG, Assault Rifle, Shotgun",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_dcqsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/precise-shot-3001"
+  },
+  {
+    "id": "rapid-aid",
+    "slug": "rapid-aid",
+    "name": "Rapid Aid",
+    "style": "Combat",
+    "effect": "Healing medicine cooldown time -30%, healing effects +15%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_ksyz.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/rapid-aid"
+  },
+  {
+    "id": "rapid-aid-5010",
+    "slug": "rapid-aid-5010",
+    "name": "Rapid Aid",
+    "style": "Combat",
+    "effect": "Medicine usage cooldown -30%. When HP is below 40%, medicine usage speed +30% and medicine healing effect +15%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_qdf.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/rapid-aid-5010"
+  },
+  {
+    "id": "resilience",
+    "slug": "resilience",
+    "name": "Resilience",
+    "style": "Combat",
+    "effect": "When your Sanity is below 30%, DMG received from Deviants is reduced by 30%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_dxlfy.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/resilience"
+  },
+  {
+    "id": "resilience-5022",
+    "slug": "resilience-5022",
+    "name": "Resilience",
+    "style": "Combat",
+    "effect": "Shield takes 30% less damage from monsters.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_lq.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/resilience-5022"
+  },
+  {
+    "id": "ricochet",
+    "slug": "ricochet",
+    "name": "Ricochet",
+    "style": "Element",
+    "effect": "Weapon damage increases by 15%/30%/50% when the number of bounce targets reaches 1/2/3",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_tsmzsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/ricochet"
+  },
+  {
+    "id": "rifle-amplify",
+    "slug": "rifle-amplify",
+    "name": "Rifle Amplify",
+    "style": "Combat",
+    "effect": "Dealing any DMG with Assault Rifle grants Rifle DMG +0.01%, Reload Speed +1, up to 20 stacks until next reload",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_bqsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/rifle-amplify"
+  },
+  {
+    "id": "rifle-amplify-3004",
+    "slug": "rifle-amplify-3004",
+    "name": "Rifle Amplify",
+    "style": "Specialist",
+    "effect": "Dealing any DMG with Assault Rifle grants Rifle DMG +1%, Reload Speed +1, up to 20 stacks until next reload",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_bqsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/rifle-amplify-3004"
+  },
+  {
+    "id": "robust-3003",
+    "slug": "robust-3003",
+    "name": "Robust",
+    "style": "Combat",
+    "effect": "Melee DMG +25%, Stamina consumption -30%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jzshts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/robust-3003"
+  },
+  {
+    "id": "robust",
+    "slug": "robust",
+    "name": "Robust",
+    "style": "Defense",
+    "effect": "Melee DMG +0.25%, Stamina consumption -0.3%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jzshts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/robust"
+  },
+  {
+    "id": "robust-5016",
+    "slug": "robust-5016",
+    "name": "Robust",
+    "style": "Combat",
+    "effect": "When you perform a light strike, Melee DMG +5%. When you perform a heavy strike, Melee DMG +10%. Each effect stacks up to 25% and lasts for 8s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_dcsbjl.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/robust-5016"
+  },
+  {
+    "id": "smg-dmg-boost",
+    "slug": "smg-dmg-boost",
+    "name": "SMG DMG Boost",
+    "style": "Combat",
+    "effect": "After achieving a kill with an SMG, mag is refilled by 0.2% from your inventory, and Crit Rate +0.25% for the next 5 shots",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_cfqzt.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/smg-dmg-boost"
+  },
+  {
+    "id": "scavenging",
+    "slug": "scavenging",
+    "name": "Scavenging",
+    "style": "Specialist",
+    "effect": "Normal enemies take +15% DMG",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_qdf.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/scavenging"
+  },
+  {
+    "id": "scouting-tactics",
+    "slug": "scouting-tactics",
+    "name": "Scouting Tactics",
+    "style": "Scenario",
+    "effect": "The Bull's Eye Duration +20%, Lonely Cortex Range +50%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_gdhxxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/scouting-tactics"
+  },
+  {
+    "id": "series-detonation-9601",
+    "slug": "series-detonation-9601",
+    "name": "Series Detonation",
+    "style": "Scenario",
+    "effect": "After a unit takes damage from an Unstable Bomber, if the unit takes damage from a bomber within 3s, final damage is increased by 25%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_lhbp.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/series-detonation-9601"
+  },
+  {
+    "id": "series-detonation",
+    "slug": "series-detonation",
+    "name": "Series Detonation",
+    "style": "Specialist",
+    "effect": "An enemy hit by Unstable Bomber takes +25% DMG if it takes damage within 3 seconds",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_lhbp.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/series-detonation"
+  },
+  {
+    "id": "series-detonation-5105",
+    "slug": "series-detonation-5105",
+    "name": "Series Detonation",
+    "style": "Combat",
+    "effect": "After a unit takes damage from an Unstable Bomber, if the unit takes damage from a bomber within 3s, final damage is increased by 25%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_lhbp.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/series-detonation-5105"
+  },
+  {
+    "id": "severe-bone-fracture",
+    "slug": "severe-bone-fracture",
+    "name": "Severe Bone Fracture",
+    "style": "Combat",
+    "effect": "Blunt attack can deal Crit Hit with +0.5% Crit Rate for Blunt DMG",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_dcsbjl.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/severe-bone-fracture"
+  },
+  {
+    "id": "shared-energy",
+    "slug": "shared-energy",
+    "name": "Shared Energy",
+    "style": "Specialist",
+    "effect": "After summoning a Rosetta drone, Status DMG and Tactical Item DMG +30% for 30s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_wrjycsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/shared-energy"
+  },
+  {
+    "id": "shield-protection",
+    "slug": "shield-protection",
+    "name": "Shield Protection",
+    "style": "Combat",
+    "effect": "When Shield is above 40% of Max HP, Deviant DMG Reduction +10%, DMG to monsters +10%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_dxlfy.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/shield-protection"
+  },
+  {
+    "id": "shotgun-amplify",
+    "slug": "shotgun-amplify",
+    "name": "Shotgun Amplify",
+    "style": "Combat",
+    "effect": "Dealing any damage with Shotgun grants Crit DMG +0.01%, capping at \b +0.2% \b and lasting for 8 seconds",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_xdqbjsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/shotgun-amplify"
+  },
+  {
+    "id": "side-by-side",
+    "slug": "side-by-side",
+    "name": "Side by Side",
+    "style": "Combat",
+    "effect": "When fighting in a team, armor Durability loss speed -25%, and teammate rescue speed +35%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_ksyz.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/side-by-side"
+  },
+  {
+    "id": "sky-operation",
+    "slug": "sky-operation",
+    "name": "Sky Operation",
+    "style": "Combat",
+    "effect": "Jump and glide speed +15%, and DMG Reduction +10% while jumping and gliding.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_rdgyhf.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/sky-operation"
+  },
+  {
+    "id": "sky-operation-9011",
+    "slug": "sky-operation-9011",
+    "name": "Sky Operation",
+    "style": "Scenario",
+    "effect": "Jump and glide speed +15%, and DMG Reduction +10% while jumping and gliding.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_rdgyhf.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/sky-operation-9011"
+  },
+  {
+    "id": "sniper-rifle-crit-boost",
+    "slug": "sniper-rifle-crit-boost",
+    "name": "Sniper Rifle Crit Boost",
+    "style": "Combat",
+    "effect": "When in scope mode, Sniper Rifle Crit Rate +0.3%, Crit DMG +0.2%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jjqcfjl.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/sniper-rifle-crit-boost"
+  },
+  {
+    "id": "sniper-rifle-weakspot-dmg-boost",
+    "slug": "sniper-rifle-weakspot-dmg-boost",
+    "name": "Sniper Rifle Weakspot DMG Boost",
+    "style": "Specialist",
+    "effect": "When in Scope mode, Sniper Rifle Weakspot DMG +30%, Accuracy +20",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jjqrdqh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/sniper-rifle-weakspot-dmg-boost"
+  },
+  {
+    "id": "special-ammo",
+    "slug": "special-ammo",
+    "name": "Special Ammo",
+    "style": "Combat",
+    "effect": "Hitting Weakspots with special bullet effects (Bounce and Shrapnel) grants Weapon DMG +25% for 3 seconds",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_tszd.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/special-ammo"
+  },
+  {
+    "id": "speedy-shot",
+    "slug": "speedy-shot",
+    "name": "Speedy Shot",
+    "style": "Gunplay",
+    "effect": "Weapon DMG +0.2%, Reload Speed +20 for Sniper Rifle, Pistol, Crossbow and LMG",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_ycqsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/speedy-shot"
+  },
+  {
+    "id": "speedy-shot-3002",
+    "slug": "speedy-shot-3002",
+    "name": "Speedy Shot",
+    "style": "Combat",
+    "effect": "Weapon DMG +20%, Reload Speed +20 for Sniper Rifle, Pistol, Crossbow and LMG",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_ycqsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/speedy-shot-3002"
+  },
+  {
+    "id": "sprint",
+    "slug": "sprint",
+    "name": "Sprint",
+    "style": "Combat",
+    "effect": "Movement Speed +5%, Running Stamina Cost -15%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_rdgyhf.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/sprint"
+  },
+  {
+    "id": "status-enhancement-5018",
+    "slug": "status-enhancement-5018",
+    "name": "Status Enhancement",
+    "style": "Combat",
+    "effect": "Status DMG +15% for 3s after hitting a weakspot.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_cxshxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/status-enhancement-5018"
+  },
+  {
+    "id": "status-enhancement",
+    "slug": "status-enhancement",
+    "name": "Status Enhancement",
+    "style": "Combat",
+    "effect": "After hitting a weakspot, Status DMG +25% for 3s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_cxshxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/status-enhancement"
+  },
+  {
+    "id": "steady-hand",
+    "slug": "steady-hand",
+    "name": "Steady Hand",
+    "style": "Combat",
+    "effect": "Within the duration of any continuous buff (Fortress Warfare and Fast Gunner), Weapon Weakspot DMG +0.25% and Accuracy +20",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_cxzyrdsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/steady-hand"
+  },
+  {
+    "id": "steady-hand-4016",
+    "slug": "steady-hand-4016",
+    "name": "Steady Hand",
+    "style": "Combat",
+    "effect": "While in Fortress Warfare or Fast Gunner status, Weakspot DMG +40%, Weakspot DMG to the Bull's Eye +20%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_cxzyrdsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/steady-hand-4016"
+  },
+  {
+    "id": "steady-hand-5014",
+    "slug": "steady-hand-5014",
+    "name": "Steady Hand",
+    "style": "Combat",
+    "effect": "When you have a buff (e.g. Fortress Warfare, Fast Gunner), Weapon DMG +10% and Weakspot DMG +25%.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_cxzyrdsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/steady-hand-5014"
+  },
+  {
+    "id": "strategic-genius",
+    "slug": "strategic-genius",
+    "name": "Strategic Genius",
+    "style": "Combat",
+    "effect": "Using Tactical Items grants Weapon DMG + 30% for 6 seconds",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_zsds.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/strategic-genius"
+  },
+  {
+    "id": "streak-rewards",
+    "slug": "streak-rewards",
+    "name": "Streak Rewards",
+    "style": "Scenario",
+    "effect": "After defeating a Meta-Human, automatically reload 20% of your Magazine Capacity from reserve ammo and recover 15% Stamina.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jszt.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/streak-rewards"
+  },
+  {
+    "id": "sustained-suppression",
+    "slug": "sustained-suppression",
+    "name": "Sustained Suppression",
+    "style": "Combat",
+    "effect": "Defeating an enemy with Continuous DMG (such as Burn or Frost Vortex) increases Continuous DMG by +20% for 10s, stackable up to 3 times.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_zsznsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/sustained-suppression"
+  },
+  {
+    "id": "sustained-suppression-5007",
+    "slug": "sustained-suppression-5007",
+    "name": "Sustained Suppression",
+    "style": "Combat",
+    "effect": "Continuous DMG +25% for 4s after inflicting Continuous DMG (Burn, Frost Vortex).",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_zsznsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/sustained-suppression-5007"
+  },
+  {
+    "id": "swift-recovery",
+    "slug": "swift-recovery",
+    "name": "Swift Recovery",
+    "style": "Scenario",
+    "effect": "Rolling Stamina cost -15%, and upon finishing a roll, recover 10% of max HP. Cooldown: 10s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_lq.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/swift-recovery"
+  },
+  {
+    "id": "swift-reload",
+    "slug": "swift-reload",
+    "name": "Swift Reload",
+    "style": "Gunplay",
+    "effect": "Defeating a target with a ranged weapon refills +0.15% of the magazine",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jszt.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/swift-reload"
+  },
+  {
+    "id": "tactical-combo-4010",
+    "slug": "tactical-combo-4010",
+    "name": "Tactical Combo",
+    "style": "Combat",
+    "effect": "Weapon DMG +25% for 4s after switching weapons or reloading.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_ycqsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/tactical-combo-4010"
+  },
+  {
+    "id": "tactical-combo-1014",
+    "slug": "tactical-combo-1014",
+    "name": "Tactical Combo",
+    "style": "Combat",
+    "effect": "Killing enemies with continuous Burn and Frost Vortex DMG grants +0.15% DMG for 10 seconds, up to 3 stacks",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_cxshxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/tactical-combo-1014"
+  },
+  {
+    "id": "tactical-combo",
+    "slug": "tactical-combo",
+    "name": "Tactical Combo",
+    "style": "Combat",
+    "effect": "DMG +0.25% for 9 seconds if the mag is over half full after a kill. Otherwise, weapon switching speed +0.3% for 9 seconds",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jssh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/tactical-combo"
+  },
+  {
+    "id": "tactical-combo-5017",
+    "slug": "tactical-combo-5017",
+    "name": "Tactical Combo",
+    "style": "Combat",
+    "effect": "Weapon DMG +15% for 4s after switching weapons or reloading.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_ycqsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/tactical-combo-5017"
+  },
+  {
+    "id": "tactical-leap",
+    "slug": "tactical-leap",
+    "name": "Tactical Leap",
+    "style": "Combat",
+    "effect": "For every 1s spent airborne, gain ++20% DMG against Deviants and ++10% DMG against their shields for 3s, up to 60s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_hxxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/tactical-leap"
+  },
+  {
+    "id": "tough-build",
+    "slug": "tough-build",
+    "name": "Tough Build",
+    "style": "Combat",
+    "effect": "Defeating a target in melee restores 10% of lost HP and Stamina; Melee DMG +25%, lasting for 15s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_jznlhf.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/tough-build"
+  },
+  {
+    "id": "tracking-bullet",
+    "slug": "tracking-bullet",
+    "name": "Tracking Bullet",
+    "style": "Combat",
+    "effect": "After defeating a target with Weapon DMG, Shrapnel DMG +25% and Shrapnel Crit DMG +35% for 15s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sdshts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/tracking-bullet"
+  },
+  {
+    "id": "tracking-bullet-9901",
+    "slug": "tracking-bullet-9901",
+    "name": "Tracking Bullet",
+    "style": "Scenario",
+    "effect": "After defeating a target with Weapon DMG, Shrapnel DMG +25% and Shrapnel Crit DMG +35% for 15s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sdsjjd.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/tracking-bullet-9901"
+  },
+  {
+    "id": "tracking-bullet-5103",
+    "slug": "tracking-bullet-5103",
+    "name": "Tracking Bullet",
+    "style": "Combat",
+    "effect": "Dealing Weakspot DMG grants +2.5% Shrapnel DMG, +3.5% Shrapnel Crit DMG for 6s, up to 10 stack(s).",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sdshts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/tracking-bullet-5103"
+  },
+  {
+    "id": "transient-impact",
+    "slug": "transient-impact",
+    "name": "Transient Impact",
+    "style": "Combat",
+    "effect": "After defeating an enemy, Power Surge DMG +25% and Shock Elemental DMG +18% for 15s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_stcj.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/transient-impact"
+  },
+  {
+    "id": "transient-impact-5117",
+    "slug": "transient-impact-5117",
+    "name": "Transient Impact",
+    "style": "Combat",
+    "effect": "Dealing Power Surge DMG grants Power Surge DMG +2.5% for 6s, up to 10 stack(s).",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_stcj.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/transient-impact-5117"
+  },
+  {
+    "id": "transient-impact-9301",
+    "slug": "transient-impact-9301",
+    "name": "Transient Impact",
+    "style": "Scenario",
+    "effect": "After defeating an enemy, Power Surge DMG +25% and Shock Elemental DMG +18%, for 15s.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_stcj.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/transient-impact-9301"
+  },
+  {
+    "id": "upper-hand",
+    "slug": "upper-hand",
+    "name": "Upper Hand",
+    "style": "Combat",
+    "effect": "Reloading grants +0.3% Instant DMG to Power Surge and Unstable Bomber for 4 seconds",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_dcqsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/upper-hand"
+  },
+  {
+    "id": "valor-trial-1",
+    "slug": "valor-trial-1",
+    "name": "Valor Trial 1",
+    "style": "Scenario",
+    "effect": "Frost DMG +0.1% per enemy affected by Frost Vortex, capping at +0.5%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_cxshxgts.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/valor-trial-1"
+  },
+  {
+    "id": "valor-trial-2",
+    "slug": "valor-trial-2",
+    "name": "Valor Trial 2",
+    "style": "Scenario",
+    "effect": "Shrapnel DMG 7#+0.2% over 3 seconds upon a Weakspot Hit with Shrapnel",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_sdrd.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/valor-trial-2"
+  },
+  {
+    "id": "valor-trial-3",
+    "slug": "valor-trial-3",
+    "name": "Valor Trial 3",
+    "style": "Scenario",
+    "effect": "Weapon damage increases by 15%/30%/50% when the number of bounce targets reaches 1/2/3",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_tszdsh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/valor-trial-3"
+  },
+  {
+    "id": "valor-trial-4",
+    "slug": "valor-trial-4",
+    "name": "Valor Trial 4",
+    "style": "Scenario",
+    "effect": "Blaze DMG +0.5% over 8 seconds upon killing an enemy affected by Burn",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_zs_sh.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/valor-trial-4"
+  },
+  {
+    "id": "valor-trial-5",
+    "slug": "valor-trial-5",
+    "name": "Valor Trial 5",
+    "style": "Scenario",
+    "effect": "Frost Vortex duration +1%",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_cxshcfjl.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/valor-trial-5"
+  },
+  {
+    "id": "weakspot-chain-reaction",
+    "slug": "weakspot-chain-reaction",
+    "name": "Weakspot Chain Reaction",
+    "style": "Combat",
+    "effect": "Upon Weakspot hits by guns, consecutive buffs (Burn and Frost Vortex) have their Trigger Chance +0.6% until the buff is replaced.",
+    "imageUrl": "https://dxouo2ijk4yg2kj7.public.blob.vercel-storage.com/images/memetics/meme_cbt2_icon_skill_cxshcfjl.png",
+    "url": "https://www.oncehumandb.com/cradle-overrides/weakspot-chain-reaction"
+  }
+]
