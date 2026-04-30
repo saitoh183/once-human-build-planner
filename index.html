@@ -51,6 +51,8 @@
     h1 { margin: 0; font-size: 24px; letter-spacing: .02em; }
     .subtitle { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
     .toolbar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+    .filter-input { min-width: 240px; min-height: 36px; border: 1px solid var(--line); background: var(--control); color: var(--text); border-radius: 10px; padding: 9px 11px; }
+    .filter-input:focus { outline: 2px solid color-mix(in srgb, var(--accent) 45%, transparent); border-color: var(--accent); }
     .btn { border: 1px solid var(--line); background: linear-gradient(180deg, var(--panel-2), var(--control)); padding: 9px 12px; border-radius: 10px; min-height: 36px; }
     .btn:hover { border-color: var(--accent); }
     .btn.primary { background: linear-gradient(180deg, var(--accent), var(--accent-2)); color: #20170a; border-color: color-mix(in srgb, var(--accent) 70%, var(--line)); }
@@ -63,7 +65,7 @@
     td { padding: 10px; min-width: 145px; background: color-mix(in srgb, var(--panel) 72%, transparent); }
     tr:nth-child(even) td { background: color-mix(in srgb, var(--panel-2) 66%, transparent); }
     .col-gun { width: 220px; }
-    .col-build { width: 110px; min-width: 110px; }
+    .col-build { width: 120px; min-width: 120px; text-align: center; vertical-align: middle; }
     .col-weapon { width: 220px; }
     .col-armor { width: 170px; }
     .col-deviation { width: 170px; }
@@ -80,7 +82,7 @@
     .picker-text { min-width: 0; flex: 1; }
     .picker-name { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px; font-weight: 600; }
     .picker-meta { display: block; color: var(--muted); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .build-select { width: 100%; min-height: 42px; background: var(--control); border: 1px solid var(--line); border-radius: 10px; padding: 8px; }
+    .build-select { width: 100%; min-height: 42px; background: var(--control); border: 1px solid var(--line); border-radius: 10px; padding: 8px; text-align: center; text-align-last: center; }
     .cradle-grid { display: grid; grid-template-columns: repeat(3, 50px); gap: 8px; justify-content: center; }
     .cradle-slot { width: 50px; height: 46px; display: grid; place-items: center; border: 1px dashed var(--line); border-radius: 10px; background: var(--control); }
     .cradle-slot:hover { border-color: var(--accent); }
@@ -137,8 +139,10 @@
       </div>
       <div class="toolbar">
         <button class="btn primary" id="addBuildBtn">+ Add Build</button>
+        <input class="filter-input" id="gunSearch" type="search" placeholder="Search guns…" autocomplete="off">
         <button class="btn" id="themeToggleBtn">Light Mode</button>
         <button class="btn" id="exportAllBtn">Export All PDF</button>
+        <button class="btn" id="exportAllPngBtn">Export All PNG</button>
         <button class="btn" id="saveBackupBtn">Save Backup</button>
         <button class="btn" id="loadBackupBtn">Load Backup</button>
         <input class="sr-file" id="backupFile" type="file" accept="application/json,.json">
@@ -206,7 +210,7 @@
       { key: 'shoes', label: 'Shoes', armorType: 'Shoes', modType: 'Shoes' },
       { key: 'top', label: 'Top', armorType: 'Top', modType: 'Top' }
     ];
-    const state = { data: {}, builds: [], picker: null, printMode: 'all', hoveredTip: null, stickyTip: false };
+    const state = { data: {}, builds: [], picker: null, printMode: 'all', hoveredTip: null, stickyTip: false, gunFilter: '' };
 
     const $ = (selector, root = document) => root.querySelector(selector);
     const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
@@ -260,7 +264,9 @@
 
     function setStatus() {
       const counts = Object.entries(state.data).map(([key, rows]) => `${key}: ${rows.length}`).join(' · ');
-      $('#status').textContent = `${state.builds.length} build row(s). ${counts}`;
+      const visible = visibleBuilds().length;
+      const filterText = state.gunFilter ? `${visible}/${state.builds.length} visible. ` : '';
+      $('#status').textContent = `${filterText}${state.builds.length} build row(s). ${counts}`;
     }
 
     function showError(message) {
@@ -274,7 +280,10 @@
     }
 
     function render() {
-      $('#buildRows').innerHTML = state.builds.map(build => renderBuildRow(build)).join('');
+      const rows = visibleBuilds();
+      $('#buildRows').innerHTML = rows.length
+        ? rows.map(build => renderBuildRow(build)).join('')
+        : `<tr><td colspan="13" class="empty-row">No builds match that gun search.</td></tr>`;
       bindRowEvents();
       saveBuilds();
     }
@@ -311,6 +320,7 @@
           </div></td>
           <td class="col-actions"><div class="row-actions">
             <button class="btn tiny" data-action="export-row">Export PDF</button>
+            <button class="btn tiny" data-action="export-row-png">Export PNG</button>
             <button class="btn tiny" data-action="duplicate-row">Duplicate</button>
             <button class="btn tiny danger" data-action="delete-row">Delete</button>
           </div></td>
@@ -385,6 +395,24 @@
       return getOptions(collection).find(item => item.id === id) || null;
     }
 
+    function normalizeSearch(value) {
+      return String(value || '').trim().toLowerCase();
+    }
+
+    function buildMatchesGunSearch(build, query) {
+      const normalized = normalizeSearch(query);
+      if (!normalized) return true;
+      return Object.values(build.guns || {}).some(id => {
+        const gun = findOption('weapons', id);
+        if (!gun) return false;
+        return `${displayNameFor(gun, 'weapons')} ${metaFor(gun, 'weapons')}`.toLowerCase().includes(normalized);
+      });
+    }
+
+    function visibleBuilds() {
+      return state.builds.filter(build => buildMatchesGunSearch(build, state.gunFilter));
+    }
+
     function getPath(object, path) {
       return path.split('.').reduce((target, part) => target?.[part], object);
     }
@@ -436,6 +464,7 @@
           const action = event.target.closest('[data-action]')?.dataset.action;
           if (!action) return;
           if (action === 'export-row') exportPdf(build.id);
+          if (action === 'export-row-png') exportPng(build.id);
           if (action === 'duplicate-row') {
             const clone = JSON.parse(JSON.stringify(build));
             clone.id = uuid();
@@ -584,8 +613,13 @@
     $('#themeToggleBtn').addEventListener('click', () => {
       applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
     });
+    $('#gunSearch').addEventListener('input', event => {
+      state.gunFilter = event.target.value;
+      render();
+    });
     $('#addBuildBtn').addEventListener('click', () => { state.builds.push(defaultBuild()); render(); });
     $('#exportAllBtn').addEventListener('click', () => exportPdf());
+    $('#exportAllPngBtn').addEventListener('click', () => exportAllPng());
     $('#saveBackupBtn').addEventListener('click', () => {
       const blob = new Blob([JSON.stringify({ version: 1, builds: state.builds }, null, 2)], { type: 'application/json' });
       const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: 'once-human-builds.json' });
@@ -601,6 +635,224 @@
       render();
       event.target.value = '';
     });
+
+    function itemForExport(label, collection, id) {
+      const item = findOption(collection, id);
+      return {
+        label,
+        name: item ? displayNameFor(item, collection) : '—',
+        meta: item ? metaFor(item, collection) : '',
+        imageUrl: item?.imageUrl || '',
+        url: item?.url || ''
+      };
+    }
+
+    function getPngExportModel(build, index = 0) {
+      const sections = [
+        { title: 'Gun', items: [
+          itemForExport('Primary', 'weapons', build.guns.primary),
+          itemForExport('Secondary', 'weapons', build.guns.secondary)
+        ]},
+        { title: 'Build Type', centered: true, items: [{ label: '', name: build.buildType || '—', meta: '' }] },
+        { title: 'Weapon', items: [
+          itemForExport('Primary Mod', 'weaponMods', build.weaponMods.primary),
+          itemForExport('Secondary Mod', 'weaponMods', build.weaponMods.secondary)
+        ]},
+        ...ARMOR_SLOTS.map(slot => {
+          const current = build.armorSlots?.[slot.key] || { armor: '', mod: '' };
+          return { title: slot.label, items: [
+            itemForExport(`${slot.label} Armor`, `armor:${slot.armorType}`, current.armor),
+            itemForExport(`${slot.label} Mod`, `armorMods:${slot.modType}`, current.mod)
+          ]};
+        }),
+        { title: 'Deviation', items: [itemForExport('Attack Deviation', 'combatDeviations', build.deviation)] },
+        { title: 'Cradle', compact: true, items: build.cradle.map((id, i) => itemForExport(`Slot ${i + 1}`, 'cradle', id)) },
+        { title: 'Food', items: [
+          itemForExport('Main 1', 'food', build.food.main1),
+          itemForExport('Main 2', 'food', build.food.main2)
+        ]},
+        { title: 'Chef', items: [
+          itemForExport('Chef 1', 'food', build.food.chef1),
+          itemForExport('Chef 2', 'food', build.food.chef2)
+        ]}
+      ];
+      return { title: `Build ${index + 1} — ${build.buildType || 'Build'}`, sections };
+    }
+
+    function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight, maxLines = 2) {
+      const words = String(text || '').split(/\s+/).filter(Boolean);
+      const lines = [];
+      let line = '';
+      for (const word of words) {
+        const test = line ? `${line} ${word}` : word;
+        if (ctx.measureText(test).width > maxWidth && line) {
+          lines.push(line);
+          line = word;
+          if (lines.length === maxLines - 1) break;
+        } else {
+          line = test;
+        }
+      }
+      if (line && lines.length < maxLines) lines.push(line);
+      lines.forEach((part, index) => ctx.fillText(part, x, y + index * lineHeight));
+      return lines.length * lineHeight;
+    }
+
+    function roundedRect(ctx, x, y, width, height, radius) {
+      ctx.beginPath();
+      ctx.moveTo(x + radius, y);
+      ctx.lineTo(x + width - radius, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+      ctx.lineTo(x + width, y + height - radius);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+      ctx.lineTo(x + radius, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+      ctx.lineTo(x, y + radius);
+      ctx.quadraticCurveTo(x, y, x + radius, y);
+      ctx.closePath();
+    }
+
+    function loadImageSafe(url) {
+      if (!url) return Promise.resolve(null);
+      return new Promise(resolve => {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => resolve(img);
+        img.onerror = () => resolve(null);
+        img.src = url;
+      });
+    }
+
+    async function renderBuildPngCanvas(build, index = 0) {
+      const model = getPngExportModel(build, index);
+      const scale = 2;
+      const width = 1600;
+      const padding = 28;
+      const gap = 16;
+      const columns = 3;
+      const colWidth = Math.floor((width - padding * 2 - gap * (columns - 1)) / columns);
+      const sectionHeights = model.sections.map(section => {
+        const base = section.centered ? 120 : 58 + Math.max(1, section.items.length) * (section.compact ? 62 : 76);
+        return Math.max(120, base);
+      });
+      const rowHeights = [];
+      for (let i = 0; i < sectionHeights.length; i += columns) {
+        rowHeights.push(Math.max(...sectionHeights.slice(i, i + columns)));
+      }
+      const height = padding + 54 + 18 + rowHeights.reduce((sum, value) => sum + value, 0) + gap * (rowHeights.length - 1) + padding;
+      const canvas = document.createElement('canvas');
+      canvas.width = width * scale;
+      canvas.height = height * scale;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      const ctx = canvas.getContext('2d');
+      ctx.scale(scale, scale);
+      ctx.fillStyle = '#252525';
+      ctx.fillRect(0, 0, width, height);
+      ctx.fillStyle = '#f1f1f1';
+      ctx.font = '700 30px Inter, Segoe UI, sans-serif';
+      ctx.fillText(model.title, padding, padding + 30);
+      const imageUrls = [...new Set(model.sections.flatMap(section => section.items.map(item => item.imageUrl)).filter(Boolean))];
+      const imageEntries = await Promise.all(imageUrls.map(async url => [url, await loadImageSafe(url)]));
+      const images = new Map(imageEntries);
+      let y = padding + 72;
+      for (let row = 0; row < rowHeights.length; row++) {
+        const rowSections = model.sections.slice(row * columns, row * columns + columns);
+        rowSections.forEach((section, col) => {
+          const x = padding + col * (colWidth + gap);
+          drawPngSection(ctx, section, x, y, colWidth, rowHeights[row], images);
+        });
+        y += rowHeights[row] + gap;
+      }
+      return canvas;
+    }
+
+    function drawPngSection(ctx, section, x, y, width, height, images) {
+      ctx.save();
+      roundedRect(ctx, x, y, width, height, 16);
+      ctx.fillStyle = '#333333';
+      ctx.fill();
+      ctx.strokeStyle = '#535353';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      ctx.fillStyle = '#b9b9b9';
+      ctx.font = '700 15px Inter, Segoe UI, sans-serif';
+      ctx.fillText(section.title.toUpperCase(), x + 16, y + 28);
+      if (section.centered) {
+        ctx.fillStyle = '#f1f1f1';
+        ctx.font = '700 28px Inter, Segoe UI, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(section.items[0]?.name || '—', x + width / 2, y + height / 2 + 12);
+        ctx.restore();
+        return;
+      }
+      let itemY = y + 48;
+      section.items.forEach(item => {
+        const compact = section.compact;
+        const itemHeight = compact ? 54 : 68;
+        roundedRect(ctx, x + 12, itemY, width - 24, itemHeight, 12);
+        ctx.fillStyle = '#2d2d2d';
+        ctx.fill();
+        const iconSize = compact ? 34 : 42;
+        const iconX = x + 24;
+        const iconY = itemY + (itemHeight - iconSize) / 2;
+        roundedRect(ctx, iconX, iconY, iconSize, iconSize, 8);
+        ctx.fillStyle = '#252525';
+        ctx.fill();
+        const img = images.get(item.imageUrl);
+        if (img) {
+          ctx.save();
+          roundedRect(ctx, iconX, iconY, iconSize, iconSize, 8);
+          ctx.clip();
+          ctx.drawImage(img, iconX, iconY, iconSize, iconSize);
+          ctx.restore();
+        }
+        const textX = iconX + iconSize + 12;
+        ctx.textAlign = 'left';
+        ctx.fillStyle = '#b9b9b9';
+        ctx.font = '700 12px Inter, Segoe UI, sans-serif';
+        ctx.fillText(item.label.toUpperCase(), textX, itemY + 18);
+        ctx.fillStyle = '#f1f1f1';
+        ctx.font = '700 16px Inter, Segoe UI, sans-serif';
+        wrapCanvasText(ctx, item.name || '—', textX, itemY + 39, width - (textX - x) - 22, 18, compact ? 1 : 2);
+        if (item.meta && !compact) {
+          ctx.fillStyle = '#b9b9b9';
+          ctx.font = '13px Inter, Segoe UI, sans-serif';
+          ctx.fillText(item.meta, textX, itemY + 61);
+        }
+        itemY += itemHeight + 8;
+      });
+      ctx.restore();
+    }
+
+    function downloadCanvas(canvas, filename) {
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    function safeFilePart(value) {
+      return String(value || 'build').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60) || 'build';
+    }
+
+    async function exportPng(buildId) {
+      const index = state.builds.findIndex(build => build.id === buildId);
+      const build = state.builds[index];
+      if (!build) return;
+      const canvas = await renderBuildPngCanvas(build, index);
+      const primary = findOption('weapons', build.guns.primary);
+      downloadCanvas(canvas, `once-human-${index + 1}-${safeFilePart(primary?.name || build.buildType)}.png`);
+    }
+
+    async function exportAllPng() {
+      for (let index = 0; index < state.builds.length; index++) {
+        const canvas = await renderBuildPngCanvas(state.builds[index], index);
+        const primary = findOption('weapons', state.builds[index].guns.primary);
+        downloadCanvas(canvas, `once-human-${index + 1}-${safeFilePart(primary?.name || state.builds[index].buildType)}.png`);
+        await new Promise(resolve => setTimeout(resolve, 150));
+      }
+    }
 
     function exportPdf(buildId = null) {
       const builds = buildId ? state.builds.filter(build => build.id === buildId) : state.builds;
