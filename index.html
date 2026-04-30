@@ -7,23 +7,42 @@
   <style>
     :root {
       color-scheme: dark;
-      --bg: #080b10;
-      --panel: #111823;
-      --panel-2: #151f2d;
-      --line: #273448;
-      --line-soft: #1c2737;
-      --text: #e7edf7;
-      --muted: #94a3b8;
-      --accent: #67e8f9;
-      --accent-2: #a78bfa;
+      --bg: #252525;
+      --bg-wash: #303030;
+      --panel: #333333;
+      --panel-2: #3b3b3b;
+      --control: #2d2d2d;
+      --control-hover: #383838;
+      --line: #535353;
+      --line-soft: #444444;
+      --text: #f1f1f1;
+      --muted: #b9b9b9;
+      --accent: #e0b866;
+      --accent-2: #d8a84f;
       --danger: #fb7185;
       --ok: #86efac;
       --shadow: 0 18px 50px rgba(0,0,0,.35);
       --radius: 14px;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
+    [data-theme="light"] {
+      color-scheme: light;
+      --bg: #f2ead8;
+      --bg-wash: #fbf5e8;
+      --panel: #fff7e6;
+      --panel-2: #f4ead6;
+      --control: #fffaf0;
+      --control-hover: #f6ecd8;
+      --line: #d6c4a7;
+      --line-soft: #e3d4bd;
+      --text: #27231d;
+      --muted: #706553;
+      --accent: #8a5a20;
+      --accent-2: #a66b25;
+      --shadow: 0 18px 50px rgba(78,56,27,.22);
+    }
     * { box-sizing: border-box; }
-    body { margin: 0; background: radial-gradient(circle at top left, #162033 0, transparent 38rem), var(--bg); color: var(--text); }
+    body { margin: 0; background: radial-gradient(circle at top left, var(--bg-wash) 0, transparent 38rem), var(--bg); color: var(--text); }
     button, select, input, textarea { font: inherit; color: inherit; }
     button { cursor: pointer; }
     a { color: var(--accent); }
@@ -32,17 +51,17 @@
     h1 { margin: 0; font-size: 24px; letter-spacing: .02em; }
     .subtitle { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
     .toolbar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
-    .btn { border: 1px solid var(--line); background: linear-gradient(180deg, #192335, #101827); padding: 9px 12px; border-radius: 10px; min-height: 36px; }
+    .btn { border: 1px solid var(--line); background: linear-gradient(180deg, var(--panel-2), var(--control)); padding: 9px 12px; border-radius: 10px; min-height: 36px; }
     .btn:hover { border-color: var(--accent); }
-    .btn.primary { background: linear-gradient(180deg, #0e7490, #155e75); border-color: #22d3ee66; }
+    .btn.primary { background: linear-gradient(180deg, var(--accent), var(--accent-2)); color: #20170a; border-color: color-mix(in srgb, var(--accent) 70%, var(--line)); }
     .btn.danger { color: #fecdd3; border-color: #7f1d1d; background: #33121a; }
     .status { color: var(--muted); font-size: 13px; margin-bottom: 10px; }
-    .table-shell { overflow: auto; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(9,13,20,.84); box-shadow: var(--shadow); }
+    .table-shell { overflow: auto; border: 1px solid var(--line); border-radius: var(--radius); background: color-mix(in srgb, var(--panel) 84%, transparent); box-shadow: var(--shadow); }
     table { border-collapse: separate; border-spacing: 0; width: max-content; min-width: 100%; }
     th, td { border-right: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); vertical-align: top; }
-    th { position: sticky; top: 0; z-index: 5; background: #111827; color: #cbd5e1; font-size: 12px; text-transform: uppercase; letter-spacing: .09em; padding: 10px 8px; text-align: center; }
-    td { padding: 8px; min-width: 130px; background: rgba(13,19,30,.64); }
-    tr:nth-child(even) td { background: rgba(17,24,39,.64); }
+    th { position: sticky; top: 0; z-index: 5; background: var(--panel-2); color: var(--text); font-size: 13px; text-transform: uppercase; letter-spacing: .09em; padding: 12px 9px; text-align: center; }
+    td { padding: 10px; min-width: 145px; background: color-mix(in srgb, var(--panel) 72%, transparent); }
+    tr:nth-child(even) td { background: color-mix(in srgb, var(--panel-2) 66%, transparent); }
     .col-gun { width: 220px; }
     .col-build { width: 110px; min-width: 110px; }
     .col-weapon { width: 220px; }
@@ -52,42 +71,44 @@
     .col-food { width: 190px; }
     .col-actions { width: 115px; }
     .stack { display: grid; gap: 7px; }
-    .slot-label { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 3px; }
-    .picker { display: flex; align-items: center; gap: 7px; width: 100%; min-height: 34px; padding: 5px 7px; border-radius: 10px; border: 1px solid var(--line); background: #0b1220; text-align: left; }
-    .picker:hover { border-color: var(--accent); background: #101827; }
-    .picker.empty { color: #64748b; border-style: dashed; }
-    .picker img, .icon { width: 26px; height: 26px; border-radius: 7px; object-fit: cover; flex: 0 0 auto; background: #020617; border: 1px solid #334155; }
+    .slot-label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
+    .picker { display: flex; align-items: center; gap: 9px; width: 100%; min-height: 42px; padding: 7px 9px; border-radius: 10px; border: 1px solid var(--line); background: var(--control); text-align: left; }
+    .picker:hover { border-color: var(--accent); background: var(--control-hover); }
+    .picker.empty { color: var(--muted); border-style: dashed; }
+    .picker img, .icon { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; flex: 0 0 auto; background: var(--bg); border: 1px solid var(--line); }
     .picker-text { min-width: 0; flex: 1; }
-    .picker-name { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px; }
-    .picker-meta { display: block; color: var(--muted); font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .build-select { width: 100%; min-height: 34px; background: #0b1220; border: 1px solid var(--line); border-radius: 10px; padding: 6px; }
-    .cradle-grid { display: grid; grid-template-columns: repeat(3, 42px); gap: 7px; justify-content: center; }
-    .cradle-slot { width: 42px; height: 36px; display: grid; place-items: center; border: 1px dashed var(--line); border-radius: 10px; background: #0b1220; }
+    .picker-name { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px; font-weight: 600; }
+    .picker-meta { display: block; color: var(--muted); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .build-select { width: 100%; min-height: 42px; background: var(--control); border: 1px solid var(--line); border-radius: 10px; padding: 8px; }
+    .cradle-grid { display: grid; grid-template-columns: repeat(3, 50px); gap: 8px; justify-content: center; }
+    .cradle-slot { width: 50px; height: 46px; display: grid; place-items: center; border: 1px dashed var(--line); border-radius: 10px; background: var(--control); }
     .cradle-slot:hover { border-color: var(--accent); }
-    .cradle-slot img { width: 28px; height: 28px; border-radius: 8px; object-fit: cover; }
+    .cradle-slot img { width: 36px; height: 36px; border-radius: 8px; object-fit: cover; }
     .food-stack { display: grid; gap: 7px; }
     .row-actions { display: grid; gap: 7px; }
     .tiny { padding: 6px 8px; font-size: 12px; }
-    .modal-backdrop { position: fixed; inset: 0; z-index: 50; background: rgba(2,6,23,.78); display: none; align-items: center; justify-content: center; padding: 20px; }
+    .modal-backdrop { position: fixed; inset: 0; z-index: 50; background: rgba(20,20,20,.72); display: none; align-items: center; justify-content: center; padding: 20px; }
     .modal-backdrop.open { display: flex; }
-    .modal { width: min(860px, 100%); max-height: min(760px, 92vh); display: grid; grid-template-rows: auto auto 1fr; background: #0f172a; border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); overflow: hidden; }
+    .modal { width: min(900px, 100%); max-height: min(780px, 92vh); display: grid; grid-template-rows: auto auto 1fr; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); overflow: hidden; }
     .modal-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px; border-bottom: 1px solid var(--line); }
     .modal-title { font-weight: 700; }
     .search-row { display: flex; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }
-    .search-row input { flex: 1; background: #020617; border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+    .search-row input { flex: 1; background: var(--control); border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
     .results { overflow: auto; padding: 8px; }
     .result { width: 100%; display: grid; grid-template-columns: 42px 1fr auto; gap: 10px; align-items: center; padding: 8px; border: 1px solid transparent; border-radius: 12px; background: transparent; text-align: left; }
-    .result:hover, .result.active { background: #152033; border-color: var(--accent); }
-    .result img { width: 38px; height: 38px; border-radius: 9px; object-fit: cover; background: #020617; }
+    .result:hover, .result.active { background: var(--control-hover); border-color: var(--accent); }
+    .result img { width: 44px; height: 44px; border-radius: 9px; object-fit: cover; background: var(--bg); }
     .result .name { font-weight: 600; }
     .result .effect { color: var(--muted); font-size: 12px; margin-top: 2px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
     .badge { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; padding: 2px 7px; color: var(--muted); font-size: 10px; margin-left: 4px; }
-    .tooltip { position: fixed; z-index: 100; display: none; max-width: 330px; background: #020617; border: 1px solid #334155; border-radius: 12px; padding: 10px 11px; box-shadow: var(--shadow); pointer-events: auto; }
+    .tooltip { position: fixed; z-index: 100; display: none; max-width: 360px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 11px 12px; box-shadow: var(--shadow); pointer-events: auto; }
     .tooltip.open { display: block; }
     .tooltip-title { font-weight: 700; margin-bottom: 4px; }
     .tooltip-meta { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
-    .tooltip-effect { color: #dbeafe; font-size: 12px; line-height: 1.35; white-space: pre-wrap; }
-    .tooltip-link { display: inline-block; margin-top: 7px; font-size: 12px; }
+    .tooltip-effect { color: var(--text); font-size: 13px; line-height: 1.4; white-space: pre-wrap; }
+    .tooltip-link { display: inline-block; margin-top: 8px; font-size: 13px; font-weight: 700; }
+    .tooltip-hint { margin-top: 8px; color: var(--muted); font-size: 11px; }
+    .tooltip.sticky { outline: 2px solid color-mix(in srgb, var(--accent) 60%, transparent); }
     .print-root { display: none; }
     .print-build { page-break-inside: avoid; border: 1px solid #94a3b8; margin-bottom: 10px; padding: 8px; }
     .print-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; font-size: 10px; }
@@ -115,6 +136,7 @@
       </div>
       <div class="toolbar">
         <button class="btn primary" id="addBuildBtn">+ Add Build</button>
+        <button class="btn" id="themeToggleBtn">Light Mode</button>
         <button class="btn" id="exportAllBtn">Export All PDF</button>
         <button class="btn" id="saveBackupBtn">Save Backup</button>
         <button class="btn" id="loadBackupBtn">Load Backup</button>
@@ -166,6 +188,7 @@
 
   <script>
     const STORAGE_KEY = 'oh_build_planner_rows_v1';
+    const THEME_KEY = 'oh_build_planner_theme_v1';
     const DATA_FILES = {
       weapons: 'data/weapons.json',
       armor: 'data/armor.json',
@@ -181,7 +204,7 @@
       { key: 'shoes', label: 'Shoes', armorType: 'Shoes', modType: 'Shoes' },
       { key: 'top', label: 'Top', armorType: 'Top', modType: 'Top' }
     ];
-    const state = { data: {}, builds: [], picker: null, printMode: 'all' };
+    const state = { data: {}, builds: [], picker: null, printMode: 'all', hoveredTip: null, stickyTip: false };
 
     const $ = (selector, root = document) => root.querySelector(selector);
     const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
@@ -202,6 +225,7 @@
     }
 
     async function init() {
+      applyTheme(localStorage.getItem(THEME_KEY) || 'dark');
       try {
         state.data = await loadData();
         loadBuilds();
@@ -305,7 +329,7 @@
         <button class="${cls}" data-picker="${escapeHtml(collection)}" data-path="${escapeHtml(path)}" ${tooltipAttrs(item)}>
           ${item?.imageUrl ? `<img src="${escapeHtml(item.imageUrl)}" alt="">` : '<span class="icon"></span>'}
           <span class="picker-text">
-            <span class="picker-name">${escapeHtml(item?.name || 'Select')}</span>
+            <span class="picker-name">${escapeHtml(item ? displayNameFor(item, collection) : 'Select')}</span>
             <span class="picker-meta">${escapeHtml(metaFor(item, collection))}</span>
           </span>
         </button>
@@ -321,12 +345,27 @@
 
     function tooltipAttrs(item) {
       if (!item) return '';
-      return `data-tip-id="${escapeHtml(item.id)}" data-tip-title="${escapeHtml(item.name)}" data-tip-meta="${escapeHtml(metaFor(item))}" data-tip-effect="${escapeHtml(item.effect || item.description || 'No effect text available from OHDB list data.')}" data-tip-url="${escapeHtml(item.url || '')}"`;
+      return `data-tip-id="${escapeHtml(item.id)}" data-tip-title="${escapeHtml(displayNameFor(item))}" data-tip-meta="${escapeHtml(metaFor(item))}" data-tip-effect="${escapeHtml(item.effect || item.description || 'No effect text available from OHDB list data.')}" data-tip-url="${escapeHtml(item.url || '')}"`;
+    }
+
+    function titleCase(value) {
+      return String(value || '').replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+    function isMod(item, collection = '') {
+      return !!item && (collection === 'weaponMods' || collection.startsWith('armorMods:') || item.category === 'Weapon Mod' || item.category === 'Armor Mod');
+    }
+
+    function displayNameFor(item, collection = '') {
+      if (!item) return '';
+      if (isMod(item, collection) && item.variant) return `${item.name} - ${item.variant}`;
+      return item.name || '';
     }
 
     function metaFor(item, collection = '') {
       if (!item) return '';
-      return [item.category, item.slot, item.type, item.style, item.variant, item.rarity].filter(Boolean).join(' · ');
+      if (isMod(item, collection)) return [item.rarity && titleCase(item.rarity)].filter(Boolean).join(' · ');
+      return [item.type, item.style, item.rarity && titleCase(item.rarity)].filter(Boolean).join(' · ');
     }
 
     function getOptions(collection) {
@@ -340,6 +379,38 @@
     function findOption(collection, id) {
       if (!id) return null;
       return getOptions(collection).find(item => item.id === id) || null;
+    }
+
+    function getPath(object, path) {
+      return path.split('.').reduce((target, part) => target?.[part], object);
+    }
+
+    function selectedIdsForCollection(build, collection) {
+      if (!build) return [];
+      if (collection === 'weapons') return Object.values(build.guns || {});
+      if (collection === 'weaponMods') return Object.values(build.weaponMods || {});
+      if (collection.startsWith('armor:')) {
+        const armorType = collection.split(':')[1];
+        return ARMOR_SLOTS
+          .filter(slot => slot.armorType === armorType)
+          .map(slot => build.armorSlots?.[slot.key]?.armor);
+      }
+      if (collection.startsWith('armorMods:')) {
+        const modType = collection.split(':')[1];
+        return ARMOR_SLOTS
+          .filter(slot => slot.modType === modType)
+          .map(slot => build.armorSlots?.[slot.key]?.mod);
+      }
+      if (collection === 'combatDeviations') return [build.deviation];
+      if (collection === 'cradle') return build.cradle || [];
+      if (collection === 'food') return Object.values(build.food || {});
+      return [];
+    }
+
+    function getAvailableOptionsForPicker(build, path, collection) {
+      const currentValue = getPath(build, path);
+      const selected = new Set(selectedIdsForCollection(build, collection).filter(Boolean));
+      return getOptions(collection).filter(item => item.id === currentValue || !selected.has(item.id));
     }
 
     function bindRowEvents() {
@@ -378,7 +449,8 @@
     }
 
     function openPicker(buildId, path, collection) {
-      state.picker = { buildId, path, collection, options: getOptions(collection) };
+      const build = state.builds.find(item => item.id === buildId);
+      state.picker = { buildId, path, collection, options: getAvailableOptionsForPicker(build, path, collection) };
       $('#pickerTitle').textContent = `Select ${pathLabel(path)}`;
       $('#pickerSearch').value = '';
       $('#pickerModal').classList.add('open');
@@ -395,14 +467,14 @@
     function renderPickerResults() {
       const query = $('#pickerSearch').value.trim().toLowerCase();
       const options = state.picker.options
-        .filter(item => !query || `${item.name} ${metaFor(item)} ${item.effect || ''}`.toLowerCase().includes(query))
+        .filter(item => !query || `${displayNameFor(item, state.picker.collection)} ${item.name} ${metaFor(item, state.picker.collection)} ${item.effect || ''}`.toLowerCase().includes(query))
         .slice(0, 220);
       $('#pickerResults').innerHTML = options.map(item => `
         <button class="result" data-select-id="${escapeHtml(item.id)}">
           ${item.imageUrl ? `<img src="${escapeHtml(item.imageUrl)}" alt="">` : '<span class="icon"></span>'}
           <span>
-            <span class="name">${escapeHtml(item.name)}</span>
-            <span class="badge">${escapeHtml(metaFor(item))}</span>
+            <span class="name">${escapeHtml(displayNameFor(item, state.picker.collection))}</span>
+            <span class="badge">${escapeHtml(metaFor(item, state.picker.collection))}</span>
             <span class="effect">${escapeHtml(item.effect || item.description || '')}</span>
           </span>
           <span>Choose</span>
@@ -434,36 +506,80 @@
       render();
     });
     $('#pickerModal').addEventListener('click', event => { if (event.target.id === 'pickerModal') closePicker(); });
-    document.addEventListener('keydown', event => { if (event.key === 'Escape') closePicker(); });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') { closePicker(); hideTooltip(true); }
+      if (event.key === 'Control') pinTooltip();
+    });
+    document.addEventListener('click', event => {
+      if (state.stickyTip && !event.target.closest('#tooltip') && !event.target.closest('[data-tip-title]')) hideTooltip(true);
+    });
 
     function bindTooltips() {
       const tooltip = $('#tooltip');
       $$('[data-tip-title]').forEach(el => {
-        el.addEventListener('mouseenter', () => showTooltip(el));
-        el.addEventListener('focus', () => showTooltip(el));
-        el.addEventListener('mouseleave', hideTooltip);
-        el.addEventListener('blur', hideTooltip);
+        el.addEventListener('mouseenter', event => showTooltip(el, event.ctrlKey));
+        el.addEventListener('focus', event => showTooltip(el, event.ctrlKey));
+        el.addEventListener('mouseleave', hideTooltipIfNotSticky);
+        el.addEventListener('blur', hideTooltipIfNotSticky);
       });
-      function showTooltip(el) {
-        tooltip.innerHTML = `
-          <div class="tooltip-title">${escapeHtml(el.dataset.tipTitle)}</div>
-          <div class="tooltip-meta">${escapeHtml(el.dataset.tipMeta)}</div>
-          <div class="tooltip-effect">${escapeHtml(el.dataset.tipEffect)}</div>
-          ${el.dataset.tipUrl ? `<a class="tooltip-link" href="${escapeHtml(el.dataset.tipUrl)}" target="_blank" rel="noopener">Link</a>` : ''}`;
-        tooltip.classList.add('open');
-        const rect = el.getBoundingClientRect();
-        const tipRect = tooltip.getBoundingClientRect();
-        let left = rect.left + rect.width / 2 - tipRect.width / 2;
-        let top = rect.bottom + 8;
-        if (top + tipRect.height > window.innerHeight - 8) top = rect.top - tipRect.height - 8;
-        left = Math.max(8, Math.min(left, window.innerWidth - tipRect.width - 8));
-        top = Math.max(8, top);
-        tooltip.style.left = `${left}px`;
-        tooltip.style.top = `${top}px`;
-      }
-      function hideTooltip() { tooltip.classList.remove('open'); }
     }
 
+    function showTooltip(el, sticky = false) {
+      const tooltip = $('#tooltip');
+      state.hoveredTip = el;
+      state.stickyTip = !!sticky;
+      tooltip.innerHTML = `
+        <div class="tooltip-title">${escapeHtml(el.dataset.tipTitle)}</div>
+        <div class="tooltip-meta">${escapeHtml(el.dataset.tipMeta)}</div>
+        <div class="tooltip-effect">${escapeHtml(el.dataset.tipEffect)}</div>
+        ${el.dataset.tipUrl ? `<a class="tooltip-link" href="${escapeHtml(el.dataset.tipUrl)}" target="_blank" rel="noopener">Link</a>` : ''}
+        <div class="tooltip-hint">Hold Ctrl while hovering to pin this tooltip.</div>`;
+      tooltip.classList.toggle('sticky', state.stickyTip);
+      tooltip.classList.add('open');
+      positionTooltip(el);
+    }
+
+    function positionTooltip(el) {
+      const tooltip = $('#tooltip');
+      const rect = el.getBoundingClientRect();
+      const tipRect = tooltip.getBoundingClientRect();
+      let left = rect.left + rect.width / 2 - tipRect.width / 2;
+      let top = rect.bottom + 8;
+      if (top + tipRect.height > window.innerHeight - 8) top = rect.top - tipRect.height - 8;
+      left = Math.max(8, Math.min(left, window.innerWidth - tipRect.width - 8));
+      top = Math.max(8, top);
+      tooltip.style.left = `${left}px`;
+      tooltip.style.top = `${top}px`;
+    }
+
+    function pinTooltip() {
+      if (!state.hoveredTip) return;
+      state.stickyTip = true;
+      $('#tooltip').classList.add('sticky');
+    }
+
+    function hideTooltip(force = false) {
+      if (state.stickyTip && !force) return;
+      const tooltip = $('#tooltip');
+      tooltip.classList.remove('open');
+      tooltip.classList.remove('sticky');
+      state.stickyTip = false;
+      state.hoveredTip = null;
+    }
+
+    function hideTooltipIfNotSticky() { hideTooltip(false); }
+
+    function applyTheme(theme) {
+      const next = theme === 'light' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem(THEME_KEY, next);
+      const button = $('#themeToggleBtn');
+      if (button) button.textContent = next === 'light' ? 'Dark Mode' : 'Light Mode';
+    }
+
+    $('#themeToggleBtn').addEventListener('click', () => {
+      applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
+    });
     $('#addBuildBtn').addEventListener('click', () => { state.builds.push(defaultBuild()); render(); });
     $('#exportAllBtn').addEventListener('click', () => exportPdf());
     $('#saveBackupBtn').addEventListener('click', () => {
