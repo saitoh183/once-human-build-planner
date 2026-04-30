@@ -94,8 +94,18 @@
     .cradle-slot, .icon-picker { width: 50px; height: 46px; display: grid; place-items: center; border: 1px dashed var(--line); border-radius: 10px; background: var(--control); }
     .cradle-slot:hover, .icon-picker:hover { border-color: var(--accent); }
     .cradle-slot img, .icon-picker img { width: 36px; height: 36px; border-radius: 8px; object-fit: cover; }
+    [data-theme="light"] .picker img,
+    [data-theme="light"] .picker .icon,
+    [data-theme="light"] .result img,
+    [data-theme="light"] .cradle-slot img,
+    [data-theme="light"] .icon-picker img {
+      background: #2d2d2d;
+      border-color: #5f574a;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+    }
     .icon-picker.empty { color: var(--muted); }
-    .icon-picker-stack { display: grid; grid-template-columns: repeat(2, 50px); gap: 8px; justify-content: center; }
+    .icon-picker-stack { display: grid; grid-template-columns: 50px; gap: 8px; justify-content: center; align-content: center; }
+    .stack > .icon-picker { justify-self: center; }
     .food-stack { display: grid; gap: 7px; }
     .row-actions { display: grid; gap: 7px; }
     .tiny { padding: 6px 8px; font-size: 12px; }
