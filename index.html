@@ -68,7 +68,8 @@
     .col-armor { width: 170px; }
     .col-deviation { width: 170px; }
     .col-cradle { width: 170px; }
-    .col-food { width: 190px; }
+    .col-food { width: 170px; }
+    .col-chef { width: 170px; }
     .col-actions { width: 115px; }
     .stack { display: grid; gap: 7px; }
     .slot-label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
@@ -160,6 +161,7 @@
             <th class="col-deviation">Deviation</th>
             <th class="col-cradle">Cradle</th>
             <th class="col-food">Food</th>
+            <th class="col-chef">Chef</th>
             <th class="col-actions">Actions</th>
           </tr>
         </thead>
@@ -302,6 +304,8 @@
           <td class="col-food"><div class="food-stack">
             ${renderPicker('Main 1', 'food', build.food.main1, 'food.main1')}
             ${renderPicker('Main 2', 'food', build.food.main2, 'food.main2')}
+          </div></td>
+          <td class="col-chef"><div class="food-stack">
             ${renderPicker('Chef 1', 'food', build.food.chef1, 'food.chef1')}
             ${renderPicker('Chef 2', 'food', build.food.chef2, 'food.chef2')}
           </div></td>
@@ -625,7 +629,8 @@
           <div class="print-section"><h3>Armor + Mods</h3>${armorSections}</div>
           <div class="print-section"><h3>Deviation</h3>${line('Attack Deviation', 'combatDeviations', build.deviation)}</div>
           <div class="print-section"><h3>Cradle</h3>${cradleLines}</div>
-          <div class="print-section"><h3>Food</h3>${line('Main 1', 'food', build.food.main1)}<br>${line('Main 2', 'food', build.food.main2)}<br>${line('Chef 1', 'food', build.food.chef1)}<br>${line('Chef 2', 'food', build.food.chef2)}</div>
+          <div class="print-section"><h3>Food</h3>${line('Main 1', 'food', build.food.main1)}<br>${line('Main 2', 'food', build.food.main2)}</div>
+          <div class="print-section"><h3>Chef</h3>${line('Chef 1', 'food', build.food.chef1)}<br>${line('Chef 2', 'food', build.food.chef2)}</div>
         </div>
         <div class="print-link-list"><strong>Links</strong>${links.map(item => `<div>${escapeHtml(item.label)}: ${escapeHtml(item.name)} — <a href="${escapeHtml(item.url)}">Link</a></div>`).join('')}</div>
       </section>`;

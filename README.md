@@ -17,12 +17,14 @@ Static one-page build planner for Once Human gun builds, using [OHDB / Once Huma
   - Deviation
   - Cradle
   - Food
+  - Chef
 - Build type choices: `High HP` / `Low HP`
 - Gun column: primary + secondary gun selectors
 - Weapon column: primary + secondary weapon mod selectors
 - Armor slot columns: armor/set selector + matching armor mod selector
 - Cradle column: 8 compact icon slots
-- Food column: 2 main food slots + 2 Chef extra slots
+- Food column: 2 main food slots
+- Chef column: 2 Chef extra slots
 - Hover tooltips with effect text and a compact `Link` anchor
 - Local browser persistence via `localStorage`
 - Save/load backup JSON

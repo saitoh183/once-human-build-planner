@@ -4,7 +4,7 @@ const assert = require('assert');
 
 const html = fs.readFileSync('index.html', 'utf8');
 const script = html.match(/<script>([\s\S]*)<\/script>/)[1]
-  .replace(/\n\s*init\(\);\s*$/, '') + `\n\nglobalThis.__app = {\n  state,\n  defaultBuild,\n  displayNameFor,\n  metaFor,\n  getAvailableOptionsForPicker\n};`;
+  .replace(/\n\s*init\(\);\s*$/, '') + `\n\nglobalThis.__app = {\n  state,\n  defaultBuild,\n  displayNameFor,\n  metaFor,\n  getAvailableOptionsForPicker,\n  renderBuildRow,\n  renderPrintBuild\n};`;
 
 const elements = new Map();
 const makeElement = (id = '') => ({
@@ -94,6 +94,22 @@ assert(filtered.includes('blaze-blessing-violent'));
 filtered = app.getAvailableOptionsForPicker(build, 'armorSlots.shoes.mod', 'armorMods:Shoes').map(item => item.id);
 assert(filtered.includes('covered-advance-general'), 'current selected value remains available when editing its own picker');
 assert(filtered.includes('covered-advance-violent'));
+
+const rowHtml = app.renderBuildRow(build);
+assert(html.includes('<th class="col-food">Food</th>'), 'food column exists');
+assert(html.includes('<th class="col-chef">Chef</th>'), 'chef column exists');
+assert(rowHtml.includes('<td class="col-food"'), 'row has a food cell');
+assert(rowHtml.includes('<td class="col-chef"'), 'row has a chef cell');
+assert(rowHtml.indexOf('Main 1') < rowHtml.indexOf('<td class="col-chef"'), 'main food stays in food column');
+assert(rowHtml.indexOf('Main 2') < rowHtml.indexOf('<td class="col-chef"'), 'main food stays in food column');
+assert(rowHtml.indexOf('Chef 1') > rowHtml.indexOf('<td class="col-chef"'), 'chef 1 moved to chef column');
+assert(rowHtml.indexOf('Chef 2') > rowHtml.indexOf('<td class="col-chef"'), 'chef 2 moved to chef column');
+
+const printHtml = app.renderPrintBuild(build, 0);
+assert(printHtml.includes('<h3>Food</h3>'), 'print output keeps food section');
+assert(printHtml.includes('<h3>Chef</h3>'), 'print output has separate chef section');
+assert(printHtml.indexOf('Main 1') < printHtml.indexOf('<h3>Chef</h3>'), 'print food section only contains main food before chef section');
+assert(printHtml.indexOf('Chef 1') > printHtml.indexOf('<h3>Chef</h3>'), 'print chef section contains chef items');
 
 assert(html.includes('id="themeToggleBtn"'), 'theme toggle button exists');
 assert(html.includes('data-theme="light"'), 'light cream theme CSS exists');
