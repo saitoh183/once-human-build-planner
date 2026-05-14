@@ -1,0 +1,8 @@
+{
+  "name": "once-human-build-planner",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "discord-interactions": "^4.3.0"
+  }
+}

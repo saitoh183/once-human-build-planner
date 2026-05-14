@@ -269,6 +269,7 @@
           state.suppressNextSave = true;
         }
         render();
+        applyInitialQueryParams();
         state.suppressNextSave = false;
         setStatus();
       } catch (error) {
@@ -349,6 +350,29 @@
       const visible = visibleBuilds().length;
       const filterText = state.gunFilter ? `${visible}/${state.builds.length} visible. ` : '';
       $('#status').textContent = `${filterText}${state.builds.length} build row(s). ${counts}`;
+    }
+
+    function applyInitialQueryParams() {
+      const params = new URLSearchParams(window.location.search);
+      const gun = params.get('gun') || '';
+      const buildId = params.get('build') || '';
+      const shouldExportPng = params.get('export') === 'png';
+
+      if (gun) {
+        state.gunFilter = gun;
+        const input = $('#gunSearch');
+        if (input) input.value = gun;
+        render();
+      }
+
+      if (buildId) {
+        const row = document.querySelector(`[data-build-id="${CSS.escape(buildId)}"]`);
+        if (row) row.scrollIntoView({ block: 'center', inline: 'center' });
+      }
+
+      if (buildId && shouldExportPng) {
+        setTimeout(() => exportPng(buildId), 500);
+      }
     }
 
     function showError(message) {
