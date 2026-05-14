@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OHBot Privacy Policy</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101317;
+      --panel: #171b21;
+      --text: #f1f5f9;
+      --muted: #a7b0bf;
+      --accent: #f0b429;
+      --border: #2a3038;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #202733 0, var(--bg) 46rem);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    main {
+      width: min(920px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 3rem 0 4rem;
+    }
+
+    .card {
+      background: color-mix(in srgb, var(--panel) 94%, transparent);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: clamp(1.25rem, 3vw, 2.5rem);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    a { color: var(--accent); }
+    h1, h2 { line-height: 1.2; }
+    h1 { margin-top: 0; font-size: clamp(2rem, 5vw, 3.25rem); }
+    h2 { margin-top: 2rem; color: var(--accent); }
+    p, li { color: var(--muted); }
+    strong { color: var(--text); }
+    .updated { color: var(--muted); margin-bottom: 2rem; }
+    .back { display: inline-block; margin-bottom: 1.5rem; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="/">← Back to Once Human Build Planner</a>
+    <section class="card">
+      <h1>OHBot Privacy Policy</h1>
+      <p class="updated">Last updated: May 14, 2026</p>
+
+      <p>
+        OHBot is a Discord bot for searching Once Human builds stored by the Once Human Build Planner.
+      </p>
+
+      <h2>Information processed</h2>
+      <ul>
+        <li>Discord interaction data required to respond to slash commands.</li>
+        <li>Command options you submit, such as gun search text and HP type.</li>
+        <li>Server and channel identifiers used to enforce command restrictions.</li>
+        <li>Saved build planner data needed to return matching builds.</li>
+      </ul>
+
+      <h2>Information not collected</h2>
+      <p>
+        OHBot does not collect Discord passwords, payment data, private messages, or unrelated server messages. It only receives interaction payloads that Discord sends to the configured endpoint.
+      </p>
+
+      <h2>Storage</h2>
+      <p>
+        Build planner data is stored in the project's Cloudflare D1 database. Discord command interactions are processed to answer the request and may appear in provider logs for operational troubleshooting.
+      </p>
+
+      <h2>Sharing</h2>
+      <p>
+        Data is not sold. The service relies on Discord and Cloudflare, so data required to operate the bot passes through those services under their own policies.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For questions or removal requests, contact the server owner or project maintainer through the Discord server where OHBot is installed.
+      </p>
+    </section>
+  </main>
+</body>
+</html>

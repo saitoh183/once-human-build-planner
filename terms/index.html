@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OHBot Terms of Service</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101317;
+      --panel: #171b21;
+      --text: #f1f5f9;
+      --muted: #a7b0bf;
+      --accent: #f0b429;
+      --border: #2a3038;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #202733 0, var(--bg) 46rem);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    main {
+      width: min(920px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 3rem 0 4rem;
+    }
+
+    .card {
+      background: color-mix(in srgb, var(--panel) 94%, transparent);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: clamp(1.25rem, 3vw, 2.5rem);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    a { color: var(--accent); }
+    h1, h2 { line-height: 1.2; }
+    h1 { margin-top: 0; font-size: clamp(2rem, 5vw, 3.25rem); }
+    h2 { margin-top: 2rem; color: var(--accent); }
+    p, li { color: var(--muted); }
+    strong { color: var(--text); }
+    .updated { color: var(--muted); margin-bottom: 2rem; }
+    .back { display: inline-block; margin-bottom: 1.5rem; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="/">← Back to Once Human Build Planner</a>
+    <section class="card">
+      <h1>OHBot Terms of Service</h1>
+      <p class="updated">Last updated: May 14, 2026</p>
+
+      <p>
+        OHBot is a Discord bot for the Once Human Build Planner. It provides slash commands that search saved build data and return matching build details inside Discord.
+      </p>
+
+      <h2>Use of the bot</h2>
+      <ul>
+        <li>Use OHBot only for Once Human build lookup and related planner features.</li>
+        <li>Do not abuse, spam, automate, or attempt to disrupt the bot, Discord, Cloudflare, or the build planner service.</li>
+        <li>Commands may be restricted to specific Discord servers or channels.</li>
+      </ul>
+
+      <h2>Data handled</h2>
+      <p>
+        OHBot processes Discord interaction data required to answer slash commands, such as the command name, selected options, server/channel identifiers, and user interaction metadata provided by Discord.
+      </p>
+      <p>
+        The bot reads saved build planner data from the Once Human Build Planner database. It does not need your Discord password and will never ask for it.
+      </p>
+
+      <h2>Availability</h2>
+      <p>
+        OHBot is provided as-is. Features may change, break, or be removed without notice. Very dramatic, but standard internet plumbing.
+      </p>
+
+      <h2>Third-party services</h2>
+      <p>
+        OHBot depends on Discord and Cloudflare services. Their own terms and policies also apply when you use the bot.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For questions, issues, or removal requests, contact the server owner or project maintainer through the Discord server where OHBot is installed.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
