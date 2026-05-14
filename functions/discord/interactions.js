@@ -267,13 +267,9 @@ async function handleComponent(interaction, context, request) {
   const build = builds[index];
   if (!build) return ephemeral({ content: 'That build no longer exists.' });
 
-  return jsonResponse({
-    type: InteractionResponseType.UPDATE_MESSAGE,
-    data: {
-      flags: EPHEMERAL,
-      embeds: [buildEmbed(build, index, data)],
-      components: buildComponents(build, data, context.env.SITE_URL)
-    }
+  return ephemeral({
+    embeds: [buildEmbed(build, index, data)],
+    components: buildComponents(build, data, context.env.SITE_URL)
   });
 }
 
