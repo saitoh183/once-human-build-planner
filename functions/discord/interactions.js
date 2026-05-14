@@ -1,8 +1,11 @@
 import { InteractionResponseType, InteractionType, verifyKey } from 'discord-interactions';
 
 const EPHEMERAL = 1 << 6;
-const COMMAND_NAME = 'searchbuild';
+const SEARCH_COMMAND_NAME = 'searchbuild';
+const SETUP_COMMAND_NAME = 'setup';
 const BUILD_STATE_KEY = 'builds';
+const DISCORD_CONFIG_KEY_PREFIX = 'discord_config:';
+const MANAGE_GUILD_PERMISSION = 1n << 5n;
 const MAX_BUTTON_RESULTS = 25;
 const DATA_FILES = {
   weapons: '/data/weapons.json',
@@ -58,6 +61,57 @@ async function loadBuilds(db) {
   }
 }
 
+async function loadDiscordConfig(db, guildId) {
+  if (!guildId) return {};
+  await ensureSchema(db);
+  const row = await db.prepare('SELECT value FROM app_state WHERE key = ?').bind(discordConfigKey(guildId)).first();
+  if (!row?.value) return {};
+
+  try {
+    const parsed = JSON.parse(row.value);
+    return parsed && typeof parsed === 'object' ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+async function saveDiscordConfig(db, guildId, config) {
+  await ensureSchema(db);
+  await db.prepare(`
+    INSERT INTO app_state (key, value, updated_at)
+    VALUES (?, ?, CURRENT_TIMESTAMP)
+    ON CONFLICT(key) DO UPDATE SET
+      value = excluded.value,
+      updated_at = CURRENT_TIMESTAMP
+  `).bind(discordConfigKey(guildId), JSON.stringify(config)).run();
+}
+
+function hasManageGuildPermission(interaction) {
+  const permissions = interaction.member?.permissions;
+  if (!permissions) return false;
+
+  try {
+    return (BigInt(permissions) & MANAGE_GUILD_PERMISSION) === MANAGE_GUILD_PERMISSION;
+  } catch {
+    return false;
+  }
+}
+
+async function configuredChannelId(interaction, context) {
+  const config = await loadDiscordConfig(context.env.DB, interaction.guild_id);
+  if (Object.prototype.hasOwnProperty.call(config, 'channelId')) {
+    return config.channelId || '';
+  }
+  return context.env.ALLOWED_CHANNEL_ID || '';
+}
+
+async function ensureAllowedChannel(interaction, context) {
+  const allowedChannelId = await configuredChannelId(interaction, context);
+  if (!allowedChannelId || interaction.channel_id === allowedChannelId) return null;
+
+  return ephemeral({ content: `This command is only enabled in <#${allowedChannelId}>.` });
+}
+
 async function loadPlannerData(request) {
   const entries = await Promise.all(Object.entries(DATA_FILES).map(async ([key, path]) => {
     const response = await fetch(new URL(path, request.url));
@@ -69,6 +123,18 @@ async function loadPlannerData(request) {
 
 function optionValue(interaction, name) {
   return interaction.data?.options?.find(option => option.name === name)?.value || '';
+}
+
+function subcommand(interaction) {
+  return interaction.data?.options?.find(option => option.type === 1) || null;
+}
+
+function subcommandOptionValue(command, name) {
+  return command?.options?.find(option => option.name === name)?.value || '';
+}
+
+function discordConfigKey(guildId) {
+  return `${DISCORD_CONFIG_KEY_PREFIX}${guildId}`;
 }
 
 function normalize(value) {
@@ -213,9 +279,8 @@ function ephemeral(data) {
 }
 
 async function handleSearch(interaction, context, request) {
-  if (context.env.ALLOWED_CHANNEL_ID && interaction.channel_id !== context.env.ALLOWED_CHANNEL_ID) {
-    return ephemeral({ content: 'This command is only enabled in the Once Human build channel.' });
-  }
+  const channelBlock = await ensureAllowedChannel(interaction, context);
+  if (channelBlock) return channelBlock;
 
   const gunQuery = optionValue(interaction, 'gun');
   const hpSelection = optionValue(interaction, 'hp');
@@ -250,10 +315,41 @@ async function handleSearch(interaction, context, request) {
   });
 }
 
-async function handleComponent(interaction, context, request) {
-  if (context.env.ALLOWED_CHANNEL_ID && interaction.channel_id !== context.env.ALLOWED_CHANNEL_ID) {
-    return ephemeral({ content: 'This command is only enabled in the Once Human build channel.' });
+
+async function handleSetup(interaction, context) {
+  if (!interaction.guild_id) {
+    return ephemeral({ content: 'Setup can only be used inside a server.' });
   }
+
+  if (!hasManageGuildPermission(interaction)) {
+    return ephemeral({ content: 'You need **Manage Server** permission to configure OHBot.' });
+  }
+
+  const command = subcommand(interaction);
+  if (!command) return ephemeral({ content: 'Use `/setup set`, `/setup status`, or `/setup remove`.' });
+
+  if (command.name === 'set') {
+    const channelId = subcommandOptionValue(command, 'channel') || interaction.channel_id;
+    await saveDiscordConfig(context.env.DB, interaction.guild_id, { channelId });
+    return ephemeral({ content: `OHBot commands are now restricted to <#${channelId}>.` });
+  }
+
+  if (command.name === 'remove') {
+    await saveDiscordConfig(context.env.DB, interaction.guild_id, { channelId: '' });
+    return ephemeral({ content: 'OHBot channel restriction removed. Commands can be used in any allowed channel.' });
+  }
+
+  if (command.name === 'status') {
+    const channelId = await configuredChannelId(interaction, context);
+    return ephemeral({ content: channelId ? `OHBot commands are restricted to <#${channelId}>.` : 'OHBot has no channel restriction configured.' });
+  }
+
+  return ephemeral({ content: 'Unknown setup action.' });
+}
+
+async function handleComponent(interaction, context, request) {
+  const channelBlock = await ensureAllowedChannel(interaction, context);
+  if (channelBlock) return channelBlock;
 
   const customId = interaction.data?.custom_id || '';
   if (!customId.startsWith('build:')) {
@@ -282,8 +378,12 @@ export async function onRequestPost(context) {
     return jsonResponse({ type: InteractionResponseType.PONG });
   }
 
-  if (interaction.type === InteractionType.APPLICATION_COMMAND && interaction.data?.name === COMMAND_NAME) {
+  if (interaction.type === InteractionType.APPLICATION_COMMAND && interaction.data?.name === SEARCH_COMMAND_NAME) {
     return handleSearch(interaction, context, context.request);
+  }
+
+  if (interaction.type === InteractionType.APPLICATION_COMMAND && interaction.data?.name === SETUP_COMMAND_NAME) {
+    return handleSetup(interaction, context);
   }
 
   if (interaction.type === InteractionType.MESSAGE_COMPONENT) {
