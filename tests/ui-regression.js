@@ -181,6 +181,7 @@ assert(html.includes('id="editState"'), 'edit state indicator exists');
 assert(html.includes('EDIT_KEYS_API'), 'edit key API is wired');
 assert(rowHtml.includes('disabled aria-disabled="true"'), 'remote read-only mode disables row editing by default');
 assert(!app.canEditBuilds(), 'remote mode is read-only until unlocked');
+assert(html.includes('Disable editing'), 'unlocked remote edit button can disable editing again');
 app.state.editUnlocked = true;
 assert(app.canEditBuilds(), 'edit key unlock enables editing');
 assert.strictEqual(app.editDisabledAttr(), '', 'unlocked editing removes disabled attrs');

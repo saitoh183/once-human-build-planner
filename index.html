@@ -389,6 +389,13 @@
         updateEditUi();
         return;
       }
+      if (state.editUnlocked) {
+        state.editUnlocked = false;
+        state.editKey = '';
+        sessionStorage.removeItem(EDIT_KEY_SESSION_KEY);
+        render();
+        return;
+      }
       const key = prompt('Enter edit key');
       if (!key) return;
       try {
@@ -417,7 +424,7 @@
       if (loadBackupButton) loadBackupButton.disabled = !unlocked;
       if (editButton) {
         editButton.disabled = unlocked && state.storageMode === 'local';
-        editButton.textContent = unlocked ? 'Editing enabled' : 'Edit';
+        editButton.textContent = unlocked && state.storageMode === 'remote' ? 'Disable editing' : unlocked ? 'Editing enabled' : 'Edit';
       }
       if (editState) {
         editState.className = `edit-state ${state.storageMode === 'local' ? 'local' : unlocked ? 'unlocked' : ''}`.trim();
