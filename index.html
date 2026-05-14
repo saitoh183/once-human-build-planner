@@ -236,7 +236,7 @@
       { key: 'shoes', label: 'Shoes', armorType: 'Shoes', modType: 'Shoes' },
       { key: 'top', label: 'Top', armorType: 'Top', modType: 'Top' }
     ];
-    const state = { data: {}, builds: [], picker: null, printMode: 'all', hoveredTip: null, stickyTip: false, gunFilter: '' };
+    const state = { data: {}, builds: [], picker: null, printMode: 'all', hoveredTip: null, stickyTip: false, gunFilter: '', suppressNextSave: false };
 
     const $ = (selector, root = document) => root.querySelector(selector);
     const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
@@ -263,8 +263,13 @@
       try {
         state.data = await loadData();
         await loadBuilds();
-        if (!state.builds.length) state.builds.push(defaultBuild());
+        const hasSavedBuilds = state.builds.length > 0;
+        if (!hasSavedBuilds) {
+          state.builds.push(defaultBuild());
+          state.suppressNextSave = true;
+        }
         render();
+        state.suppressNextSave = false;
         setStatus();
       } catch (error) {
         showError(`Could not load data/*.json. If you opened index.html directly, serve the folder instead: python3 -m http.server 8080. Details: ${error.message}`);
@@ -321,6 +326,7 @@
     function saveBuilds() {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state.builds));
       setStatus();
+      if (state.suppressNextSave) return;
       clearTimeout(saveTimer);
       saveTimer = setTimeout(syncBuildsToDatabase, 300);
     }
