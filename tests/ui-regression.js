@@ -4,7 +4,7 @@ const assert = require('assert');
 
 const html = fs.readFileSync('index.html', 'utf8');
 const script = html.match(/<script>([\s\S]*)<\/script>/)[1]
-  .replace(/\n\s*init\(\);\s*$/, '') + `\n\nglobalThis.__app = {\n  state,\n  defaultBuild,\n  displayNameFor,\n  metaFor,\n  getAvailableOptionsForPicker,\n  renderBuildRow,\n  renderPrintBuild,\n  buildMatchesGunSearch,\n  getPngExportModel\n};`;
+  .replace(/\n\s*init\(\);\s*$/, '') + `\n\nglobalThis.__app = {\n  state,\n  defaultBuild,\n  displayNameFor,\n  metaFor,\n  getAvailableOptionsForPicker,\n  renderBuildRow,\n  renderPrintBuild,\n  buildMatchesGunSearch,\n  getPngExportModel,\n  canEditBuilds,\n  editDisabledAttr\n};`;
 
 const elements = new Map();
 const makeElement = (id = '') => ({
@@ -43,6 +43,12 @@ const context = {
   localStorage: {
     getItem: key => storage.has(key) ? storage.get(key) : null,
     setItem: (key, value) => storage.set(key, String(value)),
+    removeItem: key => storage.delete(key),
+  },
+  sessionStorage: {
+    getItem: key => storage.has(`session:${key}`) ? storage.get(`session:${key}`) : null,
+    setItem: (key, value) => storage.set(`session:${key}`, String(value)),
+    removeItem: key => storage.delete(`session:${key}`),
   },
   document: documentStub,
   window: { innerWidth: 1280, innerHeight: 720, addEventListener() {}, print() {} },
@@ -170,6 +176,19 @@ assert(html.includes('id="exportAllPngBtn"'), 'export all PNG button exists');
 assert(html.includes('data-action="export-row-png"'), 'per-row PNG export action exists');
 assert(html.includes('text-align-last: center'), 'build type select is centered');
 assert(html.includes('id="themeToggleBtn"'), 'theme toggle button exists');
+assert(html.includes('id="editModeBtn"'), 'edit mode button exists');
+assert(html.includes('id="editState"'), 'edit state indicator exists');
+assert(html.includes('EDIT_KEYS_API'), 'edit key API is wired');
+assert(rowHtml.includes('disabled aria-disabled="true"'), 'remote read-only mode disables row editing by default');
+assert(!app.canEditBuilds(), 'remote mode is read-only until unlocked');
+app.state.editUnlocked = true;
+assert(app.canEditBuilds(), 'edit key unlock enables editing');
+assert.strictEqual(app.editDisabledAttr(), '', 'unlocked editing removes disabled attrs');
+app.state.storageMode = 'local';
+app.state.editUnlocked = false;
+assert(app.canEditBuilds(), 'local storage fallback remains editable');
+app.state.storageMode = 'remote';
+app.state.editUnlocked = false;
 assert(html.includes('data-theme="light"'), 'light cream theme CSS exists');
 assert(html.includes('sticky'), 'sticky tooltip support exists');
 

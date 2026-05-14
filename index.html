@@ -57,6 +57,25 @@
     .btn:hover { border-color: var(--accent); }
     .btn.primary { background: linear-gradient(180deg, var(--accent), var(--accent-2)); color: #20170a; border-color: color-mix(in srgb, var(--accent) 70%, var(--line)); }
     .btn.danger { color: #fecdd3; border-color: #7f1d1d; background: #33121a; }
+    .btn:disabled, .picker:disabled, .icon-picker:disabled, .cradle-slot:disabled, input:disabled, select:disabled {
+      cursor: not-allowed;
+      opacity: .62;
+    }
+    .edit-state {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 36px;
+      border: 1px solid var(--line);
+      background: var(--control);
+      border-radius: 999px;
+      padding: 7px 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .edit-state.unlocked { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 55%, var(--line)); }
+    .edit-state.local { color: var(--accent); }
     .status { color: var(--muted); font-size: 13px; margin-bottom: 10px; }
     .table-shell { overflow: auto; border: 1px solid var(--line); border-radius: var(--radius); background: color-mix(in srgb, var(--panel) 84%, transparent); box-shadow: var(--shadow); }
     table { border-collapse: separate; border-spacing: 0; width: max-content; min-width: 100%; }
@@ -160,7 +179,9 @@
         <p class="subtitle">OHDB-powered one-row-per-build planner. Compact table, noisy data kept on a leash.</p>
       </div>
       <div class="toolbar">
-        <button class="btn primary" id="addBuildBtn">+ Add Build</button>
+        <span class="edit-state" id="editState">Read-only</span>
+        <button class="btn" id="editModeBtn">Edit</button>
+        <button class="btn primary" id="addBuildBtn" disabled>+ Add Build</button>
         <input class="filter-input" id="gunSearch" type="search" placeholder="Search guns…" autocomplete="off">
         <button class="btn" id="themeToggleBtn">Light Mode</button>
         <button class="btn" id="exportAllBtn">Export All PDF</button>
@@ -218,7 +239,9 @@
   <script>
     const STORAGE_KEY = 'oh_build_planner_rows_v1';
     const THEME_KEY = 'oh_build_planner_theme_v1';
+    const EDIT_KEY_SESSION_KEY = 'oh_build_planner_edit_key_v1';
     const BUILDS_API = '/api/builds';
+    const EDIT_KEYS_API = '/api/edit-keys';
     const DATA_FILES = {
       weapons: 'data/weapons.json',
       armor: 'data/armor.json',
@@ -236,7 +259,7 @@
       { key: 'shoes', label: 'Shoes', armorType: 'Shoes', modType: 'Shoes' },
       { key: 'top', label: 'Top', armorType: 'Top', modType: 'Top' }
     ];
-    const state = { data: {}, builds: [], picker: null, printMode: 'all', hoveredTip: null, stickyTip: false, gunFilter: '', suppressNextSave: false };
+    const state = { data: {}, builds: [], picker: null, printMode: 'all', hoveredTip: null, stickyTip: false, gunFilter: '', suppressNextSave: false, storageMode: 'remote', editKey: '', editUnlocked: false };
 
     const $ = (selector, root = document) => root.querySelector(selector);
     const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
@@ -263,6 +286,7 @@
       try {
         state.data = await loadData();
         await loadBuilds();
+        await restoreEditSession();
         const hasSavedBuilds = state.builds.length > 0;
         if (!hasSavedBuilds) {
           state.builds.push(defaultBuild());
@@ -317,9 +341,87 @@
         const remoteBuilds = Array.isArray(remote.builds) ? remote.builds.map(normalizeBuild) : [];
         state.builds = remoteBuilds.length ? remoteBuilds : localBuilds;
         localStorage.setItem(STORAGE_KEY, JSON.stringify(state.builds));
+        state.storageMode = 'remote';
+        state.editUnlocked = false;
       } catch (error) {
         console.warn('Using local builds only:', error);
+        state.storageMode = 'local';
+        state.editUnlocked = true;
         state.builds = localBuilds;
+      }
+    }
+
+    function canEditBuilds() {
+      return state.storageMode === 'local' || state.editUnlocked;
+    }
+
+    function editDisabledAttr() {
+      return canEditBuilds() ? '' : 'disabled aria-disabled="true"';
+    }
+
+    async function restoreEditSession() {
+      if (state.storageMode !== 'remote') return;
+      const savedKey = sessionStorage.getItem(EDIT_KEY_SESSION_KEY) || '';
+      if (!savedKey) return;
+      const ok = await validateEditKey(savedKey);
+      if (ok) {
+        state.editKey = savedKey;
+        state.editUnlocked = true;
+      } else {
+        sessionStorage.removeItem(EDIT_KEY_SESSION_KEY);
+      }
+    }
+
+    async function validateEditKey(key) {
+      const response = await fetch(EDIT_KEYS_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'validate', key })
+      });
+      if (!response.ok) return false;
+      const result = await response.json();
+      return result.ok === true;
+    }
+
+    async function unlockEditing() {
+      if (state.storageMode === 'local') {
+        state.editUnlocked = true;
+        updateEditUi();
+        return;
+      }
+      const key = prompt('Enter edit key');
+      if (!key) return;
+      try {
+        const trimmed = key.trim();
+        const ok = await validateEditKey(trimmed);
+        if (!ok) {
+          alert('Invalid edit key.');
+          return;
+        }
+        state.editKey = trimmed;
+        state.editUnlocked = true;
+        sessionStorage.setItem(EDIT_KEY_SESSION_KEY, trimmed);
+        render();
+      } catch (error) {
+        alert(`Could not validate edit key: ${error.message}`);
+      }
+    }
+
+    function updateEditUi() {
+      const unlocked = canEditBuilds();
+      const addButton = $('#addBuildBtn');
+      const editButton = $('#editModeBtn');
+      const editState = $('#editState');
+      const loadBackupButton = $('#loadBackupBtn');
+      if (addButton) addButton.disabled = !unlocked;
+      if (loadBackupButton) loadBackupButton.disabled = !unlocked;
+      if (editButton) {
+        editButton.disabled = unlocked && state.storageMode === 'local';
+        editButton.textContent = unlocked ? 'Editing enabled' : 'Edit';
+      }
+      if (editState) {
+        editState.className = `edit-state ${state.storageMode === 'local' ? 'local' : unlocked ? 'unlocked' : ''}`.trim();
+        editState.textContent = state.storageMode === 'local' ? 'Local storage mode' : unlocked ? 'Editing enabled' : 'Read-only';
       }
     }
 
@@ -327,7 +429,7 @@
     function saveBuilds() {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state.builds));
       setStatus();
-      if (state.suppressNextSave) return;
+      if (state.suppressNextSave || state.storageMode !== 'remote' || !canEditBuilds()) return;
       clearTimeout(saveTimer);
       saveTimer = setTimeout(syncBuildsToDatabase, 300);
     }
@@ -336,7 +438,7 @@
       try {
         const response = await fetch(BUILDS_API, {
           method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'X-Edit-Key': state.editKey },
           body: JSON.stringify({ builds: state.builds })
         });
         if (!response.ok) throw new Error(`builds API returned ${response.status}`);
@@ -349,7 +451,9 @@
       const counts = Object.entries(state.data).map(([key, rows]) => `${key}: ${rows.length}`).join(' · ');
       const visible = visibleBuilds().length;
       const filterText = state.gunFilter ? `${visible}/${state.builds.length} visible. ` : '';
-      $('#status').textContent = `${filterText}${state.builds.length} build row(s). ${counts}`;
+      const modeText = state.storageMode === 'local' ? 'Local storage only. ' : canEditBuilds() ? 'Database editing enabled. ' : 'Read-only database view. ';
+      $('#status').textContent = `${modeText}${filterText}${state.builds.length} build row(s). ${counts}`;
+      updateEditUi();
     }
 
     function applyInitialQueryParams() {
@@ -403,8 +507,8 @@
           </div></td>
           <td class="col-build">
             <div class="stack">
-              <input class="build-name-input" data-path="name" type="text" maxlength="32" placeholder="Build name" value="${escapeHtml(build.name || '')}" aria-label="Build name">
-              <select class="build-select" data-path="buildType">
+              <input class="build-name-input" data-path="name" type="text" maxlength="32" placeholder="Build name" value="${escapeHtml(build.name || '')}" aria-label="Build name" ${editDisabledAttr()}>
+              <select class="build-select" data-path="buildType" ${editDisabledAttr()}>
                 <option ${build.buildType === 'High HP' ? 'selected' : ''}>High HP</option>
                 <option ${build.buildType === 'Low HP' ? 'selected' : ''}>Low HP</option>
               </select>
@@ -434,8 +538,8 @@
           <td class="col-actions"><div class="row-actions">
             <button class="btn tiny" data-action="export-row">Export PDF</button>
             <button class="btn tiny" data-action="export-row-png">Export PNG</button>
-            <button class="btn tiny" data-action="duplicate-row">Duplicate</button>
-            <button class="btn tiny danger" data-action="delete-row">Delete</button>
+            <button class="btn tiny" data-action="duplicate-row" ${editDisabledAttr()}>Duplicate</button>
+            <button class="btn tiny danger" data-action="delete-row" ${editDisabledAttr()}>Delete</button>
           </div></td>
         </tr>`;
     }
@@ -454,7 +558,7 @@
       const cls = [item ? 'picker' : 'picker empty', extraClass].filter(Boolean).join(' ');
       return `<div>
         <div class="slot-label">${escapeHtml(label)}</div>
-        <button class="${cls}" data-picker="${escapeHtml(collection)}" data-path="${escapeHtml(path)}" ${tooltipAttrs(item, collection)}>
+        <button class="${cls}" data-picker="${escapeHtml(collection)}" data-path="${escapeHtml(path)}" ${editDisabledAttr()} ${tooltipAttrs(item, collection)}>
           ${item?.imageUrl ? `<img src="${escapeHtml(item.imageUrl)}" alt="">` : '<span class="icon"></span>'}
           <span class="picker-text">
             <span class="picker-name">${escapeHtml(item ? displayNameFor(item, collection) : 'Select')}</span>
@@ -467,14 +571,14 @@
     function renderIconPicker(label, collection, selectedId, path) {
       const item = findOption(collection, selectedId);
       const cls = item ? 'icon-picker' : 'icon-picker empty';
-      return `<button class="${cls}" data-picker="${escapeHtml(collection)}" data-path="${escapeHtml(path)}" title="${escapeHtml(label)}" ${tooltipAttrs(item, collection)}>
+      return `<button class="${cls}" data-picker="${escapeHtml(collection)}" data-path="${escapeHtml(path)}" title="${escapeHtml(label)}" ${editDisabledAttr()} ${tooltipAttrs(item, collection)}>
         ${item?.imageUrl ? `<img src="${escapeHtml(item.imageUrl)}" alt="${escapeHtml(displayNameFor(item, collection))}">` : `<span>${escapeHtml(label.split(' ').map(part => part[0]).join('').slice(0, 2))}</span>`}
       </button>`;
     }
 
     function renderCradleSlot(selectedId, index) {
       const item = byId('cradle', selectedId);
-      return `<button class="cradle-slot" data-picker="cradle" data-path="cradle.${index}" title="Cradle ${index + 1}" ${tooltipAttrs(item, 'cradle')}>
+      return `<button class="cradle-slot" data-picker="cradle" data-path="cradle.${index}" title="Cradle ${index + 1}" ${editDisabledAttr()} ${tooltipAttrs(item, 'cradle')}>
         ${item?.imageUrl ? `<img src="${escapeHtml(item.imageUrl)}" alt="${escapeHtml(item.name)}">` : `<span>${index + 1}</span>`}
       </button>`;
     }
@@ -577,6 +681,7 @@
       $$('#buildRows tr').forEach(row => {
         const build = state.builds.find(item => item.id === row.dataset.buildId);
         row.addEventListener('input', event => {
+          if (!canEditBuilds()) return;
           const target = event.target;
           if (target.matches('[data-path="name"]')) {
             build.name = target.value;
@@ -584,6 +689,7 @@
           }
         });
         row.addEventListener('change', event => {
+          if (!canEditBuilds()) return;
           const target = event.target;
           if (target.matches('[data-path="buildType"]')) {
             build.buildType = target.value;
@@ -593,6 +699,7 @@
         row.addEventListener('click', event => {
           const pickerButton = event.target.closest('[data-picker]');
           if (pickerButton) {
+            if (!canEditBuilds()) return;
             openPicker(build.id, pickerButton.dataset.path, pickerButton.dataset.picker);
             return;
           }
@@ -600,6 +707,7 @@
           if (!action) return;
           if (action === 'export-row') exportPdf(build.id);
           if (action === 'export-row-png') exportPng(build.id);
+          if (!canEditBuilds() && ['duplicate-row', 'delete-row'].includes(action)) return;
           if (action === 'duplicate-row') {
             const clone = JSON.parse(JSON.stringify(build));
             clone.id = uuid();
@@ -658,7 +766,7 @@
 
     $('#pickerResults').addEventListener('click', event => {
       const result = event.target.closest('[data-select-id]');
-      if (!result || !state.picker) return;
+      if (!result || !state.picker || !canEditBuilds()) return;
       const build = state.builds.find(item => item.id === state.picker.buildId);
       setPath(build, state.picker.path, result.dataset.selectId);
       closePicker();
@@ -667,7 +775,7 @@
     $('#pickerSearch').addEventListener('input', renderPickerResults);
     $('#closePickerBtn').addEventListener('click', closePicker);
     $('#clearPickerBtn').addEventListener('click', () => {
-      if (!state.picker) return;
+      if (!state.picker || !canEditBuilds()) return;
       const build = state.builds.find(item => item.id === state.picker.buildId);
       setPath(build, state.picker.path, '');
       closePicker();
@@ -752,7 +860,12 @@
       state.gunFilter = event.target.value;
       render();
     });
-    $('#addBuildBtn').addEventListener('click', () => { state.builds.push(defaultBuild()); render(); });
+    $('#editModeBtn').addEventListener('click', unlockEditing);
+    $('#addBuildBtn').addEventListener('click', () => {
+      if (!canEditBuilds()) return;
+      state.builds.push(defaultBuild());
+      render();
+    });
     $('#exportAllBtn').addEventListener('click', () => exportPdf());
     $('#exportAllPngBtn').addEventListener('click', () => exportAllPng());
     $('#saveBackupBtn').addEventListener('click', () => {
@@ -761,8 +874,12 @@
       a.click();
       URL.revokeObjectURL(a.href);
     });
-    $('#loadBackupBtn').addEventListener('click', () => $('#backupFile').click());
+    $('#loadBackupBtn').addEventListener('click', () => {
+      if (!canEditBuilds()) return;
+      $('#backupFile').click();
+    });
     $('#backupFile').addEventListener('change', async event => {
+      if (!canEditBuilds()) return;
       const file = event.target.files[0];
       if (!file) return;
       const parsed = JSON.parse(await file.text());
