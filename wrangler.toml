@@ -1,0 +1,7 @@
+name = "once-human-build-planner"
+pages_build_output_dir = "."
+
+[[d1_databases]]
+binding = "DB"
+database_name = "oncehuman-builds"
+database_id = "b2477ae1-b271-4844-8323-e02affbb3521"

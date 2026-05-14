@@ -218,6 +218,7 @@
   <script>
     const STORAGE_KEY = 'oh_build_planner_rows_v1';
     const THEME_KEY = 'oh_build_planner_theme_v1';
+    const BUILDS_API = '/api/builds';
     const DATA_FILES = {
       weapons: 'data/weapons.json',
       armor: 'data/armor.json',
@@ -261,7 +262,7 @@
       applyTheme(localStorage.getItem(THEME_KEY) || 'dark');
       try {
         state.data = await loadData();
-        loadBuilds();
+        await loadBuilds();
         if (!state.builds.length) state.builds.push(defaultBuild());
         render();
         setStatus();
@@ -298,14 +299,43 @@
       return normalized;
     }
 
-    function loadBuilds() {
-      try { state.builds = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]').map(normalizeBuild); }
-      catch { state.builds = []; }
+    async function loadBuilds() {
+      let localBuilds = [];
+      try { localBuilds = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]').map(normalizeBuild); }
+      catch { localBuilds = []; }
+
+      try {
+        const response = await fetch(BUILDS_API, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`builds API returned ${response.status}`);
+        const remote = await response.json();
+        const remoteBuilds = Array.isArray(remote.builds) ? remote.builds.map(normalizeBuild) : [];
+        state.builds = remoteBuilds.length ? remoteBuilds : localBuilds;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state.builds));
+      } catch (error) {
+        console.warn('Using local builds only:', error);
+        state.builds = localBuilds;
+      }
     }
 
+    let saveTimer = null;
     function saveBuilds() {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state.builds));
       setStatus();
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(syncBuildsToDatabase, 300);
+    }
+
+    async function syncBuildsToDatabase() {
+      try {
+        const response = await fetch(BUILDS_API, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ builds: state.builds })
+        });
+        if (!response.ok) throw new Error(`builds API returned ${response.status}`);
+      } catch (error) {
+        console.warn('Could not sync builds to database:', error);
+      }
     }
 
     function setStatus() {
