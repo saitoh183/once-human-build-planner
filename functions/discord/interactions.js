@@ -14,6 +14,15 @@ const DEFAULT_OVERRIDES = {
 const DISCORD_CONFIG_KEY_PREFIX = 'discord_config:';
 const MANAGE_GUILD_PERMISSION = 1n << 5n;
 const MAX_BUTTON_RESULTS = 25;
+const CUSTOM_ITEM_COLLECTIONS = new Set(['weapons', 'armor', 'mods', 'animalSkins', 'calibrations', 'deviations', 'cradle', 'food']);
+const ARMOR_SLOT_ORDER = [
+  ['Head', 'head'],
+  ['Mask', 'mask'],
+  ['Top', 'top'],
+  ['Bottom', 'legs'],
+  ['Gloves', 'gloves'],
+  ['Shoes', 'shoes']
+];
 const DATA_FILES = {
   weapons: '/data/weapons.json',
   armor: '/data/armor.json',
@@ -128,34 +137,85 @@ async function loadPlannerData(request) {
   return Object.fromEntries(entries);
 }
 
+function slugify(value) {
+  return String(value || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || `item-${Date.now()}`;
+}
+
+function normalizeCustomItem(entry) {
+  if (!entry || typeof entry !== 'object') return null;
+  const collection = CUSTOM_ITEM_COLLECTIONS.has(entry.collection) ? entry.collection : 'weapons';
+  const item = entry.item && typeof entry.item === 'object' ? entry.item : {};
+  const name = String(item.name || '').trim();
+  const id = String(item.id || slugify(name)).trim();
+  if (!id || !name) return null;
+  return { collection, item: {
+    id,
+    slug: String(item.slug || id).trim(),
+    name,
+    type: String(item.type || '').trim(),
+    slot: String(item.slot || '').trim(),
+    category: String(item.category || '').trim(),
+    variant: String(item.variant || '').trim(),
+    rarity: String(item.rarity || '').trim(),
+    style: String(item.style || '').trim(),
+    effect: String(item.effect || item.description || '').trim(),
+    imageUrl: String(item.imageUrl || '').trim(),
+    url: String(item.url || '').trim(),
+    custom: true
+  }};
+}
+
+function normalizeItemConfig(value) {
+  const source = value && typeof value === 'object' ? value : {};
+  const overrides = { ...DEFAULT_OVERRIDES, ...(source.overrides && typeof source.overrides === 'object' ? source.overrides : {}) };
+  const notes = source.notes && typeof source.notes === 'object' ? source.notes : {};
+  const customItems = Array.isArray(source.customItems) ? source.customItems.map(normalizeCustomItem).filter(Boolean) : [];
+  const removedItems = {};
+  for (const [key, reason] of Object.entries(source.removedItems || {})) {
+    const normalizedKey = String(key || '').trim();
+    const itemId = normalizedKey.split(':').slice(1).join(':');
+    if (normalizedKey.includes(':') && itemId && !overrides[itemId]) removedItems[normalizedKey] = String(reason || '').trim();
+  }
+  return { overrides, notes, customItems, removedItems };
+}
+
 async function loadItemConfig(db) {
   await ensureSchema(db);
   const row = await db.prepare('SELECT value FROM app_state WHERE key = ?').bind(ITEM_CONFIG_KEY).first();
-  if (!row?.value) return { overrides: { ...DEFAULT_OVERRIDES }, notes: {} };
+  if (!row?.value) return normalizeItemConfig({});
   try {
-    const parsed = JSON.parse(row.value);
-    return {
-      overrides: { ...DEFAULT_OVERRIDES, ...(parsed?.overrides && typeof parsed.overrides === 'object' ? parsed.overrides : {}) },
-      notes: parsed?.notes && typeof parsed.notes === 'object' ? parsed.notes : {}
-    };
+    return normalizeItemConfig(JSON.parse(row.value));
   } catch {
-    return { overrides: { ...DEFAULT_OVERRIDES }, notes: {} };
+    return normalizeItemConfig({});
   }
 }
 
+function collectionKeyForItem(collection, item) {
+  return `${collection}:${item?.id || ''}`;
+}
+
 function applyItemConfig(data, config) {
-  const overrides = config?.overrides || {};
-  return Object.fromEntries(Object.entries(data).map(([collection, rows]) => [
+  const normalized = normalizeItemConfig(config);
+  const result = Object.fromEntries(Object.entries(data).map(([collection, rows]) => [collection, [...(rows || [])]]));
+  for (const custom of normalized.customItems) {
+    result[custom.collection] = result[custom.collection] || [];
+    const existingIndex = result[custom.collection].findIndex(item => item.id === custom.item.id);
+    if (existingIndex >= 0) result[custom.collection][existingIndex] = { ...result[custom.collection][existingIndex], ...custom.item, custom: true };
+    else result[custom.collection].push(custom.item);
+  }
+  return Object.fromEntries(Object.entries(result).map(([collection, rows]) => [
     collection,
-    (rows || []).map(item => {
-      const override = overrides[item.id];
-      if (!override) return item;
-      return {
-        ...item,
-        overrideName: String(override.name || '').trim(),
-        overrideDescription: String(override.description || '').trim()
-      };
-    })
+    (rows || [])
+      .filter(item => !normalized.removedItems[collectionKeyForItem(collection, item)])
+      .map(item => {
+        const override = normalized.overrides[item.id];
+        return {
+          ...item,
+          note: normalized.notes[item.id] || '',
+          overrideName: String(override?.name || '').trim(),
+          overrideDescription: String(override?.description || '').trim()
+        };
+      })
   ]));
 }
 
@@ -214,13 +274,20 @@ function compactLine(label, value) {
 }
 
 function itemLine(label, data, collection, id) {
-  return compactLine(label, displayName(byId(data, collection, id), collection));
+  const item = byId(data, collection, id);
+  const note = item?.note ? ` — Note: ${item.note}` : '';
+  return compactLine(label, `${displayName(item, collection)}${note}`);
+}
+
+function displayNameWithNote(item, collection) {
+  const note = item?.note ? ` — Note: ${item.note}` : '';
+  return `${displayName(item, collection)}${note}`;
 }
 
 function armorLine(slotLabel, slot, data) {
-  const armor = displayName(byId(data, 'armor', slot?.armor), 'armor');
-  const skin = displayName(byId(data, 'animalSkins', slot?.animalSkin), 'animalSkins');
-  const mod = displayName(byId(data, 'mods', slot?.mod), 'mods');
+  const armor = displayNameWithNote(byId(data, 'armor', slot?.armor), 'armor');
+  const skin = displayNameWithNote(byId(data, 'animalSkins', slot?.animalSkin), 'animalSkins');
+  const mod = displayNameWithNote(byId(data, 'mods', slot?.mod), 'mods');
   return `**${slotLabel}:** ${armor} / ${skin} / ${mod}`;
 }
 
@@ -229,7 +296,7 @@ function buildEmbed(build, index, data) {
   const primaryGun = byId(data, 'weapons', build.guns?.primary);
   const secondaryGun = byId(data, 'weapons', build.guns?.secondary);
   const armor = build.armorSlots || {};
-  const cradle = (build.cradle || []).map((id, i) => `${i + 1}. ${displayName(byId(data, 'cradle', id), 'cradle')}`).join('\n') || '—';
+  const cradle = (build.cradle || []).map((id, i) => `${i + 1}. ${displayNameWithNote(byId(data, 'cradle', id), 'cradle')}`).join('\n') || '—';
 
   return {
     title: `Once Human Build: ${title}`,
@@ -249,14 +316,11 @@ function buildEmbed(build, index, data) {
         itemLine('Primary', data, 'calibrations', build.calibrations?.primary),
         itemLine('Secondary', data, 'calibrations', build.calibrations?.secondary)
       ].join('\n'), inline: false },
-      { name: 'Armor', value: [
-        armorLine('Mask', armor.mask, data),
-        armorLine('Head', armor.head, data),
-        armorLine('Legs', armor.legs, data),
-        armorLine('Shoes', armor.shoes, data),
-        armorLine('Top', armor.top, data)
-      ].join('\n').slice(0, 1024), inline: false },
-      { name: 'Deviation', value: displayName(byId(data, 'deviations', build.deviation), 'deviations'), inline: true },
+      { name: 'Armor', value: ARMOR_SLOT_ORDER
+        .map(([label, key]) => armorLine(label, armor[key], data))
+        .join('\n')
+        .slice(0, 1024), inline: false },
+      { name: 'Deviation', value: displayNameWithNote(byId(data, 'deviations', build.deviation), 'deviations'), inline: true },
       { name: 'Cradle', value: cradle.slice(0, 1024), inline: false },
       { name: 'Food', value: [
         itemLine('Main 1', data, 'food', build.food?.main1),

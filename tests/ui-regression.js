@@ -4,7 +4,7 @@ const assert = require('assert');
 
 const html = fs.readFileSync('index.html', 'utf8');
 const script = html.match(/<script>([\s\S]*)<\/script>/)[1]
-  .replace(/\n\s*init\(\);\s*$/, '') + `\n\nglobalThis.__app = {\n  state,\n  defaultBuild,\n  displayNameFor,\n  metaFor,\n  effectiveDescription,\n  tooltipAttrs,\n  getAvailableOptionsForPicker,\n  renderBuildRow,\n  renderPrintBuild,\n  buildMatchesGunSearch,\n  getPngExportModel,\n  exportItemHeight,\n  canEditBuilds,\n  editDisabledAttr\n};`;
+  .replace(/\n\s*init\(\);\s*$/, '') + `\n\nglobalThis.__app = {\n  state,\n  defaultBuild,\n  displayNameFor,\n  metaFor,\n  effectiveDescription,\n  tooltipAttrs,\n  getAvailableOptionsForPicker,\n  renderBuildRow,\n  renderPrintBuild,\n  buildMatchesGunSearch,\n  getPngExportModel,\n  exportItemHeight,\n  applyItemConfigToData,\n  normalizeItemConfig,\n  collectionKeyForItem,\n  canEditBuilds,\n  editDisabledAttr\n};`;
 
 const elements = new Map();
 const makeElement = (id = '') => ({
@@ -68,6 +68,7 @@ app.state.data = {
     { id: 'blaze-blessing-violent', name: 'Blaze Blessing', category: 'Weapon Mod', slot: 'Weapon', variant: 'Violent', rarity: 'legendary' },
     { id: 'covered-advance-general', name: 'Covered Advance', category: 'Armor Mod', slot: 'Shoes', variant: 'General', rarity: 'legendary' },
     { id: 'covered-advance-violent', name: 'Covered Advance', category: 'Armor Mod', slot: 'Shoes', variant: 'Violent', rarity: 'legendary' },
+    { id: 'crit-amplifier-general', name: 'Crit Amplifier', category: 'Armor Mod', slot: 'Gloves', variant: 'General', rarity: 'legendary' },
   ],
   weapons: [
     { id: 'gun-a', name: 'Gun A', type: 'SMG', rarity: 'legendary' },
@@ -76,6 +77,7 @@ app.state.data = {
   ],
   armor: [
     { id: 'helmet-a', name: 'Helmet A', slot: 'Helmet', rarity: 'legendary' },
+    { id: 'gloves-a', name: 'Gloves A', slot: 'Gloves', rarity: 'legendary' },
   ],
   animalSkins: [
     { id: 'wool', name: 'Wool', rarity: 'uncommon', effect: 'Non-Weakspot DMG Reduction', url: 'https://example.test/wool' },
@@ -90,6 +92,7 @@ app.state.data = {
   ],
   food: []
 };
+app.state.baseData = JSON.parse(JSON.stringify(app.state.data));
 app.state.itemConfig = {
   overrides: {
     'anti-phase': { name: 'Precision Weapon Mastery', description: 'Damage +15% when wielding sniper rifles, SMGs, or crossbows.' }
@@ -112,6 +115,8 @@ build.calibrations.primary = 'calibration-blueprint-precision-pistol';
 build.weaponMods.primary = 'blaze-blessing-general';
 build.armorSlots.head.armor = 'helmet-a';
 build.armorSlots.head.animalSkin = 'wool';
+build.armorSlots.gloves.armor = 'gloves-a';
+build.armorSlots.gloves.mod = 'crit-amplifier-general';
 build.armorSlots.shoes.mod = 'covered-advance-general';
 build.cradle = ['slot-a', '', '', '', '', '', '', ''];
 build.food.main1 = 'food-a';
@@ -123,6 +128,14 @@ m416Build.guns.primary = 'm416-silent-anabasis';
 assert(app.buildMatchesGunSearch(m416Build, 'silent'), 'gun search matches primary gun name');
 assert(app.buildMatchesGunSearch(m416Build, 'assault'), 'gun search matches gun metadata');
 assert(!app.buildMatchesGunSearch(build, 'silent'), 'gun search excludes builds without matching guns');
+
+const configuredData = app.applyItemConfigToData(app.state.baseData, app.normalizeItemConfig({
+  customItems: [{ collection: 'weapons', item: { id: 'custom-gun', name: 'Custom Gun', type: 'LMG', imageUrl: 'https://example.test/custom.png' } }],
+  removedItems: { 'armor:helmet-a': 'retired' }
+}));
+assert(configuredData.weapons.some(item => item.id === 'custom-gun' && item.imageUrl.includes('custom.png')), 'manual items are merged into picker data');
+assert(!configuredData.armor.some(item => item.id === 'helmet-a'), 'removed items are filtered from picker data');
+assert.strictEqual(app.collectionKeyForItem('armor', { id: 'helmet-a' }), 'armor:helmet-a', 'removed item keys include collection and id');
 
 assert.strictEqual(app.displayNameFor(app.state.data.calibrations[0], 'calibrations'), 'Precision Pistol');
 assert.strictEqual(app.displayNameFor(app.state.data.calibrations[0]), 'Calibration Blueprint - Precision Pistol');
@@ -152,6 +165,16 @@ assert(rowHtml.includes('<td class="col-calibration"'), 'row has a calibration c
 assert(rowHtml.includes('calibrations.primary'), 'row has primary calibration selector');
 assert(rowHtml.includes('calibrations.secondary'), 'row has secondary calibration selector');
 assert(rowHtml.includes('armorSlots.head.animalSkin'), 'armor slots include animal skin selector');
+assert(rowHtml.includes('armorSlots.gloves.armor'), 'armor slots include gloves armor selector');
+assert(rowHtml.includes('armorSlots.gloves.mod'), 'armor slots include gloves mod selector');
+assert(rowHtml.indexOf('Head Armor') < rowHtml.indexOf('Mask Armor'), 'armor order starts head-mask');
+assert(rowHtml.indexOf('Mask Armor') < rowHtml.indexOf('Top Armor'), 'armor order includes mask before top');
+assert(rowHtml.indexOf('Top Armor') < rowHtml.indexOf('Bottom Armor'), 'armor order includes top before bottom');
+assert(rowHtml.indexOf('Bottom Armor') < rowHtml.indexOf('Gloves Armor'), 'armor order includes bottom before gloves');
+assert(rowHtml.indexOf('Gloves Armor') < rowHtml.indexOf('Shoes Armor'), 'armor order includes gloves before shoes');
+assert(html.includes('<th class="col-armor">Gloves</th>'), 'gloves column header exists');
+assert(html.indexOf('<th class="col-armor">Head</th>') < html.indexOf('<th class="col-armor">Mask</th>'), 'header armor order starts head-mask');
+assert(html.indexOf('<th class="col-armor">Gloves</th>') < html.indexOf('<th class="col-armor">Shoes</th>'), 'header puts gloves before shoes');
 assert(rowHtml.includes('data-picker="animalSkins"'), 'animal skin uses picker collection');
 assert(rowHtml.includes('Non-Weakspot DMG Reduction'), 'animal skin tooltip includes screenshot effect');
 assert(rowHtml.indexOf('<td class="col-calibration"') > rowHtml.indexOf('<td class="col-weapon"'), 'calibration column sits after weapon');
@@ -176,6 +199,10 @@ assert(printHtml.includes('Precision Pistol'), 'print output includes shortened 
 assert(printHtml.includes('Best with weakspot rolls.'), 'print output includes tooltip notes');
 assert(printHtml.includes('print-note'), 'print output marks notes for PDF export');
 assert(printHtml.includes('Head Animal Skin'), 'print output includes armor animal skin rows');
+assert(printHtml.includes('Gloves Armor'), 'print output includes gloves armor rows');
+assert(printHtml.includes('Crit Amplifier'), 'print output includes gloves mod');
+assert(printHtml.indexOf('Head Armor') < printHtml.indexOf('Mask Armor'), 'print armor order starts head-mask');
+assert(printHtml.indexOf('Gloves Armor') < printHtml.indexOf('Shoes Armor'), 'print armor order includes gloves before shoes');
 assert(printHtml.includes('Wool'), 'print output includes selected animal skin');
 assert(printHtml.includes('<h3>Food</h3>'), 'print output keeps food section');
 assert(printHtml.includes('<h3>Chef</h3>'), 'print output has separate chef section');
@@ -188,6 +215,9 @@ assert(pngModel.sections.some(section => section.title === 'Gun'), 'PNG model in
 assert(pngModel.sections.some(section => section.title === 'Build Type'), 'PNG model includes centered build type section');
 assert(pngModel.sections.some(section => section.title === 'Calibration'), 'PNG model includes calibration section');
 assert(pngModel.sections.some(section => section.title === 'Head' && section.items.some(item => item.label === 'Animal Skin' && item.name === 'Wool')), 'PNG model includes armor animal skin');
+assert(pngModel.sections.some(section => section.title === 'Gloves' && section.items.some(item => item.name === 'Gloves A')), 'PNG model includes gloves armor');
+assert(pngModel.sections.findIndex(section => section.title === 'Head') < pngModel.sections.findIndex(section => section.title === 'Mask'), 'PNG armor order starts head-mask');
+assert(pngModel.sections.findIndex(section => section.title === 'Gloves') < pngModel.sections.findIndex(section => section.title === 'Shoes'), 'PNG armor order includes gloves before shoes');
 assert(pngModel.sections.some(section => section.title === 'Calibration' && section.items.some(item => item.name === 'Precision Pistol' && item.note === 'Best with weakspot rolls.')), 'PNG model includes tooltip notes');
 assert(app.exportItemHeight({ note: 'Best with weakspot rolls.' }, true) >= 100, 'compact PNG note rows have enough space to avoid label overlap');
 assert(app.exportItemHeight({ note: 'Best with weakspot rolls.' }, false) >= 118, 'regular PNG note rows have enough space for separated notes');
@@ -198,6 +228,12 @@ assert(html.includes('id="gunSearch"'), 'gun search input exists');
 assert(html.includes('data/animal-skins.json'), 'animal skin data file is loaded');
 assert(html.includes('data/calibrations.json'), 'calibration data file is loaded');
 assert(html.includes('id="exportAllPngBtn"'), 'export all PNG button exists');
+assert(html.indexOf('id="exportAllPngBtn"') < html.indexOf('id="exportAllBtn"'), 'Export All PDF sits under/after Export All PNG in the toolbar');
+assert(html.includes('id="addCustomItemBtn"'), 'manual add item button exists');
+assert(html.includes('id="addRemovedItemBtn"'), 'manual remove item button exists');
+assert(html.includes('custom-item-grid'), 'manual item editor grid exists');
+assert(html.includes('removed-item-grid'), 'removed item editor grid exists');
+assert(html.includes('Remove the override before removing this item'), 'remove guardrail warns when an override exists');
 assert(html.includes('data-action="export-row-png"'), 'per-row PNG export action exists');
 assert(html.includes('text-align-last: center'), 'build type select is centered');
 assert(html.includes('id="themeToggleBtn"'), 'theme toggle button exists');

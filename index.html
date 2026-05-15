@@ -161,9 +161,13 @@
     .override-panel { margin-top: 14px; border: 1px solid var(--line); border-radius: var(--radius); background: color-mix(in srgb, var(--panel) 84%, transparent); box-shadow: var(--shadow); overflow: hidden; }
     .override-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px; border-bottom: 1px solid var(--line); }
     .override-grid { display: grid; grid-template-columns: minmax(260px, 1.2fr) minmax(220px, .8fr) minmax(320px, 1.4fr) auto; gap: 10px; padding: 12px; align-items: start; }
-    .override-grid.header { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; padding-bottom: 0; }
-    .override-grid select, .override-grid input, .override-grid textarea { width: 100%; background: var(--control); border: 1px solid var(--line); border-radius: 10px; padding: 9px; }
-    .override-grid textarea { min-height: 68px; resize: vertical; }
+    .custom-item-grid { display: grid; grid-template-columns: minmax(130px, .8fr) minmax(180px, 1fr) minmax(160px, 1fr) minmax(210px, 1.2fr) minmax(260px, 1.4fr) auto; gap: 10px; padding: 12px; align-items: start; }
+    .removed-item-grid { display: grid; grid-template-columns: minmax(320px, 1.6fr) minmax(220px, 1fr) auto; gap: 10px; padding: 12px; align-items: start; }
+    .override-grid.header, .custom-item-grid.header, .removed-item-grid.header { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; padding-bottom: 0; }
+    .override-grid select, .override-grid input, .override-grid textarea,
+    .custom-item-grid select, .custom-item-grid input, .custom-item-grid textarea,
+    .removed-item-grid select, .removed-item-grid input { width: 100%; background: var(--control); border: 1px solid var(--line); border-radius: 10px; padding: 9px; }
+    .override-grid textarea, .custom-item-grid textarea { min-height: 68px; resize: vertical; }
     .override-list { padding-bottom: 8px; }
     .print-root { display: none; }
     .print-build { page-break-inside: avoid; border: 1px solid #94a3b8; margin-bottom: 10px; padding: 8px; }
@@ -199,9 +203,9 @@
         <input class="filter-input" id="gunSearch" type="search" placeholder="Search guns…" autocomplete="off">
         <button class="btn" id="themeToggleBtn">Light Mode</button>
         <button class="btn" id="plannerPageBtn">Planner</button>
-        <button class="btn" id="overridesPageBtn">Overrides</button>
-        <button class="btn" id="exportAllBtn">Export All PDF</button>
+        <button class="btn" id="overridesPageBtn">Items</button>
         <button class="btn" id="exportAllPngBtn">Export All PNG</button>
+        <button class="btn" id="exportAllBtn">Export All PDF</button>
         <button class="btn" id="saveBackupBtn">Save Backup</button>
         <button class="btn" id="loadBackupBtn">Load Backup</button>
         <input class="sr-file" id="backupFile" type="file" accept="application/json,.json">
@@ -218,11 +222,12 @@
             <th class="col-build">Build type</th>
             <th class="col-weapon">Weapon</th>
             <th class="col-calibration">Calibration</th>
-            <th class="col-armor">Mask</th>
             <th class="col-armor">Head</th>
-            <th class="col-armor">Legs</th>
-            <th class="col-armor">Shoes</th>
+            <th class="col-armor">Mask</th>
             <th class="col-armor">Top</th>
+            <th class="col-armor">Bottom</th>
+            <th class="col-armor">Gloves</th>
+            <th class="col-armor">Shoes</th>
             <th class="col-deviation">Deviation</th>
             <th class="col-cradle">Cradle</th>
             <th class="col-food">Food</th>
@@ -239,11 +244,22 @@
       <div class="override-panel">
         <div class="override-header">
           <div>
-            <h2 style="margin:0;font-size:18px">Item Overrides</h2>
-            <p class="subtitle">Override stale OHDB names/descriptions and add tooltip notes without touching source JSON.</p>
+            <h2 style="margin:0;font-size:18px">Items</h2>
+            <p class="subtitle">Add missing items, remove stale ones, and override names/descriptions without touching source JSON.</p>
           </div>
-          <button class="btn primary" id="addOverrideBtn" disabled>+ Add Override</button>
+          <div class="row-actions">
+            <button class="btn primary" id="addCustomItemBtn" disabled>+ Add Item</button>
+            <button class="btn" id="addRemovedItemBtn" disabled>Remove Existing Item</button>
+            <button class="btn" id="addOverrideBtn" disabled>+ Add Override</button>
+          </div>
         </div>
+        <h3 style="margin:14px 0 8px;font-size:15px">Manual Items</h3>
+        <div class="custom-item-grid header"><div>Type</div><div>Name</div><div>Slot / subtype</div><div>Image URL</div><div>Description</div><div></div></div>
+        <div class="override-list" id="customItemRows"></div>
+        <h3 style="margin:18px 0 8px;font-size:15px">Removed Items</h3>
+        <div class="removed-item-grid header"><div>Item</div><div>Reason</div><div></div></div>
+        <div class="override-list" id="removedItemRows"></div>
+        <h3 style="margin:18px 0 8px;font-size:15px">Item Overrides</h3>
         <div class="override-grid header"><div>Item</div><div>New name</div><div>New description</div><div></div></div>
         <div class="override-list" id="overrideRows"></div>
       </div>
@@ -293,13 +309,16 @@
       food: 'data/food.json'
     };
     const ARMOR_SLOTS = [
-      { key: 'mask', label: 'Mask', armorType: 'Mask', modType: 'Mask' },
       { key: 'head', label: 'Head', armorType: 'Helmet', modType: 'Helmet' },
-      { key: 'legs', label: 'Legs', armorType: 'Bottoms', modType: 'Bottoms' },
-      { key: 'shoes', label: 'Shoes', armorType: 'Shoes', modType: 'Shoes' },
-      { key: 'top', label: 'Top', armorType: 'Top', modType: 'Top' }
+      { key: 'mask', label: 'Mask', armorType: 'Mask', modType: 'Mask' },
+      { key: 'top', label: 'Top', armorType: 'Top', modType: 'Top' },
+      { key: 'legs', label: 'Bottom', armorType: 'Bottoms', modType: 'Bottoms' },
+      { key: 'gloves', label: 'Gloves', armorType: 'Gloves', modType: 'Gloves' },
+      { key: 'shoes', label: 'Shoes', armorType: 'Shoes', modType: 'Shoes' }
     ];
-    const state = { data: {}, itemConfig: { overrides: {}, notes: {} }, builds: [], picker: null, printMode: 'all', hoveredTip: null, stickyTip: false, gunFilter: '', suppressNextSave: false, suppressNextItemConfigSave: false, storageMode: 'remote', editKey: '', editUnlocked: false, currentPage: 'planner' };
+    const CUSTOM_ITEM_COLLECTIONS = ['weapons', 'armor', 'mods', 'animalSkins', 'calibrations', 'deviations', 'cradle', 'food'];
+    const COLLECTION_LABELS = { weapons: 'Weapon', armor: 'Armor', mods: 'Mod', animalSkins: 'Animal Skin / Fur', calibrations: 'Calibration', deviations: 'Deviation', cradle: 'Cradle', food: 'Food' };
+    const state = { data: {}, baseData: {}, itemConfig: { overrides: {}, notes: {}, customItems: [], removedItems: {} }, builds: [], picker: null, printMode: 'all', hoveredTip: null, stickyTip: false, gunFilter: '', suppressNextSave: false, suppressNextItemConfigSave: false, storageMode: 'remote', editKey: '', editUnlocked: false, currentPage: 'planner' };
 
     const $ = (selector, root = document) => root.querySelector(selector);
     const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
@@ -324,8 +343,9 @@
     async function init() {
       applyTheme(localStorage.getItem(THEME_KEY) || 'dark');
       try {
-        state.data = await loadData();
+        state.baseData = await loadData();
         await loadItemConfig();
+        refreshConfiguredData();
         await loadBuilds();
         await restoreEditSession();
         const hasSavedBuilds = state.builds.length > 0;
@@ -356,10 +376,72 @@
 
     function normalizeItemConfig(config) {
       const source = config && typeof config === 'object' ? config : {};
+      const customItems = Array.isArray(source.customItems) ? source.customItems.map(normalizeCustomItem).filter(Boolean) : [];
+      const removedItems = source.removedItems && typeof source.removedItems === 'object' ? source.removedItems : {};
       return {
         overrides: { ...DEFAULT_OVERRIDES, ...(source.overrides && typeof source.overrides === 'object' ? source.overrides : {}) },
-        notes: source.notes && typeof source.notes === 'object' ? source.notes : {}
+        notes: source.notes && typeof source.notes === 'object' ? source.notes : {},
+        customItems,
+        removedItems
       };
+    }
+
+    function slugify(value) {
+      return String(value || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || `item-${Date.now()}`;
+    }
+
+    function normalizeCustomItem(entry) {
+      if (!entry || typeof entry !== 'object') return null;
+      const collection = CUSTOM_ITEM_COLLECTIONS.includes(entry.collection) ? entry.collection : 'weapons';
+      const item = entry.item && typeof entry.item === 'object' ? entry.item : {};
+      const name = String(item.name || '').trim();
+      const id = String(item.id || slugify(name)).trim();
+      if (!id || !name) return null;
+      return {
+        collection,
+        item: {
+          id,
+          slug: item.slug || id,
+          name,
+          type: String(item.type || '').trim(),
+          slot: String(item.slot || '').trim(),
+          category: String(item.category || '').trim(),
+          variant: String(item.variant || '').trim(),
+          rarity: String(item.rarity || '').trim(),
+          style: String(item.style || '').trim(),
+          effect: String(item.effect || item.description || '').trim(),
+          imageUrl: String(item.imageUrl || '').trim(),
+          url: String(item.url || '').trim(),
+          custom: true
+        }
+      };
+    }
+
+    function collectionKeyForItem(collection, item) {
+      return `${collection}:${item?.id || ''}`;
+    }
+
+    function isItemRemoved(collection, item) {
+      return !!state.itemConfig.removedItems?.[collectionKeyForItem(collection, item)];
+    }
+
+    function applyItemConfigToData(data, config = state.itemConfig) {
+      const normalized = normalizeItemConfig(config);
+      const result = Object.fromEntries(Object.entries(data || {}).map(([key, rows]) => [key, [...(rows || [])]]));
+      for (const custom of normalized.customItems) {
+        result[custom.collection] = result[custom.collection] || [];
+        const existingIndex = result[custom.collection].findIndex(item => item.id === custom.item.id);
+        if (existingIndex >= 0) result[custom.collection][existingIndex] = { ...result[custom.collection][existingIndex], ...custom.item, custom: true };
+        else result[custom.collection].push(custom.item);
+      }
+      for (const [collection, rows] of Object.entries(result)) {
+        result[collection] = (rows || []).filter(item => !normalized.removedItems[collectionKeyForItem(collection, item)]);
+      }
+      return result;
+    }
+
+    function refreshConfiguredData() {
+      state.data = applyItemConfigToData(state.baseData, state.itemConfig);
     }
 
     async function loadItemConfig() {
@@ -371,7 +453,7 @@
       } catch (error) {
         console.warn('Using local item config only:', error);
         try { state.itemConfig = normalizeItemConfig(JSON.parse(localStorage.getItem(ITEM_CONFIG_STORAGE_KEY) || '{}')); }
-        catch { state.itemConfig = { overrides: {}, notes: {} }; }
+        catch { state.itemConfig = normalizeItemConfig({}); }
       }
     }
 
@@ -527,9 +609,13 @@
       const editState = $('#editState');
       const loadBackupButton = $('#loadBackupBtn');
       const addOverrideButton = $('#addOverrideBtn');
+      const addCustomItemButton = $('#addCustomItemBtn');
+      const addRemovedItemButton = $('#addRemovedItemBtn');
       if (addButton) addButton.disabled = !unlocked;
       if (loadBackupButton) loadBackupButton.disabled = !unlocked;
       if (addOverrideButton) addOverrideButton.disabled = !unlocked;
+      if (addCustomItemButton) addCustomItemButton.disabled = !unlocked;
+      if (addRemovedItemButton) addRemovedItemButton.disabled = !unlocked;
       if (editButton) {
         editButton.disabled = unlocked && state.storageMode === 'local';
         editButton.textContent = unlocked && state.storageMode === 'remote' ? 'Disable editing' : unlocked ? 'Editing enabled' : 'Edit';
@@ -608,7 +694,7 @@
       const rows = visibleBuilds();
       $('#buildRows').innerHTML = rows.length
         ? rows.map(build => renderBuildRow(build)).join('')
-        : `<tr><td colspan="14" class="empty-row">No builds match that gun search.</td></tr>`;
+        : `<tr><td colspan="15" class="empty-row">No builds match that gun search.</td></tr>`;
       bindRowEvents();
       renderOverridesPage();
       saveBuilds();
@@ -942,11 +1028,95 @@
       renderOverridesPage();
     }
 
+    function collectionOptionsHtml(selected) {
+      return CUSTOM_ITEM_COLLECTIONS.map(collection => `<option value="${escapeHtml(collection)}"${collection === selected ? ' selected' : ''}>${escapeHtml(COLLECTION_LABELS[collection] || collection)}</option>`).join('');
+    }
+
+    function renderCustomItemsPage() {
+      const container = $('#customItemRows');
+      if (!container) return;
+      const items = state.itemConfig.customItems || [];
+      if (!items.length) {
+        container.innerHTML = '<p class="subtitle" style="padding: 12px 14px;">No manual items yet.</p>';
+        return;
+      }
+      container.innerHTML = items.map((entry, index) => renderCustomItemRow(entry, index)).join('');
+    }
+
+    function renderCustomItemRow(entry, index) {
+      const item = entry.item || {};
+      const slotValue = item.slot || item.type || item.category || '';
+      return `<div class="custom-item-grid" data-custom-index="${index}">
+        <select data-custom-field="collection" ${editDisabledAttr()}>${collectionOptionsHtml(entry.collection)}</select>
+        <input data-custom-field="name" value="${escapeHtml(item.name || '')}" placeholder="Name" ${editDisabledAttr()}>
+        <input data-custom-field="slot" value="${escapeHtml(slotValue)}" placeholder="Weapon type / armor slot / mod slot" ${editDisabledAttr()}>
+        <input data-custom-field="imageUrl" value="${escapeHtml(item.imageUrl || '')}" placeholder="https://… image" ${editDisabledAttr()}>
+        <textarea data-custom-field="effect" placeholder="Description / effect" ${editDisabledAttr()}>${escapeHtml(item.effect || '')}</textarea>
+        <button class="btn tiny danger" data-custom-delete="${index}" ${editDisabledAttr()}>Delete</button>
+      </div>`;
+    }
+
+    function addCustomItemRow() {
+      if (!canEditBuilds()) return;
+      state.itemConfig.customItems.push(normalizeCustomItem({ collection: 'weapons', item: { id: `custom-${Date.now()}`, name: 'New Item' } }));
+      refreshConfiguredData();
+      saveItemConfig();
+      render();
+    }
+
+    function renderRemovedItemsPage() {
+      const container = $('#removedItemRows');
+      if (!container) return;
+      const entries = Object.entries(state.itemConfig.removedItems || {});
+      if (!entries.length) {
+        container.innerHTML = '<p class="subtitle" style="padding: 12px 14px;">No removed items.</p>';
+        return;
+      }
+      const options = removableItemOptions();
+      container.innerHTML = entries.map(([key, reason]) => renderRemovedItemRow(key, reason, options)).join('');
+    }
+
+    function removableItemOptions() {
+      return Object.entries(state.baseData || {}).flatMap(([collection, rows]) => (rows || []).map(item => ({ collection, item })))
+        .concat((state.itemConfig.customItems || []).map(entry => ({ collection: entry.collection, item: entry.item })))
+        .sort((a, b) => itemOptionLabel(a).localeCompare(itemOptionLabel(b)));
+    }
+
+    function renderRemovedItemRow(key, reason, options = removableItemOptions()) {
+      const optionHtml = ['<option value="">Select item…</option>'].concat(options.map(entry => {
+        const value = collectionKeyForItem(entry.collection, entry.item);
+        const selected = value === key ? ' selected' : '';
+        const disabled = state.itemConfig.overrides?.[entry.item.id] && value !== key ? ' disabled' : '';
+        return `<option value="${escapeHtml(value)}"${selected}${disabled}>${escapeHtml(itemOptionLabel(entry))}${disabled ? ' — remove override first' : ''}</option>`;
+      })).join('');
+      const deleteDisabled = state.itemConfig.overrides?.[key.split(':').slice(1).join(':')] ? 'disabled aria-disabled="true"' : editDisabledAttr();
+      return `<div class="removed-item-grid" data-removed-key="${escapeHtml(key)}">
+        <select data-removed-field="key" ${editDisabledAttr()}>${optionHtml}</select>
+        <input data-removed-field="reason" value="${escapeHtml(reason || '')}" placeholder="Optional reason" ${editDisabledAttr()}>
+        <button class="btn tiny danger" data-removed-delete="${escapeHtml(key)}" ${deleteDisabled}>Restore</button>
+      </div>`;
+    }
+
+    function addRemovedItemRow() {
+      if (!canEditBuilds()) return;
+      const first = removableItemOptions().find(entry => !state.itemConfig.overrides?.[entry.item.id]);
+      if (!first) {
+        alert('No removable items without overrides. Remove overrides first.');
+        return;
+      }
+      state.itemConfig.removedItems[collectionKeyForItem(first.collection, first.item)] = '';
+      refreshConfiguredData();
+      saveItemConfig();
+      render();
+    }
+
     function itemOptionLabel(entry) {
       return `${entry.collection}: ${displayNameFor(entry.item, entry.collection)}${entry.item.name && displayNameFor(entry.item, entry.collection) !== entry.item.name ? ` (${entry.item.name})` : ''}`;
     }
 
     function renderOverridesPage() {
+      renderCustomItemsPage();
+      renderRemovedItemsPage();
       const container = $('#overrideRows');
       if (!container) return;
       const entries = Object.keys(state.itemConfig.overrides || {});
@@ -1061,6 +1231,92 @@
     $('#plannerPageBtn').addEventListener('click', () => switchPage('planner'));
     $('#overridesPageBtn').addEventListener('click', () => switchPage('overrides'));
     $('#addOverrideBtn').addEventListener('click', addOverrideRow);
+    $('#addCustomItemBtn').addEventListener('click', addCustomItemRow);
+    $('#addRemovedItemBtn').addEventListener('click', addRemovedItemRow);
+    $('#customItemRows').addEventListener('input', event => {
+      if (!canEditBuilds()) return;
+      const row = event.target.closest('[data-custom-index]');
+      const field = event.target.dataset.customField;
+      if (!row || !field) return;
+      const entry = state.itemConfig.customItems[Number(row.dataset.customIndex)];
+      if (!entry) return;
+      if (field === 'collection') entry.collection = event.target.value;
+      else {
+        const value = event.target.value.trim();
+        if (field === 'slot') {
+          entry.item.slot = ['armor', 'mods'].includes(entry.collection) ? value : '';
+          entry.item.type = ['weapons', 'deviations'].includes(entry.collection) ? value : entry.item.type || '';
+          if (entry.collection === 'mods') entry.item.category = value === 'Weapon' ? 'Weapon Mod' : 'Armor Mod';
+          if (entry.collection === 'food') entry.item.category = value;
+        } else {
+          entry.item[field] = value;
+        }
+        if (field === 'name' && (!entry.item.id || entry.item.id.startsWith('custom-'))) {
+          entry.item.id = `custom-${slugify(entry.item.name)}`;
+          entry.item.slug = entry.item.id;
+        }
+      }
+      refreshConfiguredData();
+      saveItemConfig();
+    });
+    $('#customItemRows').addEventListener('change', event => {
+      if (!canEditBuilds() || event.target.dataset.customField !== 'collection') return;
+      const row = event.target.closest('[data-custom-index]');
+      const entry = state.itemConfig.customItems[Number(row.dataset.customIndex)];
+      if (!entry) return;
+      entry.collection = event.target.value;
+      refreshConfiguredData();
+      saveItemConfig();
+      render();
+    });
+    $('#customItemRows').addEventListener('click', event => {
+      const deleteButton = event.target.closest('[data-custom-delete]');
+      if (!deleteButton || !canEditBuilds()) return;
+      state.itemConfig.customItems.splice(Number(deleteButton.dataset.customDelete), 1);
+      refreshConfiguredData();
+      saveItemConfig();
+      render();
+    });
+    $('#removedItemRows').addEventListener('input', event => {
+      if (!canEditBuilds()) return;
+      const row = event.target.closest('[data-removed-key]');
+      if (!row || event.target.dataset.removedField !== 'reason') return;
+      state.itemConfig.removedItems[row.dataset.removedKey] = event.target.value.trim();
+      saveItemConfig();
+    });
+    $('#removedItemRows').addEventListener('change', event => {
+      if (!canEditBuilds()) return;
+      const row = event.target.closest('[data-removed-key]');
+      if (!row || event.target.dataset.removedField !== 'key') return;
+      const oldKey = row.dataset.removedKey;
+      const newKey = event.target.value;
+      const itemId = newKey.split(':').slice(1).join(':');
+      if (!newKey || oldKey === newKey) return;
+      if (state.itemConfig.overrides?.[itemId]) {
+        alert('Remove the override before removing this item.');
+        renderRemovedItemsPage();
+        return;
+      }
+      state.itemConfig.removedItems[newKey] = state.itemConfig.removedItems[oldKey] || '';
+      delete state.itemConfig.removedItems[oldKey];
+      refreshConfiguredData();
+      saveItemConfig();
+      render();
+    });
+    $('#removedItemRows').addEventListener('click', event => {
+      const deleteButton = event.target.closest('[data-removed-delete]');
+      if (!deleteButton || !canEditBuilds()) return;
+      const key = deleteButton.dataset.removedDelete;
+      const itemId = key.split(':').slice(1).join(':');
+      if (state.itemConfig.overrides?.[itemId]) {
+        alert('Remove the override before restoring/removing this item entry.');
+        return;
+      }
+      delete state.itemConfig.removedItems[key];
+      refreshConfiguredData();
+      saveItemConfig();
+      render();
+    });
     $('#overrideRows').addEventListener('input', event => {
       if (!canEditBuilds()) return;
       const row = event.target.closest('[data-override-id]');
@@ -1392,7 +1648,7 @@
         return `${label}: ${escapeHtml(name)}${note ? `<span class="print-note"><strong>Note:</strong> ${escapeHtml(note)}</span>` : ''}`;
       };
       const armorSections = ARMOR_SLOTS.map(slot => {
-        const current = build.armorSlots[slot.key];
+        const current = build.armorSlots?.[slot.key] || {};
         return `<div>${line(`${slot.label} Armor`, `armor:${slot.armorType}`, current.armor)}<br>${line(`${slot.label} Animal Skin`, 'animalSkins', current.animalSkin)}<br>${line(`${slot.label} Mod`, `armorMods:${slot.modType}`, current.mod)}</div>`;
       }).join('');
       const cradleLines = build.cradle.map((id, i) => line(`Cradle ${i + 1}`, 'cradle', id)).join('<br>');

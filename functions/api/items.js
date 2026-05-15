@@ -10,6 +10,7 @@ const DEFAULT_OVERRIDES = {
     description: 'Damage +15% when wielding sniper rifles, SMGs, or crossbows.'
   }
 };
+const CUSTOM_ITEM_COLLECTIONS = new Set(['weapons', 'armor', 'mods', 'animalSkins', 'calibrations', 'deviations', 'cradle', 'food']);
 
 function jsonResponse(body, status = 200) {
   return new Response(JSON.stringify(body), { status, headers: jsonHeaders });
@@ -67,6 +68,37 @@ async function hasValidEditKey(db, request) {
   return true;
 }
 
+function slugify(value) {
+  return String(value || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || `item-${Date.now()}`;
+}
+
+function normalizeCustomItem(entry) {
+  if (!entry || typeof entry !== 'object') return null;
+  const collection = CUSTOM_ITEM_COLLECTIONS.has(entry.collection) ? entry.collection : 'weapons';
+  const item = entry.item && typeof entry.item === 'object' ? entry.item : {};
+  const name = String(item.name || '').trim();
+  const id = String(item.id || slugify(name)).trim();
+  if (!id || !name) return null;
+  return {
+    collection,
+    item: {
+      id,
+      slug: String(item.slug || id).trim(),
+      name,
+      type: String(item.type || '').trim(),
+      slot: String(item.slot || '').trim(),
+      category: String(item.category || '').trim(),
+      variant: String(item.variant || '').trim(),
+      rarity: String(item.rarity || '').trim(),
+      style: String(item.style || '').trim(),
+      effect: String(item.effect || item.description || '').trim(),
+      imageUrl: String(item.imageUrl || '').trim(),
+      url: String(item.url || '').trim(),
+      custom: true
+    }
+  };
+}
+
 function normalizeConfig(value) {
   const source = value && typeof value === 'object' ? value : {};
   const overrides = {};
@@ -85,7 +117,17 @@ function normalizeConfig(value) {
     if (itemId && value) notes[itemId] = value;
   }
 
-  return { overrides: { ...DEFAULT_OVERRIDES, ...overrides }, notes };
+  const customItems = Array.isArray(source.customItems) ? source.customItems.map(normalizeCustomItem).filter(Boolean) : [];
+  const removedItems = {};
+  for (const [key, reason] of Object.entries(source.removedItems || {})) {
+    const normalizedKey = String(key || '').trim();
+    const itemId = normalizedKey.split(':').slice(1).join(':');
+    if (!normalizedKey.includes(':') || !itemId) continue;
+    if (overrides[itemId] || DEFAULT_OVERRIDES[itemId]) continue;
+    removedItems[normalizedKey] = String(reason || '').trim();
+  }
+
+  return { overrides: { ...DEFAULT_OVERRIDES, ...overrides }, notes, customItems, removedItems };
 }
 
 async function loadConfig(db) {
@@ -130,7 +172,7 @@ export async function onRequestPut(context) {
       updated_at = CURRENT_TIMESTAMP
   `).bind(ITEM_CONFIG_KEY, JSON.stringify(config)).run();
 
-  return jsonResponse({ ok: true, overrideCount: Object.keys(config.overrides).length, noteCount: Object.keys(config.notes).length });
+  return jsonResponse({ ok: true, overrideCount: Object.keys(config.overrides).length, noteCount: Object.keys(config.notes).length, customItemCount: config.customItems.length, removedItemCount: Object.keys(config.removedItems).length });
 }
 
 export async function onRequestOptions() {
