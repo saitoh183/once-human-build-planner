@@ -173,6 +173,8 @@ const printHtml = app.renderPrintBuild(build, 0);
 assert(printHtml.includes('<h2>Burn Tank</h2>'), 'print export uses build name instead of Build 1');
 assert(printHtml.includes('<h3>Calibration</h3>'), 'print output includes calibration section');
 assert(printHtml.includes('Precision Pistol'), 'print output includes shortened calibration name');
+assert(printHtml.includes('Best with weakspot rolls.'), 'print output includes tooltip notes');
+assert(printHtml.includes('print-note'), 'print output marks notes for PDF export');
 assert(printHtml.includes('Head Animal Skin'), 'print output includes armor animal skin rows');
 assert(printHtml.includes('Wool'), 'print output includes selected animal skin');
 assert(printHtml.includes('<h3>Food</h3>'), 'print output keeps food section');
@@ -186,6 +188,7 @@ assert(pngModel.sections.some(section => section.title === 'Gun'), 'PNG model in
 assert(pngModel.sections.some(section => section.title === 'Build Type'), 'PNG model includes centered build type section');
 assert(pngModel.sections.some(section => section.title === 'Calibration'), 'PNG model includes calibration section');
 assert(pngModel.sections.some(section => section.title === 'Head' && section.items.some(item => item.label === 'Animal Skin' && item.name === 'Wool')), 'PNG model includes armor animal skin');
+assert(pngModel.sections.some(section => section.title === 'Calibration' && section.items.some(item => item.name === 'Precision Pistol' && item.note === 'Best with weakspot rolls.')), 'PNG model includes tooltip notes');
 assert(pngModel.sections.some(section => section.title === 'Chef'), 'PNG model includes chef section');
 assert(pngModel.sections.flatMap(section => section.items).some(item => item.name === 'Gun A'), 'PNG model includes selected gun names');
 

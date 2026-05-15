@@ -170,6 +170,8 @@
     .print-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; font-size: 10px; }
     .print-section { border: 1px solid #cbd5e1; padding: 5px; }
     .print-section h3 { margin: 0 0 4px; font-size: 11px; }
+    .print-note { display: block; margin: 1px 0 3px 10px; padding-left: 4px; border-left: 2px solid #94a3b8; font-size: 9px; }
+    .print-note strong { font-size: 8px; text-transform: uppercase; }
     .print-link-list { margin-top: 8px; columns: 2; font-size: 9px; }
     .print-link-list div { break-inside: avoid; margin-bottom: 2px; }
     .sr-file { display: none; }
@@ -1130,9 +1132,15 @@
         label,
         name: item ? displayNameFor(item, collection) : '—',
         meta: item ? metaFor(item, collection) : '',
+        note: item ? noteFor(item) : '',
         imageUrl: item?.imageUrl || '',
         url: item?.url || ''
       };
+    }
+
+    function exportItemHeight(item, compact = false) {
+      const base = compact ? 54 : 68;
+      return item?.note ? base + (compact ? 36 : 44) : base;
     }
 
     function getPngExportModel(build, index = 0) {
@@ -1225,7 +1233,10 @@
       const columns = 3;
       const colWidth = Math.floor((width - padding * 2 - gap * (columns - 1)) / columns);
       const sectionHeights = model.sections.map(section => {
-        const base = section.centered ? 120 : 58 + Math.max(1, section.items.length) * (section.compact ? 62 : 76);
+        if (section.centered) return 120;
+        const items = section.items.length ? section.items : [{ name: '—' }];
+        const itemHeights = items.map(item => exportItemHeight(item, section.compact));
+        const base = 58 + itemHeights.reduce((sum, value) => sum + value, 0) + Math.max(0, itemHeights.length - 1) * 8;
         return Math.max(120, base);
       });
       const rowHeights = [];
@@ -1282,7 +1293,7 @@
       let itemY = y + 48;
       section.items.forEach(item => {
         const compact = section.compact;
-        const itemHeight = compact ? 54 : 68;
+        const itemHeight = exportItemHeight(item, compact);
         roundedRect(ctx, x + 12, itemY, width - 24, itemHeight, 12);
         ctx.fillStyle = '#2d2d2d';
         ctx.fill();
@@ -1301,17 +1312,27 @@
           ctx.restore();
         }
         const textX = iconX + iconSize + 12;
+        const textWidth = width - (textX - x) - 22;
         ctx.textAlign = 'left';
         ctx.fillStyle = '#b9b9b9';
         ctx.font = '700 12px Inter, Segoe UI, sans-serif';
         ctx.fillText(item.label.toUpperCase(), textX, itemY + 18);
         ctx.fillStyle = '#f1f1f1';
         ctx.font = '700 16px Inter, Segoe UI, sans-serif';
-        wrapCanvasText(ctx, item.name || '—', textX, itemY + 39, width - (textX - x) - 22, 18, compact ? 1 : 2);
+        wrapCanvasText(ctx, item.name || '—', textX, itemY + 39, textWidth, 18, compact ? 1 : 2);
         if (item.meta && !compact) {
           ctx.fillStyle = '#b9b9b9';
           ctx.font = '13px Inter, Segoe UI, sans-serif';
           ctx.fillText(item.meta, textX, itemY + 61);
+        }
+        if (item.note) {
+          ctx.fillStyle = '#e0b84a';
+          ctx.font = '700 11px Inter, Segoe UI, sans-serif';
+          const noteY = itemY + (compact ? 58 : 82);
+          ctx.fillText('NOTE', textX, noteY - 14);
+          ctx.fillStyle = '#f1f1f1';
+          ctx.font = '12px Inter, Segoe UI, sans-serif';
+          wrapCanvasText(ctx, item.note, textX, noteY, textWidth, 15, 2);
         }
         itemY += itemHeight + 8;
       });
@@ -1359,8 +1380,9 @@
         const item = findOption(collection, id);
         if (!item) return `${label}: —`;
         const name = displayNameFor(item, collection);
-        links.push({ label, name, url: item.url });
-        return `${label}: ${escapeHtml(name)}`;
+        const note = noteFor(item);
+        if (item.url) links.push({ label, name, url: item.url });
+        return `${label}: ${escapeHtml(name)}${note ? `<span class="print-note"><strong>Note:</strong> ${escapeHtml(note)}</span>` : ''}`;
       };
       const armorSections = ARMOR_SLOTS.map(slot => {
         const current = build.armorSlots[slot.key];
