@@ -79,6 +79,7 @@ app.state.data = {
   ],
   animalSkins: [
     { id: 'wool', name: 'Wool', rarity: 'uncommon', effect: 'Non-Weakspot DMG Reduction', url: 'https://example.test/wool' },
+    { id: 'lunar-wolf-skin', name: 'Lunar Wolf Skin', rarity: 'legendary', effect: 'Weakspot Reduction', url: 'https://example.test/lunar-wolf-skin' },
   ],
   calibrations: [
     { id: 'calibration-blueprint-precision-pistol', name: 'Calibration Blueprint - Precision Pistol', rarity: 'rare', url: 'https://example.test/calibration' },
@@ -125,6 +126,10 @@ assert(filtered.includes('blaze-blessing-violent'));
 filtered = app.getAvailableOptionsForPicker(build, 'armorSlots.shoes.mod', 'armorMods:Shoes').map(item => item.id);
 assert(filtered.includes('covered-advance-general'), 'current selected value remains available when editing its own picker');
 assert(filtered.includes('covered-advance-violent'));
+
+filtered = app.getAvailableOptionsForPicker(build, 'armorSlots.shoes.animalSkin', 'animalSkins').map(item => item.id);
+assert(filtered.includes('wool'), 'animal skins remain available for reuse across armor slots');
+assert(filtered.includes('lunar-wolf-skin'), 'unselected animal skins remain available');
 
 const rowHtml = app.renderBuildRow(build);
 assert(html.includes('<th class="col-calibration">Calibration</th>'), 'calibration column exists');

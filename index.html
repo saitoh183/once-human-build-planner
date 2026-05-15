@@ -659,7 +659,9 @@
       if (collection === 'weapons') return Object.values(build.guns || {});
       if (collection === 'weaponMods') return Object.values(build.weaponMods || {});
       if (collection === 'calibrations') return Object.values(build.calibrations || {});
-      if (collection === 'animalSkins') return ARMOR_SLOTS.map(slot => build.armorSlots?.[slot.key]?.animalSkin);
+      // Animal skins are crafting materials and can be reused across armor slots.
+      // Do not hide a skin just because it is already selected elsewhere in the build.
+      if (collection === 'animalSkins') return [];
       if (collection.startsWith('armor:')) {
         const armorType = collection.split(':')[1];
         return ARMOR_SLOTS
