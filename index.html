@@ -1140,7 +1140,8 @@
 
     function exportItemHeight(item, compact = false) {
       const base = compact ? 54 : 68;
-      return item?.note ? base + (compact ? 36 : 44) : base;
+      if (!item?.note) return base;
+      return base + (compact ? 48 : 50);
     }
 
     function getPngExportModel(build, index = 0) {
@@ -1299,7 +1300,7 @@
         ctx.fill();
         const iconSize = compact ? 34 : 42;
         const iconX = x + 24;
-        const iconY = itemY + (itemHeight - iconSize) / 2;
+        const iconY = item.note ? itemY + 12 : itemY + (itemHeight - iconSize) / 2;
         roundedRect(ctx, iconX, iconY, iconSize, iconSize, 8);
         ctx.fillStyle = '#252525';
         ctx.fill();
@@ -1326,13 +1327,19 @@
           ctx.fillText(item.meta, textX, itemY + 61);
         }
         if (item.note) {
+          const noteY = itemY + (compact ? 74 : 88);
+          ctx.strokeStyle = '#4a4a4a';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(textX, noteY - 24);
+          ctx.lineTo(textX + textWidth, noteY - 24);
+          ctx.stroke();
           ctx.fillStyle = '#e0b84a';
-          ctx.font = '700 11px Inter, Segoe UI, sans-serif';
-          const noteY = itemY + (compact ? 58 : 82);
-          ctx.fillText('NOTE', textX, noteY - 14);
+          ctx.font = '700 10px Inter, Segoe UI, sans-serif';
+          ctx.fillText('NOTE', textX, noteY - 8);
           ctx.fillStyle = '#f1f1f1';
           ctx.font = '12px Inter, Segoe UI, sans-serif';
-          wrapCanvasText(ctx, item.note, textX, noteY, textWidth, 15, 2);
+          wrapCanvasText(ctx, item.note, textX, noteY + 8, textWidth, 15, 2);
         }
         itemY += itemHeight + 8;
       });

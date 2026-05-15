@@ -4,7 +4,7 @@ const assert = require('assert');
 
 const html = fs.readFileSync('index.html', 'utf8');
 const script = html.match(/<script>([\s\S]*)<\/script>/)[1]
-  .replace(/\n\s*init\(\);\s*$/, '') + `\n\nglobalThis.__app = {\n  state,\n  defaultBuild,\n  displayNameFor,\n  metaFor,\n  effectiveDescription,\n  tooltipAttrs,\n  getAvailableOptionsForPicker,\n  renderBuildRow,\n  renderPrintBuild,\n  buildMatchesGunSearch,\n  getPngExportModel,\n  canEditBuilds,\n  editDisabledAttr\n};`;
+  .replace(/\n\s*init\(\);\s*$/, '') + `\n\nglobalThis.__app = {\n  state,\n  defaultBuild,\n  displayNameFor,\n  metaFor,\n  effectiveDescription,\n  tooltipAttrs,\n  getAvailableOptionsForPicker,\n  renderBuildRow,\n  renderPrintBuild,\n  buildMatchesGunSearch,\n  getPngExportModel,\n  exportItemHeight,\n  canEditBuilds,\n  editDisabledAttr\n};`;
 
 const elements = new Map();
 const makeElement = (id = '') => ({
@@ -189,6 +189,8 @@ assert(pngModel.sections.some(section => section.title === 'Build Type'), 'PNG m
 assert(pngModel.sections.some(section => section.title === 'Calibration'), 'PNG model includes calibration section');
 assert(pngModel.sections.some(section => section.title === 'Head' && section.items.some(item => item.label === 'Animal Skin' && item.name === 'Wool')), 'PNG model includes armor animal skin');
 assert(pngModel.sections.some(section => section.title === 'Calibration' && section.items.some(item => item.name === 'Precision Pistol' && item.note === 'Best with weakspot rolls.')), 'PNG model includes tooltip notes');
+assert(app.exportItemHeight({ note: 'Best with weakspot rolls.' }, true) >= 100, 'compact PNG note rows have enough space to avoid label overlap');
+assert(app.exportItemHeight({ note: 'Best with weakspot rolls.' }, false) >= 118, 'regular PNG note rows have enough space for separated notes');
 assert(pngModel.sections.some(section => section.title === 'Chef'), 'PNG model includes chef section');
 assert(pngModel.sections.flatMap(section => section.items).some(item => item.name === 'Gun A'), 'PNG model includes selected gun names');
 
