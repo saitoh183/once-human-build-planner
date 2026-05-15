@@ -4,6 +4,13 @@ const EPHEMERAL = 1 << 6;
 const SEARCH_COMMAND_NAME = 'searchbuild';
 const SETUP_COMMAND_NAME = 'setup';
 const BUILD_STATE_KEY = 'builds';
+const ITEM_CONFIG_KEY = 'item_config';
+const DEFAULT_OVERRIDES = {
+  'anti-phase': {
+    name: 'Precision Weapon Mastery',
+    description: 'Damage +15% when wielding sniper rifles, SMGs, or crossbows.'
+  }
+};
 const DISCORD_CONFIG_KEY_PREFIX = 'discord_config:';
 const MANAGE_GUILD_PERMISSION = 1n << 5n;
 const MAX_BUTTON_RESULTS = 25;
@@ -121,6 +128,37 @@ async function loadPlannerData(request) {
   return Object.fromEntries(entries);
 }
 
+async function loadItemConfig(db) {
+  await ensureSchema(db);
+  const row = await db.prepare('SELECT value FROM app_state WHERE key = ?').bind(ITEM_CONFIG_KEY).first();
+  if (!row?.value) return { overrides: { ...DEFAULT_OVERRIDES }, notes: {} };
+  try {
+    const parsed = JSON.parse(row.value);
+    return {
+      overrides: { ...DEFAULT_OVERRIDES, ...(parsed?.overrides && typeof parsed.overrides === 'object' ? parsed.overrides : {}) },
+      notes: parsed?.notes && typeof parsed.notes === 'object' ? parsed.notes : {}
+    };
+  } catch {
+    return { overrides: { ...DEFAULT_OVERRIDES }, notes: {} };
+  }
+}
+
+function applyItemConfig(data, config) {
+  const overrides = config?.overrides || {};
+  return Object.fromEntries(Object.entries(data).map(([collection, rows]) => [
+    collection,
+    (rows || []).map(item => {
+      const override = overrides[item.id];
+      if (!override) return item;
+      return {
+        ...item,
+        overrideName: String(override.name || '').trim(),
+        overrideDescription: String(override.description || '').trim()
+      };
+    })
+  ]));
+}
+
 function optionValue(interaction, name) {
   return interaction.data?.options?.find(option => option.name === name)?.value || '';
 }
@@ -151,6 +189,7 @@ function byId(data, collection, id) {
 
 function displayName(item, collection) {
   if (!item) return '—';
+  if (item.overrideName) return item.overrideName;
   if (collection === 'mods' && item.variant) return `${item.name} - ${item.variant}`;
   if (collection === 'calibrations') return String(item.name || '').replace(/^Calibration Blueprint -\s*/i, '') || '—';
   return item.name || '—';
@@ -285,7 +324,7 @@ async function handleSearch(interaction, context, request) {
   const gunQuery = optionValue(interaction, 'gun');
   const hpSelection = optionValue(interaction, 'hp');
   const builds = await loadBuilds(context.env.DB);
-  const data = await loadPlannerData(request);
+  const data = applyItemConfig(await loadPlannerData(request), await loadItemConfig(context.env.DB));
   const matches = builds
     .map((build, index) => ({ build, index }))
     .filter(match => buildMatches(match.build, data, gunQuery, hpSelection));
@@ -358,7 +397,7 @@ async function handleComponent(interaction, context, request) {
 
   const buildId = customId.slice('build:'.length);
   const builds = await loadBuilds(context.env.DB);
-  const data = await loadPlannerData(request);
+  const data = applyItemConfig(await loadPlannerData(request), await loadItemConfig(context.env.DB));
   const index = builds.findIndex(build => build.id === buildId);
   const build = builds[index];
   if (!build) return ephemeral({ content: 'That build no longer exists.' });

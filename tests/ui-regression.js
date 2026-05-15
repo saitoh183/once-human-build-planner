@@ -4,7 +4,7 @@ const assert = require('assert');
 
 const html = fs.readFileSync('index.html', 'utf8');
 const script = html.match(/<script>([\s\S]*)<\/script>/)[1]
-  .replace(/\n\s*init\(\);\s*$/, '') + `\n\nglobalThis.__app = {\n  state,\n  defaultBuild,\n  displayNameFor,\n  metaFor,\n  getAvailableOptionsForPicker,\n  renderBuildRow,\n  renderPrintBuild,\n  buildMatchesGunSearch,\n  getPngExportModel,\n  canEditBuilds,\n  editDisabledAttr\n};`;
+  .replace(/\n\s*init\(\);\s*$/, '') + `\n\nglobalThis.__app = {\n  state,\n  defaultBuild,\n  displayNameFor,\n  metaFor,\n  effectiveDescription,\n  tooltipAttrs,\n  getAvailableOptionsForPicker,\n  renderBuildRow,\n  renderPrintBuild,\n  buildMatchesGunSearch,\n  getPngExportModel,\n  canEditBuilds,\n  editDisabledAttr\n};`;
 
 const elements = new Map();
 const makeElement = (id = '') => ({
@@ -84,7 +84,19 @@ app.state.data = {
   calibrations: [
     { id: 'calibration-blueprint-precision-pistol', name: 'Calibration Blueprint - Precision Pistol', rarity: 'rare', url: 'https://example.test/calibration' },
   ],
-  deviations: [], cradle: [], food: []
+  deviations: [],
+  cradle: [
+    { id: 'anti-phase', name: 'Anti-Phase', type: 'Combat', description: 'Old phase text', url: 'https://example.test/anti-phase' },
+  ],
+  food: []
+};
+app.state.itemConfig = {
+  overrides: {
+    'anti-phase': { name: 'Precision Weapon Mastery', description: 'Damage +15% when wielding sniper rifles, SMGs, or crossbows.' }
+  },
+  notes: {
+    'calibration-blueprint-precision-pistol': 'Best with weakspot rolls.'
+  }
 };
 
 assert.strictEqual(app.displayNameFor(app.state.data.mods[0], 'weaponMods'), 'Blaze Blessing - General');
@@ -114,6 +126,9 @@ assert(!app.buildMatchesGunSearch(build, 'silent'), 'gun search excludes builds 
 
 assert.strictEqual(app.displayNameFor(app.state.data.calibrations[0], 'calibrations'), 'Precision Pistol');
 assert.strictEqual(app.displayNameFor(app.state.data.calibrations[0]), 'Calibration Blueprint - Precision Pistol');
+assert.strictEqual(app.displayNameFor(app.state.data.cradle[0], 'cradle'), 'Precision Weapon Mastery', 'item override changes display name');
+assert.strictEqual(app.effectiveDescription(app.state.data.cradle[0]), 'Damage +15% when wielding sniper rifles, SMGs, or crossbows.', 'item override changes description');
+assert(app.tooltipAttrs(app.state.data.calibrations[0], 'calibrations').includes('Best with weakspot rolls.'), 'tooltip attrs include item notes');
 
 let filtered = app.getAvailableOptionsForPicker(build, 'guns.secondary', 'weapons').map(item => item.id);
 assert(!filtered.includes('gun-a'));

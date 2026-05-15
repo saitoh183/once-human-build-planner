@@ -57,6 +57,7 @@
     .btn:hover { border-color: var(--accent); }
     .btn.primary { background: linear-gradient(180deg, var(--accent), var(--accent-2)); color: #20170a; border-color: color-mix(in srgb, var(--accent) 70%, var(--line)); }
     .btn.danger { color: #fecdd3; border-color: #7f1d1d; background: #33121a; }
+    .page.hidden { display: none; }
     .btn:disabled, .picker:disabled, .icon-picker:disabled, .cradle-slot:disabled, input:disabled, select:disabled {
       cursor: not-allowed;
       opacity: .62;
@@ -145,14 +146,25 @@
     .result .name { font-weight: 600; }
     .result .effect { color: var(--muted); font-size: 12px; margin-top: 2px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
     .badge { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; padding: 2px 7px; color: var(--muted); font-size: 10px; margin-left: 4px; }
-    .tooltip { position: fixed; z-index: 100; display: none; max-width: 360px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 11px 12px; box-shadow: var(--shadow); pointer-events: auto; }
+    .tooltip { position: fixed; z-index: 100; display: none; max-width: 420px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 11px 12px; box-shadow: var(--shadow); pointer-events: auto; }
     .tooltip.open { display: block; }
     .tooltip-title { font-weight: 700; margin-bottom: 4px; }
     .tooltip-meta { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
     .tooltip-effect { color: var(--text); font-size: 13px; line-height: 1.4; white-space: pre-wrap; }
     .tooltip-link { display: inline-block; margin-top: 8px; font-size: 13px; font-weight: 700; }
     .tooltip-hint { margin-top: 8px; color: var(--muted); font-size: 11px; }
+    .tooltip-note { margin-top: 8px; border-top: 1px solid var(--line-soft); padding-top: 8px; }
+    .tooltip-note label { display: block; color: var(--muted); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 5px; }
+    .tooltip-note textarea { width: 100%; min-height: 74px; resize: vertical; background: var(--control); border: 1px solid var(--line); border-radius: 8px; padding: 8px; color: var(--text); }
+    .tooltip-note-text { white-space: pre-wrap; color: var(--text); font-size: 13px; line-height: 1.35; }
     .tooltip.sticky { outline: 2px solid color-mix(in srgb, var(--accent) 60%, transparent); }
+    .override-panel { margin-top: 14px; border: 1px solid var(--line); border-radius: var(--radius); background: color-mix(in srgb, var(--panel) 84%, transparent); box-shadow: var(--shadow); overflow: hidden; }
+    .override-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px; border-bottom: 1px solid var(--line); }
+    .override-grid { display: grid; grid-template-columns: minmax(260px, 1.2fr) minmax(220px, .8fr) minmax(320px, 1.4fr) auto; gap: 10px; padding: 12px; align-items: start; }
+    .override-grid.header { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; padding-bottom: 0; }
+    .override-grid select, .override-grid input, .override-grid textarea { width: 100%; background: var(--control); border: 1px solid var(--line); border-radius: 10px; padding: 9px; }
+    .override-grid textarea { min-height: 68px; resize: vertical; }
+    .override-list { padding-bottom: 8px; }
     .print-root { display: none; }
     .print-build { page-break-inside: avoid; border: 1px solid #94a3b8; margin-bottom: 10px; padding: 8px; }
     .print-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; font-size: 10px; }
@@ -184,6 +196,8 @@
         <button class="btn primary" id="addBuildBtn" disabled>+ Add Build</button>
         <input class="filter-input" id="gunSearch" type="search" placeholder="Search guns…" autocomplete="off">
         <button class="btn" id="themeToggleBtn">Light Mode</button>
+        <button class="btn" id="plannerPageBtn">Planner</button>
+        <button class="btn" id="overridesPageBtn">Overrides</button>
         <button class="btn" id="exportAllBtn">Export All PDF</button>
         <button class="btn" id="exportAllPngBtn">Export All PNG</button>
         <button class="btn" id="saveBackupBtn">Save Backup</button>
@@ -193,6 +207,7 @@
     </div>
     <div class="error" id="errorBox"></div>
     <div class="status" id="status">Loading OHDB data…</div>
+    <section class="page" id="plannerPage">
     <div class="table-shell">
       <table>
         <thead>
@@ -216,6 +231,21 @@
         <tbody id="buildRows"></tbody>
       </table>
     </div>
+    </section>
+
+    <section class="page hidden" id="overridesPage">
+      <div class="override-panel">
+        <div class="override-header">
+          <div>
+            <h2 style="margin:0;font-size:18px">Item Overrides</h2>
+            <p class="subtitle">Override stale OHDB names/descriptions and add tooltip notes without touching source JSON.</p>
+          </div>
+          <button class="btn primary" id="addOverrideBtn" disabled>+ Add Override</button>
+        </div>
+        <div class="override-grid header"><div>Item</div><div>New name</div><div>New description</div><div></div></div>
+        <div class="override-list" id="overrideRows"></div>
+      </div>
+    </section>
   </main>
 
   <section class="print-root" id="printRoot"></section>
@@ -242,6 +272,14 @@
     const EDIT_KEY_SESSION_KEY = 'oh_build_planner_edit_key_v1';
     const BUILDS_API = '/api/builds';
     const EDIT_KEYS_API = '/api/edit-keys';
+    const ITEMS_API = '/api/items';
+    const ITEM_CONFIG_STORAGE_KEY = 'oh_build_planner_item_config_v1';
+    const DEFAULT_OVERRIDES = {
+      'anti-phase': {
+        name: 'Precision Weapon Mastery',
+        description: 'Damage +15% when wielding sniper rifles, SMGs, or crossbows.'
+      }
+    };
     const DATA_FILES = {
       weapons: 'data/weapons.json',
       armor: 'data/armor.json',
@@ -259,7 +297,7 @@
       { key: 'shoes', label: 'Shoes', armorType: 'Shoes', modType: 'Shoes' },
       { key: 'top', label: 'Top', armorType: 'Top', modType: 'Top' }
     ];
-    const state = { data: {}, builds: [], picker: null, printMode: 'all', hoveredTip: null, stickyTip: false, gunFilter: '', suppressNextSave: false, storageMode: 'remote', editKey: '', editUnlocked: false };
+    const state = { data: {}, itemConfig: { overrides: {}, notes: {} }, builds: [], picker: null, printMode: 'all', hoveredTip: null, stickyTip: false, gunFilter: '', suppressNextSave: false, suppressNextItemConfigSave: false, storageMode: 'remote', editKey: '', editUnlocked: false, currentPage: 'planner' };
 
     const $ = (selector, root = document) => root.querySelector(selector);
     const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
@@ -285,6 +323,7 @@
       applyTheme(localStorage.getItem(THEME_KEY) || 'dark');
       try {
         state.data = await loadData();
+        await loadItemConfig();
         await loadBuilds();
         await restoreEditSession();
         const hasSavedBuilds = state.builds.length > 0;
@@ -292,7 +331,9 @@
           state.builds.push(defaultBuild());
           state.suppressNextSave = true;
         }
+        applyInitialPage();
         render();
+        renderOverridesPage();
         applyInitialQueryParams();
         state.suppressNextSave = false;
         setStatus();
@@ -308,6 +349,69 @@
         return [key, await response.json()];
       }));
       return Object.fromEntries(entries);
+    }
+
+
+    function normalizeItemConfig(config) {
+      const source = config && typeof config === 'object' ? config : {};
+      return {
+        overrides: { ...DEFAULT_OVERRIDES, ...(source.overrides && typeof source.overrides === 'object' ? source.overrides : {}) },
+        notes: source.notes && typeof source.notes === 'object' ? source.notes : {}
+      };
+    }
+
+    async function loadItemConfig() {
+      try {
+        const response = await fetch(ITEMS_API, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`items API returned ${response.status}`);
+        state.itemConfig = normalizeItemConfig(await response.json());
+        localStorage.setItem(ITEM_CONFIG_STORAGE_KEY, JSON.stringify(state.itemConfig));
+      } catch (error) {
+        console.warn('Using local item config only:', error);
+        try { state.itemConfig = normalizeItemConfig(JSON.parse(localStorage.getItem(ITEM_CONFIG_STORAGE_KEY) || '{}')); }
+        catch { state.itemConfig = { overrides: {}, notes: {} }; }
+      }
+    }
+
+    function saveItemConfig() {
+      state.itemConfig = normalizeItemConfig(state.itemConfig);
+      localStorage.setItem(ITEM_CONFIG_STORAGE_KEY, JSON.stringify(state.itemConfig));
+      if (state.suppressNextItemConfigSave || state.storageMode !== 'remote' || !canEditBuilds()) return;
+      clearTimeout(itemConfigSaveTimer);
+      itemConfigSaveTimer = setTimeout(syncItemConfigToDatabase, 300);
+    }
+
+    let itemConfigSaveTimer = null;
+    async function syncItemConfigToDatabase() {
+      try {
+        const response = await fetch(ITEMS_API, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json', 'X-Edit-Key': state.editKey },
+          body: JSON.stringify(state.itemConfig)
+        });
+        if (!response.ok) throw new Error(`items API returned ${response.status}`);
+      } catch (error) {
+        console.warn('Could not sync item config to database:', error);
+      }
+    }
+
+
+    function overrideFor(item) {
+      return item?.id ? (state.itemConfig.overrides?.[item.id] || {}) : {};
+    }
+
+    function noteFor(itemOrId) {
+      const id = typeof itemOrId === 'string' ? itemOrId : itemOrId?.id;
+      return id ? (state.itemConfig.notes?.[id] || '') : '';
+    }
+
+    function effectiveDescription(item) {
+      const override = overrideFor(item);
+      return override.description || item?.effect || item?.description || '';
+    }
+
+    function allItems() {
+      return Object.entries(state.data).flatMap(([collection, rows]) => (rows || []).map(item => ({ collection, item })));
     }
 
     function normalizeBuild(build) {
@@ -420,8 +524,10 @@
       const editButton = $('#editModeBtn');
       const editState = $('#editState');
       const loadBackupButton = $('#loadBackupBtn');
+      const addOverrideButton = $('#addOverrideBtn');
       if (addButton) addButton.disabled = !unlocked;
       if (loadBackupButton) loadBackupButton.disabled = !unlocked;
+      if (addOverrideButton) addOverrideButton.disabled = !unlocked;
       if (editButton) {
         editButton.disabled = unlocked && state.storageMode === 'local';
         editButton.textContent = unlocked && state.storageMode === 'remote' ? 'Disable editing' : unlocked ? 'Editing enabled' : 'Edit';
@@ -502,6 +608,7 @@
         ? rows.map(build => renderBuildRow(build)).join('')
         : `<tr><td colspan="14" class="empty-row">No builds match that gun search.</td></tr>`;
       bindRowEvents();
+      renderOverridesPage();
       saveBuilds();
     }
 
@@ -592,8 +699,8 @@
 
     function tooltipAttrs(item, collection = '') {
       if (!item) return '';
-      const title = collection === 'calibrations' ? item.name : displayNameFor(item, collection);
-      return `data-tip-id="${escapeHtml(item.id)}" data-tip-title="${escapeHtml(title)}" data-tip-meta="${escapeHtml(metaFor(item, collection))}" data-tip-effect="${escapeHtml(item.effect || item.description || '')}" data-tip-url="${escapeHtml(item.url || '')}"`;
+      const title = collection === 'calibrations' && !overrideFor(item).name ? item.name : displayNameFor(item, collection);
+      return `data-tip-id="${escapeHtml(item.id)}" data-tip-title="${escapeHtml(title)}" data-tip-meta="${escapeHtml(metaFor(item, collection))}" data-tip-effect="${escapeHtml(effectiveDescription(item))}" data-tip-note="${escapeHtml(noteFor(item))}" data-tip-url="${escapeHtml(item.url || '')}"`;
     }
 
     function titleCase(value) {
@@ -606,6 +713,8 @@
 
     function displayNameFor(item, collection = '') {
       if (!item) return '';
+      const override = overrideFor(item);
+      if (override.name) return override.name;
       if (collection === 'calibrations') return item.shortName || String(item.name || '').replace(/^Calibration Blueprint -\s*/, '');
       if (isMod(item, collection) && item.variant) return `${item.name} - ${item.variant}`;
       return item.name || '';
@@ -642,7 +751,7 @@
       return Object.values(build.guns || {}).some(id => {
         const gun = findOption('weapons', id);
         if (!gun) return false;
-        return `${displayNameFor(gun, 'weapons')} ${metaFor(gun, 'weapons')}`.toLowerCase().includes(normalized);
+        return `${displayNameFor(gun, 'weapons')} ${gun.name || ''} ${metaFor(gun, 'weapons')} ${effectiveDescription(gun)}`.toLowerCase().includes(normalized);
       });
     }
 
@@ -752,7 +861,7 @@
     function renderPickerResults() {
       const query = $('#pickerSearch').value.trim().toLowerCase();
       const options = state.picker.options
-        .filter(item => !query || `${displayNameFor(item, state.picker.collection)} ${item.name} ${metaFor(item, state.picker.collection)} ${item.effect || ''}`.toLowerCase().includes(query))
+        .filter(item => !query || `${displayNameFor(item, state.picker.collection)} ${item.name} ${metaFor(item, state.picker.collection)} ${effectiveDescription(item)} ${noteFor(item)}`.toLowerCase().includes(query))
         .slice(0, 220);
       $('#pickerResults').innerHTML = options.map(item => `
         <button class="result" data-select-id="${escapeHtml(item.id)}">
@@ -760,7 +869,7 @@
           <span>
             <span class="name">${escapeHtml(displayNameFor(item, state.picker.collection))}</span>
             <span class="badge">${escapeHtml(metaFor(item, state.picker.collection))}</span>
-            <span class="effect">${escapeHtml(item.effect || item.description || '')}</span>
+            <span class="effect">${escapeHtml(effectiveDescription(item))}</span>
           </span>
           <span>Choose</span>
         </button>`).join('') || '<p class="subtitle">No matches.</p>';
@@ -798,6 +907,78 @@
     document.addEventListener('click', event => {
       if (state.stickyTip && !event.target.closest('#tooltip') && !event.target.closest('[data-tip-title]')) hideTooltip(true);
     });
+    $('#tooltip').addEventListener('input', event => {
+      const noteBox = event.target.closest('[data-note-id]');
+      if (!noteBox || !canEditBuilds()) return;
+      const id = noteBox.dataset.noteId;
+      const note = noteBox.value.trim();
+      if (note) state.itemConfig.notes[id] = note;
+      else delete state.itemConfig.notes[id];
+      if (state.hoveredTip?.dataset?.tipId === id) state.hoveredTip.dataset.tipNote = note;
+      saveItemConfig();
+    });
+
+
+    function applyInitialPage() {
+      const page = new URLSearchParams(window.location.search).get('page');
+      state.currentPage = page === 'overrides' ? 'overrides' : 'planner';
+      switchPage(state.currentPage, false);
+    }
+
+    function switchPage(page, updateUrl = true) {
+      state.currentPage = page === 'overrides' ? 'overrides' : 'planner';
+      $('#plannerPage')?.classList.toggle('hidden', state.currentPage !== 'planner');
+      $('#overridesPage')?.classList.toggle('hidden', state.currentPage !== 'overrides');
+      $('#plannerPageBtn')?.classList.toggle('primary', state.currentPage === 'planner');
+      $('#overridesPageBtn')?.classList.toggle('primary', state.currentPage === 'overrides');
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        if (state.currentPage === 'overrides') url.searchParams.set('page', 'overrides');
+        else url.searchParams.delete('page');
+        history.replaceState(null, '', url);
+      }
+      renderOverridesPage();
+    }
+
+    function itemOptionLabel(entry) {
+      return `${entry.collection}: ${displayNameFor(entry.item, entry.collection)}${entry.item.name && displayNameFor(entry.item, entry.collection) !== entry.item.name ? ` (${entry.item.name})` : ''}`;
+    }
+
+    function renderOverridesPage() {
+      const container = $('#overrideRows');
+      if (!container) return;
+      const entries = Object.keys(state.itemConfig.overrides || {});
+      if (!entries.length) {
+        container.innerHTML = '<p class="subtitle" style="padding: 12px 14px;">No overrides yet.</p>';
+        return;
+      }
+      const options = allItems().sort((a, b) => itemOptionLabel(a).localeCompare(itemOptionLabel(b)));
+      container.innerHTML = entries.map(id => renderOverrideRow(id, options)).join('');
+    }
+
+    function renderOverrideRow(id, options = allItems()) {
+      const override = state.itemConfig.overrides[id] || {};
+      const optionHtml = ['<option value="">Select item…</option>'].concat(options.map(entry => {
+        const selected = entry.item.id === id ? ' selected' : '';
+        return `<option value="${escapeHtml(entry.item.id)}"${selected}>${escapeHtml(itemOptionLabel(entry))}</option>`;
+      })).join('');
+      return `<div class="override-grid" data-override-id="${escapeHtml(id)}">
+        <select data-override-field="id" ${editDisabledAttr()}>${optionHtml}</select>
+        <input data-override-field="name" value="${escapeHtml(override.name || '')}" placeholder="Leave blank to keep DB name" ${editDisabledAttr()}>
+        <textarea data-override-field="description" placeholder="Leave blank to keep DB description" ${editDisabledAttr()}>${escapeHtml(override.description || '')}</textarea>
+        <button class="btn tiny danger" data-override-delete="${escapeHtml(id)}" ${editDisabledAttr()}>Delete</button>
+      </div>`;
+    }
+
+    function addOverrideRow() {
+      if (!canEditBuilds()) return;
+      const first = allItems()[0]?.item?.id || `override-${Date.now()}`;
+      let id = first;
+      if (state.itemConfig.overrides[id]) id = `override-${Date.now()}`;
+      state.itemConfig.overrides[id] = { name: '', description: '' };
+      saveItemConfig();
+      renderOverridesPage();
+    }
 
     function bindTooltips() {
       const tooltip = $('#tooltip');
@@ -809,6 +990,16 @@
       });
     }
 
+
+    function tooltipNoteHtml(el) {
+      const id = el.dataset.tipId || '';
+      const note = el.dataset.tipNote || '';
+      if (!state.stickyTip) return note ? `<div class="tooltip-note"><label>Note</label><div class="tooltip-note-text">${escapeHtml(note)}</div></div>` : '';
+      if (!id) return '';
+      if (!canEditBuilds()) return note ? `<div class="tooltip-note"><label>Note</label><div class="tooltip-note-text">${escapeHtml(note)}</div></div>` : '';
+      return `<div class="tooltip-note"><label>Note</label><textarea data-note-id="${escapeHtml(id)}" placeholder="Add extra info…">${escapeHtml(note)}</textarea></div>`;
+    }
+
     function showTooltip(el, sticky = false) {
       const tooltip = $('#tooltip');
       state.hoveredTip = el;
@@ -818,7 +1009,8 @@
         <div class="tooltip-meta">${escapeHtml(el.dataset.tipMeta)}</div>
         <div class="tooltip-effect">${escapeHtml(el.dataset.tipEffect)}</div>
         ${el.dataset.tipUrl ? `<a class="tooltip-link" href="${escapeHtml(el.dataset.tipUrl)}" target="_blank" rel="noopener">Link</a>` : ''}
-        <div class="tooltip-hint">Hold Ctrl while hovering to pin this tooltip.</div>`;
+        ${tooltipNoteHtml(el)}
+        <div class="tooltip-hint">Hold Ctrl while hovering to pin this tooltip${canEditBuilds() ? ' and edit notes.' : '.'}</div>`;
       tooltip.classList.toggle('sticky', state.stickyTip);
       tooltip.classList.add('open');
       positionTooltip(el);
@@ -839,8 +1031,7 @@
 
     function pinTooltip() {
       if (!state.hoveredTip) return;
-      state.stickyTip = true;
-      $('#tooltip').classList.add('sticky');
+      showTooltip(state.hoveredTip, true);
     }
 
     function hideTooltip(force = false) {
@@ -864,6 +1055,37 @@
 
     $('#themeToggleBtn').addEventListener('click', () => {
       applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
+    });
+    $('#plannerPageBtn').addEventListener('click', () => switchPage('planner'));
+    $('#overridesPageBtn').addEventListener('click', () => switchPage('overrides'));
+    $('#addOverrideBtn').addEventListener('click', addOverrideRow);
+    $('#overrideRows').addEventListener('input', event => {
+      if (!canEditBuilds()) return;
+      const row = event.target.closest('[data-override-id]');
+      const field = event.target.dataset.overrideField;
+      if (!row || !field || field === 'id') return;
+      const id = row.dataset.overrideId;
+      state.itemConfig.overrides[id] = { ...(state.itemConfig.overrides[id] || {}), [field]: event.target.value.trim() };
+      saveItemConfig();
+    });
+    $('#overrideRows').addEventListener('change', event => {
+      if (!canEditBuilds()) return;
+      const row = event.target.closest('[data-override-id]');
+      if (!row || event.target.dataset.overrideField !== 'id') return;
+      const oldId = row.dataset.overrideId;
+      const newId = event.target.value;
+      if (!newId || oldId === newId) return;
+      state.itemConfig.overrides[newId] = state.itemConfig.overrides[oldId] || { name: '', description: '' };
+      delete state.itemConfig.overrides[oldId];
+      saveItemConfig();
+      render();
+    });
+    $('#overrideRows').addEventListener('click', event => {
+      const deleteButton = event.target.closest('[data-override-delete]');
+      if (!deleteButton || !canEditBuilds()) return;
+      delete state.itemConfig.overrides[deleteButton.dataset.overrideDelete];
+      saveItemConfig();
+      render();
     });
     $('#gunSearch').addEventListener('input', event => {
       state.gunFilter = event.target.value;
